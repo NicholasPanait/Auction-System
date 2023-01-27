@@ -1,0 +1,7 @@
+MasterAdmin     AA 999999999
+SuperMod        AA 000124234
+LongTimeJoe     FS 002452897
+WarehouserJane  FS 138647816
+CheapKentTT     BS 000000438
+NoBuyOlivia     SS 002897598
+NewBuyerSteve   BS 000042378
