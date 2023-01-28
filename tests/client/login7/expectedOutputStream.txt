@@ -1,0 +1,5 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Please enter a username with a length less than 16 characters long!
+Please enter a command:
