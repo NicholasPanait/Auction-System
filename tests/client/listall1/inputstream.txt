@@ -1,0 +1,4 @@
+login
+MasterAdmin
+listall
+logout

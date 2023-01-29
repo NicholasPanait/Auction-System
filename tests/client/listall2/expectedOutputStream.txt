@@ -1,0 +1,8 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin
+Please enter a command:
+There are currently no items up for sale right now!
+Please enter a command:
+Session terminated, transaction saved

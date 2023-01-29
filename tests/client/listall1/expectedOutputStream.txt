@@ -1,0 +1,13 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin
+Please enter a command:
+These are the current auctions taking place:
+Item Name           Seller          Days left   Price
+BulkNails (5000pcs) WarehouserJane  009         $0
+This Website        MasterAdmin     021         $921300
+RussianSuperYaught  NoBuyOlivia     003         $3244
+Washers (5pcs)      WarehouserJane  002         $400
+Please enter a command:
+Session terminated, transaction saved
