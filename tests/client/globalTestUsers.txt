@@ -1,8 +1,8 @@
-MasterAdmin     AA 999999999
-SuperMod        AA 000124234
-LongTimeJoe     FS 002452897
-WarehouserJane  FS 138647816
-CheapKent       BS 000000438
-NoBuyOlivia     SS 002897598
-NewBuyerSteve   BS 000042378
+MasterAdmin     AA 999999.00
+SuperMod        AA 124234.00
+LongTimeJoe     FS 245289.70
+WarehouserJane  FS 138647.82
+CheapKent       BS 000438.00
+NoBuyOlivia     SS 289759.80
+NewBuyerSteve   BS 042378.00
 END
