@@ -5,9 +5,9 @@ Welcome MasterAdmin
 Please enter a command:
 These are the current auctions taking place:
 Item Name           Seller          Days left   Min Bid
-BulkNails (5000pcs) WarehouserJane  009         $0
-This Website        MasterAdmin     021         $921300
-RussianSuperYaught  NoBuyOlivia     003         $3244
-Washers (5pcs)      WarehouserJane  002         $400
+BulkNails (5000pcs) WarehouserJane  009         $5000
+This Website        MasterAdmin     021         $921301
+RussianSuperYaught  NoBuyOlivia     003         $3245
+Washers (5pcs)      WarehouserJane  002         $401
 Please enter a command:
 Session terminated, transaction saved
