@@ -4,7 +4,7 @@ Please enter a username:
 Welcome MasterAdmin, you current balance is $999999.00
 Please enter a command:
 These are the current auctions taking place:
-Item Name           Seller          Days left   Highest Bid
+Item Name           Seller          Days Left   Highest Bid
 BulkNails (5000pcs) WarehouserJane  009         $50.00
 This Website        MasterAdmin     021         $921.30
 RussianSuperYaught  NoBuyOlivia     003         $32.44
