@@ -1,0 +1,12 @@
+login
+NoBuyOlivia
+logout
+login
+MasterAdmin
+addcredit
+NoBuyOlivia
+100
+logout
+login
+NoBuyOlivia
+logout

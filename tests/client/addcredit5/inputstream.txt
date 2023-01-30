@@ -1,0 +1,12 @@
+login
+LongTimeJoe
+logout
+login
+MasterAdmin
+addcredit
+LongTimeJoe
+100
+logout
+login
+LongTimeJoe
+logout

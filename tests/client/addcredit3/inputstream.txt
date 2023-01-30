@@ -1,0 +1,12 @@
+login
+CheapKent
+logout
+login
+MasterAdmin
+addcredit
+CheapKent
+100
+logout
+login
+CheapKent
+logout
