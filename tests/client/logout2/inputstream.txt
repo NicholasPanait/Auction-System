@@ -7,3 +7,4 @@ Bid
 Refund
 Addcredit
 Listall
+logout

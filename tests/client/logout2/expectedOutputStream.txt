@@ -16,3 +16,5 @@ Please login before using any other command!
 Please enter a command:
 Please login before using any other command!
 Please enter a command:
+Please login before using any other command!
+Please enter a command:
