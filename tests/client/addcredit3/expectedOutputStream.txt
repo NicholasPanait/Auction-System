@@ -1,16 +1,16 @@
 Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
-Welcome CheapKent, you current balance is $438.00
+Welcome CheapKent, your current balance is $438.00
 Please enter a command:
 Session terminated, transaction saved
 Please enter a username:
-Welcome MasterAdmin, you current balance is $999999.00
+Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Please select a user to add credits to:
 Please select an ammount of credits to add (max of $1000):
 Please enter a command:
 Session terminated, transaction saved
 Please enter a username:
-Welcome CheapKent, you current balance is $538.00
+Welcome CheapKent, your current balance is $538.00
 Session terminated, transaction saved
