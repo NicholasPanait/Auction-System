@@ -5,7 +5,7 @@ Welcome SuperMod, your current balance is $124234.00
 Please enter a command:
 Session terminated, transaction saved
 Please enter a username:
-Welcome CheapKent, your current balance is $438.00
+Welcome LongTimeJoe, your current balance is $245289.70
 Please enter a command:
 Transaction Failed! You do not have permission to add credits to other user's accounts!
 Please enter a command:
