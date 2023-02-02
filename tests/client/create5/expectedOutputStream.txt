@@ -1,0 +1,9 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin your current balance is $99999900
+Please enter a command:
+What is the new user’s username?
+Please enter a username that’s at least 1 character and no more than 15 characters long!
+Please enter a command:
+Session terminated, transaction saved
