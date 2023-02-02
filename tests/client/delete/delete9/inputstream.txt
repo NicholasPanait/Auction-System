@@ -1,0 +1,8 @@
+login
+SuperMod
+delete
+CheapKent
+create
+CheapKent
+FS
+logout
