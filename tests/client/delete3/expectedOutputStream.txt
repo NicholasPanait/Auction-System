@@ -1,2 +1,8 @@
 Welcome to Hubble Auction House
 Please enter a command:
+Please enter a username:
+Welcome LongTimeJoe, your current balance is $245289.70
+Please enter a command:
+Transaction Failed! You do not have permission to delete accounts!
+Please enter a command:
+Session terminated, transaction saved

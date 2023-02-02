@@ -1,2 +1,8 @@
 Welcome to Hubble Auction House
 Please enter a command:
+Please enter a username:
+Welcome MasterAdmin, your current balance is $999999.00
+Please enter a user to delete:
+The user "NewBuyerSteve" will be deleted when you logout!
+Please enter a command:
+Session terminated, transaction saved
