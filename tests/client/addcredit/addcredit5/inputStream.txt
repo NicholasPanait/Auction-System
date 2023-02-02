@@ -4,8 +4,8 @@ logout
 login
 MasterAdmin
 addcredit
-LongTimeJoe
 100
+LongTimeJoe
 logout
 login
 LongTimeJoe

@@ -7,7 +7,6 @@ Session terminated, transaction saved
 Please enter a username:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
-Please select a user to add credits to:
 Please select an ammount of credits to add (max of $1000):
 Transaction Failed! Cannot add more than 1000 credits!
 Please enter a command:

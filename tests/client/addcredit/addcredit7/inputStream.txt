@@ -4,7 +4,6 @@ logout
 login
 MasterAdmin
 addcredit
-SuperMod
 5000
 logout
 login

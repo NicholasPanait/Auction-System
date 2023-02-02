@@ -4,7 +4,6 @@ logout
 login
 SuperMod
 addcredit
-MasterAdmin
 abcd
 logout
 login

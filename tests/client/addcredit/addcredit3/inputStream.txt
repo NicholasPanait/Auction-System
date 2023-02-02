@@ -4,8 +4,8 @@ logout
 login
 MasterAdmin
 addcredit
-CheapKent
 100
+CheapKent
 logout
 login
 CheapKent
