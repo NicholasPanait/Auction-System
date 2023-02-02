@@ -1,0 +1,7 @@
+login
+MasterAdmin
+bid
+Washers (5pcs)
+WarehouserJane
+4.01
+logout

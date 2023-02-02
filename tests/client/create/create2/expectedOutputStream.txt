@@ -1,0 +1,8 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome CheapKent your current balance is $438
+Please enter a command:
+You do not have the required privileges to use this command!
+Please enter a command:
+Session terminated, transaction saved

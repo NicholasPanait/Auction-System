@@ -1,0 +1,11 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin, your current balance is $999999.00
+Please enter a command:
+Please enter the buyer's username:
+Please enter the seller's username:
+Please enter the refund amount:
+Please only enter positive refund amounts!
+Please enter a command:
+Session terminated, transactions saved

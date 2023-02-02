@@ -1,0 +1,11 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin your current balance is $999999.00
+Please enter a command:
+Please enter the item's name:
+Please Enter the seller's username:
+The current highest bid is $32.44 and your minimum bid is $32.45, please enter your desired bid amount:
+Bid placed on RussianSuperYaught sold by NoBuyOlivia for 32.5
+Please enter a command:
+Session terminated, transactions saved

@@ -1,0 +1,7 @@
+login
+NoBuyOlivia
+advertise
+ItemA
+0
+1
+logout

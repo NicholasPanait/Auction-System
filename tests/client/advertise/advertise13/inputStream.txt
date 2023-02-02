@@ -1,0 +1,9 @@
+login
+MasterAdmin
+advertise
+ItemD
+10
+1
+bid
+ItemD
+logout
