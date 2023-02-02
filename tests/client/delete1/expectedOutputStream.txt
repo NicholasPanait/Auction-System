@@ -1,0 +1,2 @@
+Welcome to Hubble Auction House
+Please enter a command:
