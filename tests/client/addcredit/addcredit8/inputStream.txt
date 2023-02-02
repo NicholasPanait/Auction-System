@@ -1,10 +1,8 @@
 login
-SuperMod
-logout
-login
-CheapKent
+NewBuyerSteve
 addcredit
+100
 logout
 login
-SuperMod
+NewBuyerSteve
 logout
