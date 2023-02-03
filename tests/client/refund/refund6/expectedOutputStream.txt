@@ -9,3 +9,4 @@ Please enter the refund amount:
 User CheapKent does not have enough credit to refund $999!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

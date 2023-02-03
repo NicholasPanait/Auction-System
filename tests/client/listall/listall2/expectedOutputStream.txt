@@ -6,3 +6,4 @@ Please enter a command:
 There are currently no items up for sale right now!
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:

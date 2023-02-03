@@ -11,3 +11,4 @@ Please enter the buyer's username:
 There is no user with this username!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

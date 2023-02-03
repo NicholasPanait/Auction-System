@@ -9,3 +9,4 @@ The current highest bid is $921.30 and your minimum bid is $967.37, please enter
 Bid placed on This Website sold by MasterAdmin for $967.37
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

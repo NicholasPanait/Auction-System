@@ -9,3 +9,4 @@ Please enter the refund amount:
 Refund issued from CheapKent to SuperMod for $100
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

@@ -4,6 +4,7 @@ Please enter a username:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
 Please enter a username:
 Welcome SuperMod, your current balance is $124234.00
 Please enter a command:
@@ -12,6 +13,8 @@ Please select a user to add credits to:
 Transaction Failed! User cannot exceed 999,999 credits!
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
 Please enter a username:
 Welcome MasterAdmin, your current balance is $999999.00
 Session terminated, transaction saved
+Please enter a command:

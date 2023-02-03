@@ -19,3 +19,4 @@ The current highest bid is $921.30 and your minimum bid is $921.31, please enter
 You can not bid over $999.99!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

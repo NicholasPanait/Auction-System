@@ -11,3 +11,4 @@ RussianSuperYaught  NoBuyOlivia     003         $20.00      $32.44
 Washers (5pcs)      WarehouserJane  002         $2.00       $4.00
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:

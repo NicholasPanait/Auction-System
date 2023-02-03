@@ -6,3 +6,4 @@ Please enter a command:
 Transaction Failed! Please logout before trying to login again!
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
