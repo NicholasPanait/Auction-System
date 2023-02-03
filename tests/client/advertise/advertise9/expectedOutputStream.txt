@@ -8,3 +8,4 @@ Please enter your item's auction duration in days:
 You need to enter an auction duration!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

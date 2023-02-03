@@ -13,3 +13,4 @@ Please enter your item's auction duration in days:
 Please enter a duration of at least 1 day and no more than 100 days!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

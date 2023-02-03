@@ -7,3 +7,4 @@ What is the new user’s username?
 Please enter a username that’s at least 1 character and no more than 15 characters long!
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:

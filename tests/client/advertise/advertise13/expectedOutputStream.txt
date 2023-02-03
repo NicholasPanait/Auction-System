@@ -16,3 +16,4 @@ Please enter the item's name:
 There is no item with that name for auction!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

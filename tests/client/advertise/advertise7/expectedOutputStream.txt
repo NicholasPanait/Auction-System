@@ -7,3 +7,4 @@ Please enter your minimum bid in dollars:
 Please only enter numeric minimum bids!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

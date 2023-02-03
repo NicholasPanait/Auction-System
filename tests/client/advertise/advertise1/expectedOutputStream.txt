@@ -5,3 +5,4 @@ Please enter a command:
 You do not have the required privileges to use this command
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
