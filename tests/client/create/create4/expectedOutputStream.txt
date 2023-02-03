@@ -7,3 +7,4 @@ What is the new user’s username?
 This username already exists!
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:

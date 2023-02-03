@@ -6,3 +6,4 @@ Please enter a command:
 Transaction Failed! You do not have permission to delete accounts!
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
