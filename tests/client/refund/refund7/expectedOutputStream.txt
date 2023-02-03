@@ -9,3 +9,4 @@ Please enter the refund amount:
 User MasterAdmin can not receive this refund because it would put them over the credit limit!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:
