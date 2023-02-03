@@ -4,6 +4,7 @@ Please enter a username:
 Welcome NoBuyOlivia, your current balance is $289759.80
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
 Please enter a username:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
@@ -11,6 +12,8 @@ Please select an ammount of credits to add (max of $1000):
 Please select a user to add credits to:
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
 Please enter a username:
 Welcome NoBuyOlivia, your current balance is $289859.80
 Session terminated, transaction saved
+Please enter a command:
