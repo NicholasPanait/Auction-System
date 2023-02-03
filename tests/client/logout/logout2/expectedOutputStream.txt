@@ -4,6 +4,7 @@ Please enter a username:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Session terminated, transaction saved
+Please enter a command:
 Please login before using any other command!
 Please enter a command:
 Please login before using any other command!

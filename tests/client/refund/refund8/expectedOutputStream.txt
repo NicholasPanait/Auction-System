@@ -9,3 +9,4 @@ Please enter the refund amount:
 Please only enter positive refund amounts!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:
