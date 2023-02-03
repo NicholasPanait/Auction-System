@@ -8,3 +8,4 @@ Please Enter the seller's username:
 No seller with that username exists for this item!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

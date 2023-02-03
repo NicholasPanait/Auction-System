@@ -9,3 +9,4 @@ The current highest bid is $4 and your minimum bid is $4.2, please enter your de
 Please enter a bid larger than the minimum bid!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

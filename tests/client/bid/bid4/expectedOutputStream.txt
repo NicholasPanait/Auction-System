@@ -9,3 +9,4 @@ The current highest bid is $4.0 and your minimum bid is $4.01, please enter your
 Bid placed on Washers (5pcs) sold by WarehouserJane for $4.01
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

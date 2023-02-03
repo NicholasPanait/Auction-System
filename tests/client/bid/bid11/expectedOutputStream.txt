@@ -8,3 +8,4 @@ Please Enter the seller's username:
 You can not bid on your own auction!
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:

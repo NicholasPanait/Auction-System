@@ -9,3 +9,4 @@ The current highest bid is $32.44 and your minimum bid is $34.1, please enter yo
 Bid placed on RussionSuperYaught sold by NoBuyOlivia for $34.1
 Please enter a command:
 Session terminated, transactions saved
+Please enter a command:
