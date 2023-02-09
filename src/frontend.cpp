@@ -1,9 +1,9 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main ()
 {
-    
     cout << "Welcome to Hubble Auction House";
     while(true){
         string command;
@@ -14,6 +14,7 @@ int main ()
 }
 
 void processCommand(string command){
+    transform(command.begin(), command.end(), command.begin(), ::tolower);
     if (command == "login"){
 
     }
