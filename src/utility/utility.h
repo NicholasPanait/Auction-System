@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-void processCommand(string command){
+void processCommand(string command, User current_user, bool logged_in){
     transform(command.begin(), command.end(), command.begin(), ::tolower);
     if (command == "login"){
 
