@@ -1,5 +1,6 @@
 #include <iostream>
-#include <algorithm>
+#include "utility.h"
+#include <string>
 using namespace std;
 
 int main ()
@@ -10,39 +11,5 @@ int main ()
         cout << "Please enter a command:";
         cin >> command;
         processCommand(command);
-    }
-}
-
-void processCommand(string command){
-    transform(command.begin(), command.end(), command.begin(), ::tolower);
-    if (command == "login"){
-
-    }
-    else if (command == "create"){
-        
-    }
-    else if (command == "logout"){
-        
-    }
-    else if (command == "delete"){
-        
-    }
-    else if (command == "advertise"){
-        
-    }
-    else if (command == "bid"){
-        
-    }
-    else if (command == "refund"){
-        
-    }
-    else if (command == "addcredit"){
-        
-    }
-    else if (command == "listall"){
-        
-    }
-    else{
-        cout << "Invalid Command!";
     }
 }
