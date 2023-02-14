@@ -2,6 +2,9 @@
 #include <algorithm>
 using namespace std;
 
+#ifndef UTILITY_H // include guard
+#define UTILITY_H
+
 void processCommand(string command, User current_user, bool logged_in){
     transform(command.begin(), command.end(), command.begin(), ::tolower);
     if (command == "login"){
@@ -38,3 +41,5 @@ void processCommand(string command, User current_user, bool logged_in){
         cout << "Invalid Command!";
     }
 }
+
+#endif
