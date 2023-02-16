@@ -37,8 +37,26 @@ class User {
     }
 };
 
+class Item {
+    public:
+        string item_name;
+        string seller;
+        float winning_bid;
+        int duration;
+        Item(string item_name, string seller, float winning_bid, int duration){
+            this->item_name = item_name;
+            this->seller = seller;
+            this->winning_bid = winning_bid;
+            this->duration = duration;
+        }
+        Item(){
+            this->item_name = "";
+            this->seller = "";
+        }
+}
+
 // Returns a User object with the specified user's information
-// Return NULL if no user exists
+// Return a user with fields (username="", privilege_type="", credit=0) if no user exists
 User GetUser(string username){
     User user = User();
     if (!UsernameExists(username)){
@@ -63,6 +81,13 @@ User GetUser(string username){
     return user;
 }
 
+// TODO 
+// Returns an Item object with the item information
+// Returns an empty object with fields (item_name="", sellers="")
+Item GetItem(string item_name, string seller){
+
+}
+
 // Checks whether the given permission level (2 letter representation)
 // is enough for the command (integer representation).
 // Returns TRUE if you have the required permission, otherwise FALSE.
@@ -72,14 +97,14 @@ bool CheckPermission(string permission, int command){
 
     switch (command)
     {
-    // Advertise
+    // Advertise, No Buy Standard Accounts
     case 3
         if (privileges[permission] == 2){
             return false;
         }
         return true;
     
-    // Bid
+    // Bid, No Sell Standard Accounts
     case 4
         if (privileges[permission] == 1){
             return false;
@@ -137,6 +162,13 @@ bool UsernameExists(string username){
     return false;
 }
 
+// TODO
+// Returns TRUE if the item name exists, otherwise returns FALSE.
+bool ItemExists(string item_name){
+
+}
+
+// Validates a username based on the requirements
 // Returns integer based on validation:
 // 0: Valid Username
 // 1: Username Too Long
@@ -153,6 +185,50 @@ int ValidateUsername(string username){
         return 3;
     }
     return 0;
+}
+
+// Validates an item name based on the requirements
+// Returns integer based on validation:
+// 0: Valid Item Name
+// 1: Item Name Too Long
+// 2: Item Name Too Short
+int ValidateItemName(string item_name){
+    if (item_name.length() > 25){
+        return 1;
+    }
+    else if(item_name.length() < 1){
+        return 2;
+    } 
+    return 0;
+}
+
+// Validates an item name based on the requirements
+// Returns integer based on validation:
+// 0: Valid Bid
+// 1: Bid Is Not Numeric
+// 2: Bid Is Negative
+// 3: Bid Is Over The Limit of $999.99
+int ValidateBid(string bid){
+    if (!isNumeric(bid)){
+        return 1;
+    }
+    else if (bid < 0){
+        return 2;
+    }
+    else if (bid > 999.99){
+        return 3;
+    }
+    return 0;
+}
+
+// Returns TRUE or FALSE if a string is numeric
+bool isNumeric(string input){
+    for (int i = 0; i < input.length(); i++){
+        if (!isdigit(input[i])){
+            return false;
+        }
+    }
+    return true;
 }
 
 // Calls respective commands and handles invalid commands
