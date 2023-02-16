@@ -1,6 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
 #ifndef DELETE_H
 #define DELETE_H
 
-// code here
+string username;
+
+void Delete(){
+    
+}
 
 #endif

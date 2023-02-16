@@ -1,6 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
 #ifndef BID_H
 #define BID_H
 
-// code here
+string item_name;
+string seller_name;
+float bid_amount;
+
+void Bid(){
+    
+}
 
 #endif
