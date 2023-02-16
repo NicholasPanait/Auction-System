@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <map>
 #include <fstream>
@@ -53,7 +54,7 @@ class Item {
             this->item_name = "";
             this->seller = "";
         }
-}
+};
 
 // Returns a User object with the specified user's information
 // Return a user with fields (username="", privilege_type="", credit=0) if no user exists
@@ -98,21 +99,21 @@ bool CheckPermission(string permission, int command){
     switch (command)
     {
     // Advertise, No Buy Standard Accounts
-    case 3
+    case 3:
         if (privileges[permission] == 2){
             return false;
         }
         return true;
     
     // Bid, No Sell Standard Accounts
-    case 4
+    case 4:
         if (privileges[permission] == 1){
             return false;
         }
         return true;
     
     // Addcredit, Admin vs Normal
-    case 6
+    case 6:
         if (privileges[permission] == 4){
             return true;
         }
@@ -129,8 +130,9 @@ bool CheckPermission(string permission, int command){
 
 // Returns TRUE if this is a valid permission, otherwise returns FALSE.
 bool ValidatePermission(string permission){
+    transform(permission.begin(), permission.end(), permission.begin(), ::toupper);
     map<string, int> privileges {{"AA",4},{"FS",3},{"BS",2},{"SS",1}};
-    if (privieges[toupper(permission)] == 0){
+    if (privileges[permission] == 0){
         return false;
     }
     return true;
@@ -212,10 +214,10 @@ int ValidateBid(string bid){
     if (!isNumeric(bid)){
         return 1;
     }
-    else if (bid < 0){
+    else if (stof(bid) < 0){
         return 2;
     }
-    else if (bid > 999.99){
+    else if (stof(bid) > 999.99){
         return 3;
     }
     return 0;
