@@ -1,5 +1,6 @@
 #include "login.h"
 using namespace std;
+//TODO: finish login command
 void Login()
 {
 	AppState appState = AppState::getInstance();
