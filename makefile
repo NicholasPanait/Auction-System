@@ -1,10 +1,14 @@
 FRONTEND_BUILD_FLAGS = -o build/frontend.exe
-SRCS = src/frontend.cpp
+SRCS = src/unity.cpp
 
-all: build
+all: build_program
+
+
+build_program: build
+	$(CXX) $(SRCS) $(FRONTEND_BUILD_FLAGS)
 
 build:
-	$(CXX) $(SRCS) $(FRONTEND_BUILD_FLAGS)
+	mkdir build
 
 clean:
 	$(RM) -r ./build/*

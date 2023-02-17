@@ -1,16 +1,11 @@
-#include <iostream>
-
-using namespace std;
 
 #ifndef REFUND_H
 #define REFUND_H
 
-//code here
-string item_name;
-string seller_name;
-float bid_amount;
+#include <iostream>
 
-void Refund(){
+using namespace std;
 
-}
+void Refund();
+
 #endif

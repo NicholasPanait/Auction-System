@@ -1,10 +1,3 @@
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
-#include <map>
-#include <fstream>
-
-using namespace std;
 
 /*
 This header file contains utility functions that
@@ -14,28 +7,22 @@ are used by files for at least 2 commands
 #ifndef UTILITY_H // include guard
 #define UTILITY_H
 
-class User {
+#include <iostream>
+#include <iomanip>
+#include <algorithm>
+#include <map>
+#include <fstream>
+
+using namespace std;
+
+class User{
     public:
         string username;
         string privilege_type;
         float credit;
-        User(string username, string privilege_type, float credit){
-            this->username = username;
-            this->privilege_type = privilege_type;
-            this->credit = credit;
-        }
-        User(){
-            this->username = "";
-            this->privilege_type = "";
-            this->credit = 0;
-        }
-    
-    friend ostream &operator<<(ostream &strm, const User &user){
-        return strm << 
-        "Username: " << user.username << 
-        ", Privilege: " << user.privilege_type << 
-        ", Credit: " << fixed << setprecision(2) << user.credit << endl;
-    }
+        User(string username, string privilege_type, float credit);
+        User();
+        friend ostream &operator<<(ostream &strm, const User &user);
 };
 
 class Item {
@@ -44,131 +31,29 @@ class Item {
         string seller;
         float winning_bid;
         int duration;
-        Item(string item_name, string seller, float winning_bid, int duration){
-            this->item_name = item_name;
-            this->seller = seller;
-            this->winning_bid = winning_bid;
-            this->duration = duration;
-        }
-        Item(){
-            this->item_name = "";
-            this->seller = "";
-        }
+        Item(string item_name, string seller, float winning_bid, int duration);
+        Item();
 };
 
 // Returns a User object with the specified user's information
 // Return a user with fields (username="", privilege_type="", credit=0) if no user exists
-User GetUser(string username){
-    User user = User();
-    if (!UsernameExists(username)){
-        return user;
-    }
-    string line;
-    ifstream input ("../../res/UserFile.txt");
-    if (input.is_open()){
-        while (getline(input, line))
-        {
-            if (username == line.substr(0, 15).erase(line.substr(0, 15).find_last_not_of(' ') + 1, std::string::npos)){
-                user.username = line.substr(0, 15).erase(line.substr(0, 15).find_last_not_of(' ') + 1, std::string::npos);
-                user.privilege_type = line.substr(16,2);
-                user.credit = stof(line.substr(19,9));
-                input.close();
-                return user;
-            }
-            
-        }
-    }
-    input.close();
-    return user;
-}
+User GetUser(string username);
 
 // TODO 
 // Returns an Item object with the item information
 // Returns an empty object with fields (item_name="", sellers="")
-Item GetItem(string item_name, string seller){
-
-}
-
-// Checks whether the given permission level (2 letter representation)
-// is enough for the command (integer representation).
-// Returns TRUE if you have the required permission, otherwise FALSE.
-// NOTE: Addcredit returns TRUE if the user is an admin, otherwise FALSE.
-bool CheckPermission(string permission, int command){
-    map<string, int> privileges {{"AA",4},{"FS",3},{"BS",2},{"SS",1}};
-
-    switch (command)
-    {
-    // Advertise, No Buy Standard Accounts
-    case 3:
-        if (privileges[permission] == 2){
-            return false;
-        }
-        return true;
-    
-    // Bid, No Sell Standard Accounts
-    case 4:
-        if (privileges[permission] == 1){
-            return false;
-        }
-        return true;
-    
-    // Addcredit, Admin vs Normal
-    case 6:
-        if (privileges[permission] == 4){
-            return true;
-        }
-        return false;
-
-    // Admin, Create, Delete, Refund, 
-    default:
-        if (privileges[permission] < 4){
-            return false;
-        }
-        return true;
-    }
-}
+Item GetItem(string item_name, string seller);
 
 // Returns TRUE if this is a valid permission, otherwise returns FALSE.
-bool ValidatePermission(string permission){
-    transform(permission.begin(), permission.end(), permission.begin(), ::toupper);
-    map<string, int> privileges {{"AA",4},{"FS",3},{"BS",2},{"SS",1}};
-    if (privileges[permission] == 0){
-        return false;
-    }
-    return true;
-
-}
+bool ValidatePermission(string permission);
 
 
 // Returns TRUE if the username exists, otherwise returns FALSE.
-bool UsernameExists(string username){
-    string line;
-    ifstream input ("../../res/UserFile.txt");
-    if (input.is_open()){
-        while (getline(input, line))
-        {
-            if (line == "END"){
-                input.close();
-                return false;
-            }
-            else{
-                line = line.substr(0, 15).erase(line.substr(0, 15).find_last_not_of(' ') + 1, std::string::npos);
-                if (username == line){
-                    input.close();
-                    return true;
-                }
-            }
-        }
-    }
-    input.close();
-    return false;
-}
+bool UsernameExists(string username);
 
 // TODO
 // Returns TRUE if the item name exists, otherwise returns FALSE.
-bool ItemExists(string item_name){
-
-}
+bool ItemExists(string item_name);
 
 // Validates a username based on the requirements
 // Returns integer based on validation:
@@ -176,33 +61,14 @@ bool ItemExists(string item_name){
 // 1: Username Too Long
 // 2: Username Too Short
 // 3: Username Already Exists
-int ValidateUsername(string username){
-    if (username.length() > 15){
-        return 1;
-    }
-    else if(username.length() < 1){
-        return 2;
-    } 
-    else if(UsernameExists(username)){
-        return 3;
-    }
-    return 0;
-}
+int ValidateUsername(string username);
 
 // Validates an item name based on the requirements
 // Returns integer based on validation:
 // 0: Valid Item Name
 // 1: Item Name Too Long
 // 2: Item Name Too Short
-int ValidateItemName(string item_name){
-    if (item_name.length() > 25){
-        return 1;
-    }
-    else if(item_name.length() < 1){
-        return 2;
-    } 
-    return 0;
-}
+int ValidateItemName(string item_name);
 
 // Validates an item name based on the requirements
 // Returns integer based on validation:
@@ -210,65 +76,11 @@ int ValidateItemName(string item_name){
 // 1: Bid Is Not Numeric
 // 2: Bid Is Negative
 // 3: Bid Is Over The Limit of $999.99
-int ValidateBid(string bid){
-    if (!isNumeric(bid)){
-        return 1;
-    }
-    else if (stof(bid) < 0){
-        return 2;
-    }
-    else if (stof(bid) > 999.99){
-        return 3;
-    }
-    return 0;
-}
+int ValidateBid(string bid);
 
 // Returns TRUE or FALSE if a string is numeric
-bool isNumeric(string input){
-    for (int i = 0; i < input.length(); i++){
-        if (!isdigit(input[i])){
-            return false;
-        }
-    }
-    return true;
-}
+bool isNumeric(string input);
 
 // Calls respective commands and handles invalid commands
-void ProcessCommand(string command, User current_user, bool logged_in){
-    transform(command.begin(), command.end(), command.begin(), ::tolower);
-    if (command == "login"){
-
-    }
-    else if (command == "create"){
-        
-    }
-    else if (command == "logout"){
-        
-    }
-    else if (command == "delete"){
-        
-    }
-    else if (command == "advertise"){
-        
-    }
-    else if (command == "bid"){
-        
-    }
-    else if (command == "refund"){
-        
-    }
-    else if (command == "addcredit"){
-        
-    }
-    else if (command == "listbids"){
-        
-    }
-    else if (command == "listusers"){
-        
-    }
-    else{
-        cout << "Invalid Command!" << endl;
-    }
-}
-
+void ProcessCommand(string command, User current_user, bool logged_in);
 #endif

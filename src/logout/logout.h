@@ -1,11 +1,9 @@
-#import <iostream>
-
-using namespace std;
-
 #ifndef LOGOUT_H
 #define LOGOUT_H
 
-void Logout (){
+#include <iostream>
 
-}
+using namespace std;
+
+void Logout ();
 #endif

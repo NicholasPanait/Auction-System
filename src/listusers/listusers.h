@@ -1,13 +1,10 @@
-#import <iostream>
-
-using namespace std;
-
 #ifndef LISTUSERS_H
 #define LISTUSERS_H
 
+#include <iostream>
 
-void ListUsers(){
+using namespace std;
 
-}
+void ListUsers();
 
 #endif

@@ -1,14 +1,11 @@
-#import <iostream>
-
-using namespace std;
-
 #ifndef LOGIN_H
 #define LOGIN_H
 
-string username;
+#include <iostream>
+#include <string>
 
-void Login(){
+#include "../utility/utility.h"
 
-}
+void Login();
 
 #endif

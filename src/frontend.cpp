@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-User current_user = NULL;
+User current_user = User();
 bool logged_in = false;
 
 int main ()
@@ -13,6 +13,6 @@ int main ()
         string command;
         cout << "Please enter a command:";
         cin >> command;
-        processCommand(command, &current_user, &logged_in);
+        ProcessCommand(command, current_user, logged_in);
     }
 }

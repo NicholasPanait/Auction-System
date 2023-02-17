@@ -1,15 +1,13 @@
+#ifndef CREATE_H
+#define CREATE_H
+
 #include <iostream>
 
 using namespace std;
 
-#ifndef CREATE_H
-#define CREATE_H
-
 string username;
 string permission;
 
-void Create(){
-    
-}
+void Create();
 
 #endif
