@@ -245,7 +245,7 @@ bool isNumeric(string input)
 	return true;
 }
 
-void ProcessCommand(string command, User current_user, bool logged_in)
+void ProcessCommand(string command)
 {
 	transform(command.begin(), command.end(), command.begin(), ::tolower);
 	if (command == "login")

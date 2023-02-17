@@ -82,5 +82,5 @@ int ValidateBid(string bid);
 bool isNumeric(string input);
 
 // Calls respective commands and handles invalid commands
-void ProcessCommand(string command, User current_user, bool logged_in);
+void ProcessCommand(string command);
 #endif

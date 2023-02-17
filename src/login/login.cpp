@@ -2,7 +2,9 @@
 using namespace std;
 void Login()
 {
+	AppState appState = AppState::getInstance();
 	string username;
+	
 	cout << "Please enter a username:";
 	cin >> username;
 
