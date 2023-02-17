@@ -11,4 +11,4 @@ build:
 	mkdir build
 
 clean:
-	$(RM) -r ./build/*
+	$(RM) build/*

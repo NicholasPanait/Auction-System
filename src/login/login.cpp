@@ -1,4 +1,5 @@
 #include "login.h"
+#include "../appState/appState.h"
 using namespace std;
 //TODO: finish login command
 void Login()
@@ -16,6 +17,8 @@ void Login()
 		cout << "Transaction Failed !User does not exist !" << endl;
 		return;
 	}
+
+	appState.currentUser = user;
 
 	cout << "Welcome " << user.username << ", your current balance is $" << fixed << setprecision(2) << user.credit << endl;
 }
