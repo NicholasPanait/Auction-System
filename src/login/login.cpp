@@ -7,14 +7,14 @@ void Login()
 	AppState appState = AppState::getInstance();
 	string username;
 	
-	cout << "Please enter a username:";
+	cout << "Please enter a username:" << endl;
 	cin >> username;
 
 	User user = GetUser(username);
 
 	if (user.username.empty())
 	{
-		cout << "Transaction Failed !User does not exist !" << endl;
+		cout << "Transaction Failed !User does not exist!" << endl;
 		return;
 	}
 

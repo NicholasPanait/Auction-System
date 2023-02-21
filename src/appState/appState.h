@@ -23,6 +23,9 @@ private:
 
   User* currentUser;
   string transactionBuffer;
+  string itemFile;
+  string accountFile;
+  string outputDirectory;
 };
 
 #endif

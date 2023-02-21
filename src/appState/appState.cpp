@@ -18,6 +18,9 @@ AppState& AppState::getInstance(){
 AppState::AppState(){
   this->currentUser = nullptr;
   this->transactionBuffer = "";
+  this->itemFile = "";
+  this->accountFile = "";
+  this->transactionBuffer = "";
 }
 
 bool AppState::isLoggedIn(){
