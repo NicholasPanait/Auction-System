@@ -75,6 +75,7 @@ User GetUser(string username)
 // Returns an empty object with fields (item_name="", sellers="")
 Item GetItem(string item_name, string seller)
 {
+	return Item();
 }
 
 // Checks whether the given permission level (2 letter representation)
@@ -166,6 +167,7 @@ bool UsernameExists(string username)
 // Returns TRUE if the item name exists, otherwise returns FALSE.
 bool ItemExists(string item_name)
 {
+	return false;
 }
 
 // Validates a username based on the requirements

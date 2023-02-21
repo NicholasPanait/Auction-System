@@ -18,7 +18,7 @@ void Login()
 		return;
 	}
 
-	appState.currentUser = user;
+	appState.getCurrentUser() = user;
 
 	cout << "Welcome " << user.username << ", your current balance is $" << fixed << setprecision(2) << user.credit << endl;
 }

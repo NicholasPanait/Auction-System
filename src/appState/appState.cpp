@@ -1,28 +1,36 @@
-#include "appState.h"
+#include "../appState/appState.h"
+#include "../utility/utility.h"
 
 using namespace std;
 
-//returns the current singleton instance, garentees that there is only every one instance
-AppState AppState::getInstance(){
-	if(&AppState::instance == nullptr){
-		AppState::instance = AppState();
-	}
-	return AppState::instance;
+// initialize the static instance pointer to nullptr
+AppState* AppState::instance = nullptr;
+
+// returns the current singleton instance, guarantees that there is only ever one instance
+AppState& AppState::getInstance(){
+  if(AppState::instance == nullptr){
+    AppState::instance = new AppState();
+  }
+  return *AppState::instance;
 }
 
-//Singleton constructor, should only every be called by getInstance()
+// Singleton constructor, should only ever be called by getInstance()
 AppState::AppState(){
-	this->currentUser = User();
-	this->transactionBuffer = "";
+  this->currentUser = nullptr;
+  this->transactionBuffer = "";
 }
 
 bool AppState::isLoggedIn(){
-	if (&(this->currentUser) == nullptr){
-		this->currentUser = User();
-		return false;
-	}else if(this->currentUser.username.empty()){
-		return false;
-	}
+  return (this->currentUser != nullptr);
+}
 
-	return true;
+User& AppState::getCurrentUser(){
+  if (this->currentUser == nullptr) {
+    this->currentUser = new User();
+  }
+  return *this->currentUser;
+}
+
+string AppState::getTransactionBuffer() const {
+  return this->transactionBuffer;
 }

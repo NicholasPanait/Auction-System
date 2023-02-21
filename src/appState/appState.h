@@ -1,22 +1,28 @@
 #ifndef APPSTATE_H
 #define APPSTATE_H
 
-#include "../utility/utility.h";
+#include "../utility/utility.h"
 #include <string>
 using namespace std;
 
-//Singleton class that contains all the current state information for the app
-class AppState{
-	public:
-	static AppState getInstance();
-	
-	bool isLoggedIn();
-	User currentUser;
-	string transactionBuffer;
+// forward declaration
+class User;
 
-	private:
-	static AppState instance;
-	AppState();
+// Singleton class that contains all the current state information for the app
+class AppState {
+public:
+  static AppState& getInstance(); // make this return a reference
+
+  bool isLoggedIn();
+  User& getCurrentUser(); // return a reference to User
+  string getTransactionBuffer() const; // make this method const
+
+private:
+  static AppState* instance;
+  AppState(); // make the constructor private
+
+  User* currentUser;
+  string transactionBuffer;
 };
 
 #endif

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "utility/utility.h"
 #include <string>
+#include "appState/appState.h"
 using namespace std;
 
 int main ()
