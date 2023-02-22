@@ -4,9 +4,8 @@ using namespace std;
 
 void Logout()
 {   
-    AppState appstate = AppState::getInstance();
     fstream file;
-    string file_name = "../../res/transaction_";
+    string file_name = AppState::getInstance().getOutputDirectory();
     
     time_t seconds;
 
@@ -18,14 +17,14 @@ void Logout()
 
     file_name.append(time_string);
     
-    file_name.append("_" + appstate.currentUser.username);
+    file_name.append("_" + AppState::getInstance().getCurrentUser().username);
 
     file.open(file_name);
-    string transaction_code = "00_"+appstate.currentUser.username + "_" + to_string(appstate.currentUser.credit);
-    file << appstate.transactionBuffer << endl;
+    string transaction_code = "00_"+AppState::getInstance().getCurrentUser().username + "_" + to_string(AppState::getInstance().getCurrentUser().credit);
+    file << AppState::getInstance().getTransactionBuffer() << endl;
     file << transaction_code << endl;
     file.close();
     
-    appstate.currentUser = User();
-    
+    AppState::getInstance().resetCurrentUser();
+    cout << "Session terminated, transaction saved" << endl;
 }

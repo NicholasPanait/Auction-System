@@ -1,5 +1,6 @@
 #include "utility.h"
 #include "../login/login.h"
+#include "../logout/logout.h"
 #include "../appState/appState.h"
 #include <iostream>
 #include <iomanip>
@@ -247,42 +248,37 @@ bool isNumeric(string input)
     return true;
 }
 
-void ProcessCommand(string command)
-{
+using CommandFunction = void (*)();
+
+std::map<std::string, CommandFunction> commandMap = {
+    {"login", Login},
+    // {"create", Create},
+    {"logout", Logout},
+    // {"delete", Delete},
+    // {"advertise", Advertise},
+    // {"bid", Bid},
+    // {"refund", Refund},
+    // {"addcredit", AddCredit},
+    // {"listbids", ListBids},
+    // {"listusers", ListUsers}
+};
+
+void ProcessCommand(std::string command) {
     transform(command.begin(), command.end(), command.begin(), ::tolower);
-    if (command == "login")
-    {
-        Login();
-    }
-    else if (command == "create")
-    {
-    }
-    else if (command == "logout")
-    {
-    }
-    else if (command == "delete")
-    {
-    }
-    else if (command == "advertise")
-    {
-    }
-    else if (command == "bid")
-    {
-    }
-    else if (command == "refund")
-    {
-    }
-    else if (command == "addcredit")
-    {
-    }
-    else if (command == "listbids")
-    {
-    }
-    else if (command == "listusers")
-    {
-    }
-    else
-    {
-        cout << "Invalid Command!" << endl;
+
+    auto it = commandMap.find(command);
+    if (it == commandMap.end()) {
+        std::cout << "Invalid Command!" << std::endl;
+    } else {
+        bool loggedIn = AppState::getInstance().isLoggedIn();
+        if (!loggedIn && it->first != "login") {
+            std::cout << "Please login before using any other command!" << std::endl;
+        } 
+        else if (loggedIn && it->first == "login") {
+            std::cout << "Transaction Failed! Please logout before trying to login again!" << std::endl;
+        } 
+        else {
+            it->second();
+        }
     }
 }

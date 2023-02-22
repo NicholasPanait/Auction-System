@@ -69,6 +69,11 @@ void AppState::setCurrentUser(User user)
     *(this->currentUser) = user;
 }
 
+void AppState::resetCurrentUser()
+{
+    this->currentUser = nullptr;
+}
+
 void AppState::appendTransactionBuffer(string transaction)
 {
     this->transactionBuffer.append(transaction);
