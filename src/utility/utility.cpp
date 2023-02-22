@@ -1,6 +1,7 @@
 #include "utility.h"
 #include "../login/login.h"
 #include "../logout/logout.h"
+#include "../listusers/listusers.h"
 #include "../appState/appState.h"
 #include <iostream>
 #include <iomanip>
