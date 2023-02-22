@@ -9,23 +9,32 @@ using namespace std;
 class User;
 
 // Singleton class that contains all the current state information for the app
-class AppState {
+class AppState
+{
 public:
-  static AppState& getInstance(); // make this return a reference
+    static AppState &getInstance(); // make this return a reference
 
-  bool isLoggedIn();
-  User& getCurrentUser(); // return a reference to User
-  string getTransactionBuffer() const; // make this method const
+    bool isLoggedIn();
+    User &getCurrentUser();              // return a reference to User
+    string getTransactionBuffer() const; // make this method const
+    string getUserFile() const;          // make this method const
+    string getItemFile() const;          // make this method const
+    string getOutputDirectory() const;   // make this method const
+    void setCurrentUser(User user);
+    void appendTransactionBuffer(string transaction);
+    void setUserFile(string file);
+    void setItemFile(string file);
+    void setOutputDirectory(string directory);
 
 private:
-  static AppState* instance;
-  AppState(); // make the constructor private
+    static AppState *instance;
+    AppState(); // make the constructor private
 
-  User* currentUser;
-  string transactionBuffer;
-  string itemFile;
-  string accountFile;
-  string outputDirectory;
+    User *currentUser;
+    string transactionBuffer;
+    string itemFile;
+    string userFile;
+    string outputDirectory;
 };
 
 #endif

@@ -9,9 +9,8 @@ bool filesExist(char *argv[])
 {
     try
     {
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i < 3; i++)
         {
-            cout << argv[i];
             ifstream file(argv[i]);
             if (!file)
             {
@@ -37,17 +36,20 @@ bool filesExist(char *argv[])
 
 // argc: num arguments
 // argv: vector of parameters
+// ORDER OF PARAMETERS: USERFILE ITEMFILE OUTPUTDIRECTORY
 int main(int argc, char *argv[])
 {
-    cout << argc << endl;
     if (argc != 4)
     {
         cout << "Please enter the following files: itemFile, accountFile, outputDirectory" << endl;
         return 1;
     }
-
-    if (filesExist(argv))
+    else if (filesExist(argv))
     {
+        AppState::getInstance().setUserFile(argv[1]);
+        AppState::getInstance().setItemFile(argv[2]);
+        AppState::getInstance().setOutputDirectory(argv[3]);
+
         cout << "Welcome to Hubble Auction House" << endl;
         while (true)
         {
