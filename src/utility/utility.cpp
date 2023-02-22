@@ -260,7 +260,7 @@ std::map<std::string, CommandFunction> commandMap = {
     // {"refund", Refund},
     // {"addcredit", AddCredit},
     // {"listbids", ListBids},
-    // {"listusers", ListUsers}
+    {"listusers", ListUsers}
 };
 
 void ProcessCommand(std::string command) {
