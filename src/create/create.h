@@ -5,9 +5,6 @@
 
 using namespace std;
 
-string username;
-string permission;
-
 void Create();
 
 #endif

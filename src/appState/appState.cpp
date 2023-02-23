@@ -2,12 +2,10 @@
 
 using namespace std;
 
-//returns the current singleton instance, garentees that there is only every one instance
-AppState AppState::getInstance(){
-	if(&AppState::instance == nullptr){
-		AppState::instance = AppState();
-	}
-	return AppState::instance;
+//returns the current singleton instance, grantees that there is only every one instance
+AppState &AppState::getInstance(){
+	static AppState INSTANCE;
+	return INSTANCE;
 }
 
 //Singleton constructor, should only every be called by getInstance()

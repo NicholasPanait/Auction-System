@@ -4,9 +4,6 @@
 #include <iostream>
 
 using namespace std;
-
-string username;
-
 void Delete();
 
 #endif
