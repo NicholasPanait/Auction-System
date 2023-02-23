@@ -1,4 +1,4 @@
-# https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
+# copied from https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
 
 TARGET_EXEC ?= frontend.exe
 

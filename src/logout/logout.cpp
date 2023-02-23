@@ -1,31 +1,26 @@
 #include "logout.h"
-#include "../appState/appState.h"
 using namespace std;
 
 void Logout()
 {   
-    AppState appstate = AppState::getInstance();
-    fstream file;
-    string file_name = "../../res/transaction_";
+    ofstream file;
+    string file_name = AppState::getInstance().getOutputDirectory() + "/ ";
+
+    const auto p1 = chrono::system_clock::now();
+    int epoch_time = chrono::duration_cast<chrono::seconds>(p1.time_since_epoch()).count() - 1677191500;
+
+    file_name.append(to_string(epoch_time));
     
-    time_t seconds;
+    file_name.append(AppState::getInstance().getCurrentUser().username + ".txt");
 
-    seconds = time(NULL);
-
-    tm *time_structure = localtime(&seconds);
-
-    string time_string (asctime (time_structure));
-
-    file_name.append(time_string);
-    
-    file_name.append("_" + appstate.currentUser.username);
+    replace(file_name.begin(), file_name.end(), ':', '-');
 
     file.open(file_name);
-    string transaction_code = "00_"+appstate.currentUser.username + "_" + to_string(appstate.currentUser.credit);
-    file << appstate.transactionBuffer << endl;
+    string transaction_code = "00 "+AppState::getInstance().getCurrentUser().username + " " + to_string(AppState::getInstance().getCurrentUser().credit);
+    file << AppState::getInstance().getTransactionBuffer() << endl;
     file << transaction_code << endl;
     file.close();
     
-    appstate.currentUser = User();
-    
+    AppState::getInstance().resetCurrentUser();
+    cout << "Session terminated, transaction saved" << endl;
 }

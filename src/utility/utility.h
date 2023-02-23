@@ -7,11 +7,18 @@ are used by files for at least 2 commands
 #ifndef UTILITY_H // include guard
 #define UTILITY_H
 
+#include "../login/login.h"
+#include "../logout/logout.h"
+#include "../bid/bid.h"
+#include "../listusers/listusers.h"
+#include "../listbids/listbids.h"
+#include "../appState/appState.h"
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
 #include <map>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -29,11 +36,18 @@ class Item {
     public:
         string item_name;
         string seller;
-        float winning_bid;
+        float highest_bid;
         int duration;
-        Item(string item_name, string seller, float winning_bid, int duration);
+        float minimum_bid;
+        Item(string item_name, string seller, int duration, float minimum_bid, float highest_bid);
         Item();
 };
+
+// Removes all leading specified characters
+string RemoveLeading(string str, char c);
+
+// Removes all trailing specified characters
+string RemoveTrailing(string str, char c);
 
 // Returns a User object with the specified user's information
 // Return a user with fields (username="", privilege_type="", credit=0) if no user exists
@@ -43,6 +57,9 @@ User GetUser(string username);
 // Returns an Item object with the item information
 // Returns an empty object with fields (item_name="", sellers="")
 Item GetItem(string item_name, string seller);
+
+// Returns TRUE if the given permission is enough for the command
+bool CheckPermission(string permission, string command);
 
 // Returns TRUE if this is a valid permission, otherwise returns FALSE.
 bool ValidatePermission(string permission);
