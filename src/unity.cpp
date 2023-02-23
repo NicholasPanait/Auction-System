@@ -4,3 +4,4 @@
 #include "utility/utility.cpp"
 #include "appState/appState.cpp"
 #include "listusers/listusers.cpp"
+#include "listbids/listbids.cpp"

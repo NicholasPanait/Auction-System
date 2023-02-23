@@ -1,13 +1,5 @@
 #include "utility.h"
-#include "../login/login.h"
-#include "../logout/logout.h"
-#include "../listusers/listusers.h"
-#include "../appState/appState.h"
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
-#include <map>
-#include <fstream>
+
 using namespace std;
 
 User::User(string username, string privilege_type, float credit)
@@ -249,6 +241,10 @@ bool isNumeric(string input)
     return true;
 }
 
+string RemoveLeading(string str, char c){
+    return str.erase(0, min(str.find_first_not_of(c), str.length()-1));
+}
+
 using CommandFunction = void (*)();
 
 std::map<std::string, CommandFunction> commandMap = {
@@ -260,7 +256,7 @@ std::map<std::string, CommandFunction> commandMap = {
     // {"bid", Bid},
     // {"refund", Refund},
     // {"addcredit", AddCredit},
-    // {"listbids", ListBids},
+    {"listbids", ListBids},
     {"listusers", ListUsers}
 };
 

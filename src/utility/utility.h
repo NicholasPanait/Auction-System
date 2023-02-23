@@ -7,6 +7,11 @@ are used by files for at least 2 commands
 #ifndef UTILITY_H // include guard
 #define UTILITY_H
 
+#include "../login/login.h"
+#include "../logout/logout.h"
+#include "../listusers/listusers.h"
+#include "../listbids/listbids.h"
+#include "../appState/appState.h"
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
@@ -80,6 +85,9 @@ int ValidateBid(string bid);
 
 // Returns TRUE or FALSE if a string is numeric
 bool isNumeric(string input);
+
+// Removes leading character
+string RemoveLeading(string str, char c);
 
 // Calls respective commands and handles invalid commands
 void ProcessCommand(string command);
