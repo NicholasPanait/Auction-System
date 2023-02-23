@@ -281,15 +281,19 @@ int ValidateUsername(string username)
 // 0: Valid Item Name
 // 1: Item Name Too Long
 // 2: Item Name Too Short
+// TODO EITHER 19 MAX or 25 MAX FOR ITEM NAME
 int ValidateItemName(string item_name)
 {
-    if (item_name.length() > 25)
+    if (item_name.length() > 19)
     {
         return 1;
     }
     else if (item_name.length() < 1)
     {
         return 2;
+    }
+    else if (ItemExists(item_name)){
+        return 3;
     }
     return 0;
 }
