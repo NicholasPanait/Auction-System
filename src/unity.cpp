@@ -5,3 +5,4 @@
 #include "appState/appState.cpp"
 #include "listusers/listusers.cpp"
 #include "listbids/listbids.cpp"
+#include "bid/bid.cpp"

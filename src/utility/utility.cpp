@@ -21,18 +21,44 @@ ostream &operator<<(ostream &strm, const User &user)
     return strm << "Username: " << user.username << ", Privilege: " << user.privilege_type << ", Credit: " << fixed << setprecision(2) << user.credit << endl;
 }
 
-Item::Item(string item_name, string seller, float winning_bid, int duration)
+Item::Item(string item_name, string seller, int duration, float minimum_bid, float highest_bid)
 {
     this->item_name = item_name;
     this->seller = seller;
-    this->winning_bid = winning_bid;
     this->duration = duration;
+    this->minimum_bid = minimum_bid;
+    this->highest_bid = highest_bid;
 }
 
 Item::Item()
 {
     this->item_name = "";
     this->seller = "";
+    this->duration = 0;
+    this->minimum_bid = 0.0;
+    this->highest_bid = 0.0;
+}
+
+// TODO Format Item Text For ItemFile
+// ostream &operator<<(ostream &strm, const Item &item)
+// {
+//     return strm 
+//     << item.item_name
+//     << item.seller 
+//     << item.duration 
+//     << item.minimum_bid 
+//     << item.highest_bid 
+//     << endl;
+// }
+
+// Removes all leading specified characters
+string RemoveLeading(string str, char c){
+    return str.erase(0, min(str.find_first_not_of(c), str.length()-1));
+}
+
+// Removes all trailing specified characters
+string RemoveTrailing(string str, char c){
+    return str.erase(str.find_last_not_of(c)+1, str.length());
 }
 
 // Returns a User object with the specified user's information
@@ -50,9 +76,9 @@ User GetUser(string username)
     {
         while (getline(input, line))
         {
-            if (username == line.substr(0, 15).erase(line.substr(0, 15).find_last_not_of(' ') + 1, std::string::npos))
+            if (username == RemoveTrailing(line.substr(0, 15), ' '))
             {
-                user.username = line.substr(0, 15).erase(line.substr(0, 15).find_last_not_of(' ') + 1, std::string::npos);
+                user.username = RemoveTrailing(line.substr(0, 15), ' ');
                 user.privilege_type = line.substr(16, 2);
                 user.credit = stof(line.substr(19, 9));
                 input.close();
@@ -69,45 +95,86 @@ User GetUser(string username)
 // Returns an empty object with fields (item_name="", sellers="")
 Item GetItem(string item_name, string seller)
 {
-    return Item();
+    Item item = Item();
+    if (!ItemExists(item_name))
+    {
+        return item;
+    }
+    string line;
+    ifstream input(AppState::getInstance().getItemFile());
+    if (input.is_open())
+    {
+        while (getline(input, line))
+        {
+            if (item_name == RemoveTrailing(line.substr(0, 19), ' '))
+            {
+                item.item_name = RemoveTrailing(line.substr(0, 19), ' ');
+                item.seller = RemoveTrailing(line.substr(20, 15), ' ');
+                try {
+                    item.duration = stoi(RemoveLeading(line.substr(52, 3), '0'));
+                    if (RemoveLeading(line.substr(56, 6), '0')[0] == '.'){
+                        item.minimum_bid = stof("0" + RemoveLeading(line.substr(56, 6), '0'));
+                    }
+                    else{
+                        item.minimum_bid = stof(RemoveLeading(line.substr(56, 6), '0'));
+                    }
+                    if (RemoveLeading(line.substr(63, 6), '0')[0] == '.'){
+                        item.highest_bid = stof("0" + RemoveLeading(line.substr(63, 6), '0'));
+                    }
+                    else{
+                        item.highest_bid = stof(RemoveLeading(line.substr(63, 6), '0'));
+                    }
+                } catch(const exception &e){
+                    cerr << e.what() << endl;
+                    cout << "Item/Seller combination incorrect" << endl;
+                    return item;
+                }
+                input.close();
+                return item;
+            }
+        }
+    }
+    input.close();
+    return item;
 }
 
 // Checks whether the given permission level (2 letter representation)
 // is enough for the command (integer representation).
 // Returns TRUE if you have the required permission, otherwise FALSE.
 // NOTE: Addcredit returns TRUE if the user is an admin, otherwise FALSE.
-bool CheckPermission(string permission, int command)
+bool CheckPermission(string permission, string command)
 {
     map<string, int> privileges{{"AA", 4}, {"FS", 3}, {"BS", 2}, {"SS", 1}};
 
-    switch (command)
-    {
     // Advertise, No Buy Standard Accounts
-    case 3:
+    if (command == "advertise"){
         if (privileges[permission] == 2)
         {
             return false;
         }
         return true;
+    }
 
     // Bid, No Sell Standard Accounts
-    case 4:
+    else if (command == "bid"){
         if (privileges[permission] == 1)
         {
             return false;
         }
         return true;
+    }
 
     // Addcredit, Admin vs Normal
-    case 6:
+    else if (command == "addcredit"){
         if (privileges[permission] == 4)
         {
             return true;
         }
         return false;
+    }
 
     // Admin, Create, Delete, Refund,
-    default:
+    else{
         if (privileges[permission] < 4)
         {
             return false;
@@ -144,7 +211,7 @@ bool UsernameExists(string username)
             }
             else
             {
-                line = line.substr(0, 15).erase(line.substr(0, 15).find_last_not_of(' ') + 1, std::string::npos);
+                line = RemoveTrailing(line.substr(0, 15), ' ');
                 if (username == line)
                 {
                     input.close();
@@ -157,10 +224,32 @@ bool UsernameExists(string username)
     return false;
 }
 
-// TODO
 // Returns TRUE if the item name exists, otherwise returns FALSE.
 bool ItemExists(string item_name)
 {
+    string line;
+    ifstream input(AppState::getInstance().getItemFile());
+    if (input.is_open())
+    {
+        while (getline(input, line))
+        {
+            if (line == "END")
+            {
+                input.close();
+                return false;
+            }
+            else
+            {
+                line = RemoveTrailing(line.substr(0, 19), ' ');
+                if (item_name == line)
+                {
+                    input.close();
+                    return true;
+                }
+            }
+        }
+    }
+    input.close();
     return false;
 }
 
@@ -241,10 +330,7 @@ bool isNumeric(string input)
     return true;
 }
 
-string RemoveLeading(string str, char c){
-    return str.erase(0, min(str.find_first_not_of(c), str.length()-1));
-}
-
+// Processes commands and bad input
 using CommandFunction = void (*)();
 
 std::map<std::string, CommandFunction> commandMap = {
@@ -253,7 +339,7 @@ std::map<std::string, CommandFunction> commandMap = {
     {"logout", Logout},
     // {"delete", Delete},
     // {"advertise", Advertise},
-    // {"bid", Bid},
+    {"bid", Bid},
     // {"refund", Refund},
     // {"addcredit", AddCredit},
     {"listbids", ListBids},

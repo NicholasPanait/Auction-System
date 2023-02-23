@@ -8,6 +8,10 @@
 using namespace std;
 //TODO: Implement the list users command so that it lists all the users and there credits
 void ListUsers(){
+    if (!(AppState::getInstance().getCurrentUser().privilege_type == "AA")){
+        cout << "Transaction Failed! You do not have permission to use this command!" << endl;
+        return;
+    }
     string output = "Username\tAccount Type\tCredits:";
     string line;
     ifstream input(AppState::getInstance().getUserFile());
