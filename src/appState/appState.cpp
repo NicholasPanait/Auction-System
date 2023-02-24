@@ -19,6 +19,7 @@ AppState::AppState()
     this->itemFile = "";
     this->userFile = "";
     this->outputDirectory = "";
+    this->addedCredit = 0.0;
 }
 
 bool AppState::isLoggedIn()
@@ -55,6 +56,11 @@ string AppState::getOutputDirectory() const
     return this->outputDirectory;
 }
 
+float AppState::getAddedCredit() const
+{
+    return this->addedCredit;
+}
+
 void AppState::setCurrentUser(User user)
 {
     if (this->currentUser == nullptr)
@@ -87,4 +93,9 @@ void AppState::setItemFile(string file)
 void AppState::setOutputDirectory(string directory)
 {
     this->outputDirectory = directory;
+}
+
+void AppState:: addCredit(float credit)
+{
+    this->addedCredit += credit;
 }

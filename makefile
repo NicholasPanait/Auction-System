@@ -1,6 +1,6 @@
 # copied from https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
 
-TARGET_EXEC ?= frontend.exe
+TARGET_EXEC ?= frontend.out
 
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src
@@ -12,14 +12,14 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 
+CXX = g++
+
 $(BUILD_DIR)/$(TARGET_EXEC):
 	$(CXX) $(INC_FLAGS) $(SRCS) -o $@
-.PHONY: clean
+.PHONY: all build clean
 
 clean:
-	$(RMDIR) "$(BUILD_DIR)"
-	$(MKDIR) "$(BUILD_DIR)"
-
+	$(RM) $(BUILD_DIR)/*
 
 ifeq ($(OS),Windows_NT)
     RM = del /F /Q 
@@ -29,9 +29,8 @@ ifeq ($(OS),Windows_NT)
     SEP=\\
 else
     RM = rm -rf 
-    RMDIR = rm -rf 
+    RMDIR = rm -rf
     MKDIR = mkdir -p
     ERRIGNORE = 2>/dev/null
     SEP=/
 endif
-

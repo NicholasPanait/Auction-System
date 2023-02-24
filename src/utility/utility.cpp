@@ -39,18 +39,6 @@ Item::Item()
     this->highest_bid = 0.0;
 }
 
-// TODO Format Item Text For ItemFile
-// ostream &operator<<(ostream &strm, const Item &item)
-// {
-//     return strm 
-//     << item.item_name
-//     << item.seller 
-//     << item.duration 
-//     << item.minimum_bid 
-//     << item.highest_bid 
-//     << endl;
-// }
-
 // Removes all leading specified characters
 string RemoveLeading(string str, char c){
     return str.erase(0, min(str.find_first_not_of(c), str.length()-1));
@@ -90,7 +78,6 @@ User GetUser(string username)
     return user;
 }
 
-// TODO
 // Returns an Item object with the item information
 // Returns an empty object with fields (item_name="", sellers="")
 Item GetItem(string item_name, string seller)
@@ -106,23 +93,23 @@ Item GetItem(string item_name, string seller)
     {
         while (getline(input, line))
         {
-            if (item_name == RemoveTrailing(line.substr(0, 19), ' '))
+            if (item_name == RemoveTrailing(line.substr(0, 25), ' '))
             {
-                item.item_name = RemoveTrailing(line.substr(0, 19), ' ');
-                item.seller = RemoveTrailing(line.substr(20, 15), ' ');
+                item.item_name = RemoveTrailing(line.substr(0, 25), ' ');
+                item.seller = RemoveTrailing(line.substr(26, 15), ' ');
                 try {
-                    item.duration = stoi(RemoveLeading(line.substr(52, 3), '0'));
-                    if (RemoveLeading(line.substr(56, 6), '0')[0] == '.'){
-                        item.minimum_bid = stof("0" + RemoveLeading(line.substr(56, 6), '0'));
+                    item.duration = stoi(RemoveLeading(line.substr(58, 3), '0'));
+                    if (RemoveLeading(line.substr(58, 6), '0')[0] == '.'){
+                        item.minimum_bid = stof("0" + RemoveLeading(line.substr(62, 6), '0'));
                     }
                     else{
-                        item.minimum_bid = stof(RemoveLeading(line.substr(56, 6), '0'));
+                        item.minimum_bid = stof(RemoveLeading(line.substr(62, 6), '0'));
                     }
-                    if (RemoveLeading(line.substr(63, 6), '0')[0] == '.'){
-                        item.highest_bid = stof("0" + RemoveLeading(line.substr(63, 6), '0'));
+                    if (RemoveLeading(line.substr(69, 6), '0')[0] == '.'){
+                        item.highest_bid = stof("0" + RemoveLeading(line.substr(69, 6), '0'));
                     }
                     else{
-                        item.highest_bid = stof(RemoveLeading(line.substr(63, 6), '0'));
+                        item.highest_bid = stof(RemoveLeading(line.substr(69, 6), '0'));
                     }
                 } catch(const exception &e){
                     cerr << e.what() << endl;
@@ -141,7 +128,6 @@ Item GetItem(string item_name, string seller)
 // Checks whether the given permission level (2 letter representation)
 // is enough for the command (integer representation).
 // Returns TRUE if you have the required permission, otherwise FALSE.
-// NOTE: Addcredit returns TRUE if the user is an admin, otherwise FALSE.
 bool CheckPermission(string permission, string command)
 {
     map<string, int> privileges{{"AA", 4}, {"FS", 3}, {"BS", 2}, {"SS", 1}};
@@ -240,7 +226,7 @@ bool ItemExists(string item_name)
             }
             else
             {
-                line = RemoveTrailing(line.substr(0, 19), ' ');
+                line = RemoveTrailing(line.substr(0, 25), ' ');
                 if (item_name == line)
                 {
                     input.close();
@@ -281,10 +267,9 @@ int ValidateUsername(string username)
 // 0: Valid Item Name
 // 1: Item Name Too Long
 // 2: Item Name Too Short
-// TODO EITHER 19 MAX or 25 MAX FOR ITEM NAME
 int ValidateItemName(string item_name)
 {
-    if (item_name.length() > 19)
+    if (item_name.length() > 25)
     {
         return 1;
     }
@@ -306,17 +291,17 @@ int ValidateItemName(string item_name)
 // 3: Bid Is Over The Limit of $999.99
 int ValidateBid(string bid)
 {
-    if (!isNumeric(bid))
-    {
+    try {
+        if (stof(bid) < 0)
+        {
+            return 2;
+        }
+        else if (stof(bid) > 999.99)
+        {
+            return 3;
+        }
+    } catch(exception e){
         return 1;
-    }
-    else if (stof(bid) < 0)
-    {
-        return 2;
-    }
-    else if (stof(bid) > 999.99)
-    {
-        return 3;
     }
     return 0;
 }
@@ -345,7 +330,7 @@ std::map<std::string, CommandFunction> commandMap = {
     // {"advertise", Advertise},
     {"bid", Bid},
     // {"refund", Refund},
-    // {"addcredit", AddCredit},
+    {"addcredit", AddCredit},
     {"listbids", ListBids},
     {"listusers", ListUsers}
 };

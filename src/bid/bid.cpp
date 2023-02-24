@@ -14,7 +14,7 @@ void Bid()
         switch (ValidateItemName(item_name))
         {
         case 1:
-            cout << "Please enter an item name that is less than 20 characters long" << endl;
+            cout << "Please enter an item name that is less than 26 characters long" << endl;
             return;
         case 2:
             cout << "Please enter an item name that is at least 1 character long" << endl;
@@ -58,9 +58,8 @@ void Bid()
 
             string transaction_code = "04 ";
 
-            // TODO EITHER 19 MAX or 25 MAX FOR ITEM NAME
             transaction_code += item_name;
-            for (int i = 0; i < 20-item_name.length(); i++){
+            for (int i = 0; i < 26-item_name.length(); i++){
                 transaction_code += ' ';
             }
             transaction_code += item.seller;

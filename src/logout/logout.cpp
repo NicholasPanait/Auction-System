@@ -17,7 +17,10 @@ void Logout()
 
     file.open(file_name);
     string transaction_code = "00 "+AppState::getInstance().getCurrentUser().username + " " + to_string(AppState::getInstance().getCurrentUser().credit);
-    file << AppState::getInstance().getTransactionBuffer() << endl;
+    transaction_code = transaction_code.substr(0, transaction_code.length()-4);
+    if (AppState::getInstance().getTransactionBuffer() != ""){
+        file << setprecision(2) << AppState::getInstance().getTransactionBuffer().substr(0, AppState::getInstance().getTransactionBuffer().length()-1) << endl;
+    }
     file << transaction_code << endl;
     file.close();
     
