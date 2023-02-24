@@ -11,6 +11,7 @@ are used by files for at least 2 commands
 #include "../logout/logout.h"
 #include "../bid/bid.h"
 #include "../addcredit/addcredit.h"
+#include "../advertise/advertise.h"
 #include "../listusers/listusers.h"
 #include "../listbids/listbids.h"
 #include "../appState/appState.h"

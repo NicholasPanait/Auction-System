@@ -5,7 +5,7 @@
 #include <fstream>
 using namespace std;
 
-// TODO: advertise, create, delete, refund
+// TODO: create, delete, refund
 
 // Tests if a file exists in the project directory
 bool filesExist(char *argv[])

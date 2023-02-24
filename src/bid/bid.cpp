@@ -53,47 +53,51 @@ void Bid()
         string desired_bid;
         cin >> desired_bid;
 
-        if (stof(desired_bid) >= required_bid){
-            // Still need to implement the code to place the bid
+        try{
+            if (stof(desired_bid) >= required_bid){
+                // Still need to implement the code to place the bid
 
-            string transaction_code = "04 ";
+                string transaction_code = "04 ";
 
-            transaction_code += item_name;
-            for (int i = 0; i < 26-item_name.length(); i++){
-                transaction_code += ' ';
+                transaction_code += item_name;
+                for (int i = 0; i < 26-item_name.length(); i++){
+                    transaction_code += ' ';
+                }
+                transaction_code += item.seller;
+                for (int i = 0; i < 16-item.seller.length(); i++){
+                    transaction_code += ' ';
+                }
+                transaction_code += AppState::getInstance().getCurrentUser().username;
+                for (int i = 0; i < 16-AppState::getInstance().getCurrentUser().username.length(); i++){
+                    transaction_code += ' ';
+                }
+                for (int i = 0; i < 6-desired_bid.length(); i++){
+                    transaction_code += '0';
+                }
+                transaction_code += (desired_bid + "\n");
+
+                AppState::getInstance().appendTransactionBuffer(transaction_code);
+                /*
+                BID Transaction Format: 
+                XX_IIIIIIIIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUUU_PPPPPP
+
+                XX - The 2 Digit Transaction Code 04 for bid
+                IIIIIIIIIIIIIIIIIIIIIIIII - The Maximum 25 Character Item Name
+                SSSSSSSSSSSSSSS - The Maximum 15 Character Seller Username
+                UUUUUUUUUUUUUUU - The Maximum 15 Character Buyer Username 
+                PPPPPP - The Maximum $999.99 New Bid
+                _ - Represents a Space
+
+                */
+
+                cout << "Bid placed on " << string(item.item_name) 
+                << " sold by " << string(item.seller) << " for $" << desired_bid << endl;
             }
-            transaction_code += item.seller;
-            for (int i = 0; i < 16-item.seller.length(); i++){
-                transaction_code += ' ';
+            else {
+                cout << "Transaction failed! Your bid is not high enough!" << endl;
             }
-            transaction_code += AppState::getInstance().getCurrentUser().username;
-            for (int i = 0; i < 16-AppState::getInstance().getCurrentUser().username.length(); i++){
-                transaction_code += ' ';
-            }
-            for (int i = 0; i < 6-desired_bid.length(); i++){
-                transaction_code += '0';
-            }
-            transaction_code += (desired_bid + "\n");
-
-            AppState::getInstance().appendTransactionBuffer(transaction_code);
-            /*
-            BID Transaction Format: 
-            XX_IIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUUU_PPPPPP
-
-            XX - The 2 Digit Transaction Code 04 for bid
-            IIIIIIIIIIIIIIIIIII - The Maximum 19 Character Item Name
-            SSSSSSSSSSSSSSS - The Maximum 15 Character Seller Username
-            UUUUUUUUUUUUUUU - The Maximum 15 Character Buyer Username 
-            PPPPPP - The Maximum $999.99 New Bid
-            _ - Represents a Space
-
-            */
-
-            cout << "Bid placed on " << string(item.item_name) 
-            << " sold by " << string(item.seller) << " for $" << desired_bid << endl;
-        }
-        else {
-            cout << "Transaction failed! Your bid is not high enough!" << endl;
+        } catch (exception e){
+            cout << "Please enter a numeric bid" << endl;
         }
     }
     else{

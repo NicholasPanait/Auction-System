@@ -327,7 +327,7 @@ std::map<std::string, CommandFunction> commandMap = {
     // {"create", Create},
     {"logout", Logout},
     // {"delete", Delete},
-    // {"advertise", Advertise},
+    {"advertise", Advertise},
     {"bid", Bid},
     // {"refund", Refund},
     {"addcredit", AddCredit},
