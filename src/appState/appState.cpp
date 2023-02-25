@@ -1,8 +1,4 @@
-#include "../appState/appState.h"
-#include "../utility/utility.h"
-
-using namespace std;
-
+#include "appState.h"
 
 //returns the current singleton instance, grantees that there is only every one instance
 AppState &AppState::getInstance(){

@@ -1,8 +1,6 @@
 #include "listbids.h"
 
-using namespace std;
 // TODO: implement listBids function so that it displays all items and the information assosiated with them
-
 void ListBids()
 {
     string output = "Item Name\t    Seller\t    Days Left\tMin Bid \tHighest Bid";

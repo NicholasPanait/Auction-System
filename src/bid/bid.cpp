@@ -1,5 +1,5 @@
 #include "bid.h"
-using namespace std;
+
 // TODO: implement the bid function so that it can be used to bid on an item
 void Bid()
 {
@@ -26,6 +26,9 @@ void Bid()
         
         switch (ValidateUsername(seller))
         {
+        case 0:
+            cout << "Please enter an existing username" << endl;
+            return;
         case 1:
             cout << "Please enter a username that is less than 16 characters long" << endl;
             return;

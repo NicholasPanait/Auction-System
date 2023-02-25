@@ -1,11 +1,5 @@
 #include "listusers.h"
-#include "../appState/appState.h"
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
-#include <fstream>
 
-using namespace std;
 //TODO: Implement the list users command so that it lists all the users and there credits
 void ListUsers(){
     if (!(AppState::getInstance().getCurrentUser().privilege_type == "AA")){

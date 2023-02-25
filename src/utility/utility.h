@@ -12,15 +12,20 @@ are used by files for at least 2 commands
 #include "../bid/bid.h"
 #include "../addcredit/addcredit.h"
 #include "../advertise/advertise.h"
+#include "../delete/delete.h"
+#include "../refund/refund.h"
 #include "../listusers/listusers.h"
 #include "../listbids/listbids.h"
+#include "../create/create.h"
 #include "../appState/appState.h"
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
 #include <map>
 #include <fstream>
+#include <sstream>
 #include <string>
+#include <chrono>
 
 using namespace std;
 

@@ -1,9 +1,7 @@
 #ifndef CREATE_H
 #define CREATE_H
 
-#include <iostream>
-
-using namespace std;
+#include "../utility/utility.h"
 
 void Create();
 

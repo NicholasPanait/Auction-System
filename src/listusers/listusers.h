@@ -1,9 +1,7 @@
 #ifndef LISTUSERS_H
 #define LISTUSERS_H
 
-#include <iostream>
-
-using namespace std;
+#include "../utility/utility.h"
 
 void ListUsers();
 

@@ -1,6 +1,5 @@
 #include "login.h"
-#include "../appState/appState.h"
-using namespace std;
+
 // TODO: finish login command
 void Login()
 {

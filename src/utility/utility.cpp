@@ -324,12 +324,12 @@ using CommandFunction = void (*)();
 
 std::map<std::string, CommandFunction> commandMap = {
     {"login", Login},
-    // {"create", Create},
+    {"create", Create},
     {"logout", Logout},
-    // {"delete", Delete},
+    {"delete", Delete},
     {"advertise", Advertise},
     {"bid", Bid},
-    // {"refund", Refund},
+    {"refund", Refund},
     {"addcredit", AddCredit},
     {"listbids", ListBids},
     {"listusers", ListUsers}

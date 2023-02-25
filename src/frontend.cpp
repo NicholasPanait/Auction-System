@@ -40,6 +40,7 @@ bool filesExist(char *argv[])
 // argc: num arguments
 // argv: vector of parameters
 // ORDER OF PARAMETERS: USERFILE ITEMFILE OUTPUTDIRECTORY
+// Example: ./frontend.out ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
 int main(int argc, char *argv[])
 {
     if (argc != 4)
