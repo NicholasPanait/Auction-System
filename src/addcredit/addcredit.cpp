@@ -1,6 +1,11 @@
 #include "addcredit.h"
 
-// TODO: implement add credit so that users can add credits to there acocunt and so that admins can add credits to all accounts
+/**
+ * This function handles the input and transaction code generation for
+ * the addcredit command responsible for adding credit to accounts
+ */
+// NOTE: If used by an Admin account, credit can be added to accounts other than your own
+
 void AddCredit()
 {
     bool is_privilleged = CheckPermission(AppState::getInstance().getCurrentUser().privilege_type, "addcredit");
@@ -27,7 +32,8 @@ void AddCredit()
     if (is_privilleged)
     {
         cout << "Please select a user to add credits to:" << endl;
-        cin >> username; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, username);
     }
 
     switch (ValidateUsername(username))

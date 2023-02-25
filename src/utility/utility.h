@@ -60,7 +60,6 @@ string RemoveTrailing(string str, char c);
 // Return a user with fields (username="", privilege_type="", credit=0) if no user exists
 User GetUser(string username);
 
-// TODO 
 // Returns an Item object with the item information
 // Returns an empty object with fields (item_name="", sellers="")
 Item GetItem(string item_name, string seller);
@@ -75,7 +74,6 @@ bool ValidatePermission(string permission);
 // Returns TRUE if the username exists, otherwise returns FALSE.
 bool UsernameExists(string username);
 
-// TODO
 // Returns TRUE if the item name exists, otherwise returns FALSE.
 bool ItemExists(string item_name);
 

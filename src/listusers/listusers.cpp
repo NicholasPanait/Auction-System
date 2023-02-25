@@ -1,6 +1,12 @@
 #include "listusers.h"
 
-//TODO: Implement the list users command so that it lists all the users and there credits
+/**
+ * Function to handle parameters and transaction code generation
+ * for the listusers command which will list all the current users
+ * in the system
+ * NOTE: Only usable by Admins
+ */
+
 void ListUsers(){
     if (!(AppState::getInstance().getCurrentUser().privilege_type == "AA")){
         cout << "Transaction Failed! You do not have permission to use this command!" << endl;

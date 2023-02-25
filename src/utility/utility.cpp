@@ -1,7 +1,15 @@
 #include "utility.h"
 
-using namespace std;
+// NOTE: This file contains helper functions used by at least 2 files in the front end
 
+/**
+ * The class used to store user information
+ * e.g. their Username, Available Credit, and Privilege Type
+ *
+ * @param username          The user's username
+ * @param privilege_type    The privilege type of the user
+ * @param credit            The available credit of the user
+ */
 User::User(string username, string privilege_type, float credit)
 {
     this->username = username;
@@ -9,6 +17,10 @@ User::User(string username, string privilege_type, float credit)
     this->credit = credit;
 }
 
+/**
+ * An empty User constructor passed when bad input is given and/or
+ * a user can not be found in the User File
+*/
 User::User()
 {
     this->username = "";
@@ -16,11 +28,27 @@ User::User()
     this->credit = 0;
 }
 
+/**
+ * Operator overload for debugging with cout
+ *
+ * @param strm     The output stream
+ * @param user     The user who's information is being outputted
+ */
 ostream &operator<<(ostream &strm, const User &user)
 {
     return strm << "Username: " << user.username << ", Privilege: " << user.privilege_type << ", Credit: " << fixed << setprecision(2) << user.credit << endl;
 }
 
+/**
+ * The class used to store item information
+ * e.g. the Item Name, Seller Username, Auction Duration, Minimum Bid, and Current Highest Bid
+ *
+ * @param item_name     The item ame
+ * @param seller        The seller's username
+ * @param duration      The auction's duration in days
+ * @param minimum_bid   The starting bid
+ * @param highest_bid   The current highest bid
+ */
 Item::Item(string item_name, string seller, int duration, float minimum_bid, float highest_bid)
 {
     this->item_name = item_name;
@@ -30,6 +58,10 @@ Item::Item(string item_name, string seller, int duration, float minimum_bid, flo
     this->highest_bid = highest_bid;
 }
 
+/**
+ * An empty Item constructor passed when bad input is given and/or
+ * a user can not be found in the User File
+ */
 Item::Item()
 {
     this->item_name = "";
@@ -39,18 +71,36 @@ Item::Item()
     this->highest_bid = 0.0;
 }
 
-// Removes all leading specified characters
+/**
+ * Removes all leading specified characters
+ *
+ * @param str   The sttring to erase leading characters from
+ * @param c     The character to remove from the string
+ * @return      The new string, after the leading specified characters have been removed
+*/
 string RemoveLeading(string str, char c){
     return str.erase(0, min(str.find_first_not_of(c), str.length()-1));
 }
 
-// Removes all trailing specified characters
+/**
+ * Removes all trailing specified characters
+ *
+ * @param str   The string to erase leading characters from
+ * @param c     The character to remove from the string
+ * @return      The new string, after the trailing specified characters have been removed
+*/
 string RemoveTrailing(string str, char c){
     return str.erase(str.find_last_not_of(c)+1, str.length());
 }
 
-// Returns a User object with the specified user's information
-// Return a user with fields (username="", privilege_type="", credit=0) if no user exists
+
+/**
+ * Returns a User object with the specified user's information
+ * Return a user with fields (username="", privilege_type="", credit=0) if no user exists
+ * 
+ * @param username  The username to get from the UserFile
+ * @return          A User, with parameters filled in from the UserFile
+*/
 User GetUser(string username)
 {
     User user = User();
@@ -78,8 +128,14 @@ User GetUser(string username)
     return user;
 }
 
-// Returns an Item object with the item information
-// Returns an empty object with fields (item_name="", sellers="")
+/**
+ * Returns an Item object with the item information
+ * Returns an empty object with fields (item_name="", sellers="")
+ * 
+ * @param item_name     The item name to get from the ItemFile
+ * @param seller        The seller of the item
+ * @return              An Item, with parameters filled in from the ItemFile
+*/
 Item GetItem(string item_name, string seller)
 {
     Item item = Item();
@@ -125,9 +181,15 @@ Item GetItem(string item_name, string seller)
     return item;
 }
 
-// Checks whether the given permission level (2 letter representation)
-// is enough for the command (integer representation).
-// Returns TRUE if you have the required permission, otherwise FALSE.
+/**
+ * Checks whether the given permission level (2 letter representation)
+ * is enough for the command (integer representation).
+ * Returns TRUE if you have the required permission, otherwise FALSE.
+ * 
+ * @param permission    Account Type (2 characters)
+ * @param command       The command to verify
+ * @return              Returns true if the command is allowed for the account type
+*/
 bool CheckPermission(string permission, string command)
 {
     map<string, int> privileges{{"AA", 4}, {"FS", 3}, {"BS", 2}, {"SS", 1}};
@@ -169,7 +231,12 @@ bool CheckPermission(string permission, string command)
     }
 }
 
-// Returns TRUE if this is a valid permission, otherwise returns FALSE.
+/**
+ * This function checks if the account type exists (AA,FS,BS,SS)
+ * 
+ * @param permission    Account Type (2 characters)
+ * @return              Returns TRUE if this is a valid permission, otherwise returns FALSE.
+*/
 bool ValidatePermission(string permission)
 {
     transform(permission.begin(), permission.end(), permission.begin(), ::toupper);
@@ -181,7 +248,12 @@ bool ValidatePermission(string permission)
     return true;
 }
 
-// Returns TRUE if the username exists, otherwise returns FALSE.
+/**
+ * This function checks if the Username exists in the UserFile
+ * 
+ * @param username      The username to check
+ * @return              Returns TRUE if the username exists, otherwise returns FALSE.
+*/
 bool UsernameExists(string username)
 {
     string line;
@@ -210,7 +282,12 @@ bool UsernameExists(string username)
     return false;
 }
 
-// Returns TRUE if the item name exists, otherwise returns FALSE.
+/**
+ * This function checks if the Item exists in the ItemFile
+ * 
+ * @param Item_name     The item to check
+ * @return              Returns TRUE if the item name exists, otherwise returns FALSE.
+*/
 bool ItemExists(string item_name)
 {
     string line;
@@ -227,6 +304,7 @@ bool ItemExists(string item_name)
             else
             {
                 line = RemoveTrailing(line.substr(0, 25), ' ');
+                item_name = RemoveTrailing(line.substr(0, 25), ' ');
                 if (item_name == line)
                 {
                     input.close();
@@ -239,12 +317,17 @@ bool ItemExists(string item_name)
     return false;
 }
 
-// Validates a username based on the requirements
-// Returns integer based on validation:
-// 0: Valid Username
-// 1: Username Too Long
-// 2: Username Too Short
-// 3: Username Already Exists
+
+/**
+ * Validates a username based on the requirements
+ * 
+ * @param username      The username to check
+ * @return              Integer based on validation:
+ *                          0: Valid Username
+ *                          1: Username Too Long
+ *                          2: Username Too Short
+ *                          3: Username Already Exists
+*/
 int ValidateUsername(string username)
 {
     if (username.length() > 15)
@@ -262,11 +345,15 @@ int ValidateUsername(string username)
     return 0;
 }
 
-// Validates an item name based on the requirements
-// Returns integer based on validation:
-// 0: Valid Item Name
-// 1: Item Name Too Long
-// 2: Item Name Too Short
+/**
+ * Validates an item name based on the requirements
+ * 
+ * @param item_name     The item to check
+ * @return              Integer based on validation:
+ *                          0: Valid Item Name
+ *                          1: Item Name Too Long
+ *                          2: Item Name Too Short
+*/
 int ValidateItemName(string item_name)
 {
     if (item_name.length() > 25)
@@ -283,12 +370,16 @@ int ValidateItemName(string item_name)
     return 0;
 }
 
-// Validates an item name based on the requirements
-// Returns integer based on validation:
-// 0: Valid Bid
-// 1: Bid Is Not Numeric
-// 2: Bid Is Negative
-// 3: Bid Is Over The Limit of $999.99
+/**
+ * Validates an item name based on the requirements
+ * 
+ * @param bid   The bid to check
+ * @return      Integer based on validation:
+ *                  0: Valid Bid
+ *                  1: Bid Is Not Numeric
+ *                  2: Bid Is Negative
+ *                  3: Bid Is Over The Limit of $999.99
+*/
 int ValidateBid(string bid)
 {
     try {
@@ -306,7 +397,12 @@ int ValidateBid(string bid)
     return 0;
 }
 
-// Returns TRUE or FALSE if a string is numeric
+/**
+ * This function checks if a given input can become a number
+ * 
+ * @param input     The input to check
+ * @return          Returns TRUE or FALSE depending if a string is numeric
+*/
 bool isNumeric(string input)
 {
     for (int i = 0; i < input.length(); i++)
@@ -322,7 +418,8 @@ bool isNumeric(string input)
 // Processes commands and bad input
 using CommandFunction = void (*)();
 
-std::map<std::string, CommandFunction> commandMap = {
+// This map stores the functions to call, used in ProcessCommand below
+map<string, CommandFunction> commandMap = {
     {"login", Login},
     {"create", Create},
     {"logout", Logout},
@@ -335,19 +432,28 @@ std::map<std::string, CommandFunction> commandMap = {
     {"listusers", ListUsers}
 };
 
-void ProcessCommand(std::string command) {
+/**
+ * This function is called from the while loop within frontend.cpp
+ * The purpose of this function is run the function for a specified command
+ * If a user enters the command login, the login function will be called for example
+ * If a user tries to login while they are already logged in, they will be alerted, and the command will not go thorugh
+ * Similarly if a user tries to log out while they are not logged in, they will be alerted, and the command will not go through
+ * 
+ * @param command   The command to run
+*/
+void ProcessCommand(string command) {
     transform(command.begin(), command.end(), command.begin(), ::tolower);
 
     auto it = commandMap.find(command);
     if (it == commandMap.end()) {
-        std::cout << "Invalid Command!" << std::endl;
+        cout << "Invalid Command!" << std::endl;
     } else {
         bool loggedIn = AppState::getInstance().isLoggedIn();
         if (!loggedIn && it->first != "login") {
-            std::cout << "Please login before using any other command!" << std::endl;
+            cout << "Please login before using any other command!" << std::endl;
         } 
         else if (loggedIn && it->first == "login") {
-            std::cout << "Transaction Failed! Please logout before trying to login again!" << std::endl;
+            cout << "Transaction Failed! Please logout before trying to login again!" << std::endl;
         } 
         else {
             it->second();

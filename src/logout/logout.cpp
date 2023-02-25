@@ -1,5 +1,10 @@
 #include "logout.h"
 
+/**
+ * Function to handle appState updates for the logout command
+ * NOTE: Only usable when logged in
+ */
+
 void Logout()
 {
     ofstream file;
@@ -21,7 +26,7 @@ void Logout()
     {
         transaction_code += ' ';
     }
-
+    transaction_code += AppState::getInstance().getCurrentUser().privilege_type + " ";
     transaction_code += to_string(AppState::getInstance().getCurrentUser().credit);
     transaction_code = transaction_code.substr(0, transaction_code.length() - 4);
     if (AppState::getInstance().getTransactionBuffer() != "")
@@ -32,5 +37,6 @@ void Logout()
     file.close();
 
     AppState::getInstance().resetCurrentUser();
+    AppState::getInstance().resetAddedCredit();
     cout << "Session terminated, transaction saved" << endl;
 }

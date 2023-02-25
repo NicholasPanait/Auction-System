@@ -1,6 +1,11 @@
 #include "listbids.h"
 
-// TODO: implement listBids function so that it displays all items and the information assosiated with them
+/**
+ * Function to handle parameters and transaction code generation
+ * for the listbids command which will list all the current running
+ * auctions and their bids
+ */
+
 void ListBids()
 {
     string output = "Item Name\t    Seller\t    Days Left\tMin Bid \tHighest Bid";

@@ -21,8 +21,9 @@ public:
     string getItemFile() const;          // make this method const
     string getOutputDirectory() const;   // make this method const
     float getAddedCredit() const;
-    void setCurrentUser(User user);
     void resetCurrentUser();
+    void resetAddedCredit();
+    void setCurrentUser(User user);
     void appendTransactionBuffer(string transaction);
     void setUserFile(string file);
     void setItemFile(string file);

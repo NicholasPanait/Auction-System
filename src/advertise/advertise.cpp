@@ -1,6 +1,11 @@
 #include "advertise.h"
 
-// TODO: implement advertise command so that users can advertise items
+/**
+ * This function handles parameters and transaction code generation for
+ * the advertise command responsible for creating new auctions
+ */
+// NOTE: Buy Standard accounts can not use this command
+
 void Advertise()
 {
     bool is_privilleged = AppState::getInstance().getCurrentUser().privilege_type == "AA";
@@ -11,7 +16,8 @@ void Advertise()
         string duration_input;
         int duration;
         cout << "Please enter your item name:" << endl;
-        cin >> item_name; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, item_name);
 
         switch (ValidateItemName(item_name))
         {
@@ -43,7 +49,8 @@ void Advertise()
         min_bid_input = stream.str();
 
         cout << "Please enter your item's auction duration in days:" << endl;
-        cin >> duration_input; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, duration_input);
 
         try
         {

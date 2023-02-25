@@ -5,9 +5,13 @@
 #include <fstream>
 using namespace std;
 
-// TODO: create, delete, refund
+// NOTE: We recomend using the Better Comments extension from the VSCode Marketplace
 
-// Tests if a file exists in the project directory
+/**
+ * Tests if a file exists in the project directory
+ * @param argv  The inputs from the user, contains locations for files and directories
+ * @return      Reurns true if the files and directories are valid
+*/
 bool filesExist(char *argv[])
 {
     try
@@ -31,16 +35,17 @@ bool filesExist(char *argv[])
     return true;
 }
 
-/*** RETURN CODES
- * 0: Program ran with no errors
- * 1: Too many command line arguments
- * 2: Files do not exist
- ***/
+/**
+ * @param argc  num arguments
+ * @param argv  vector of parameters
+ * @return      Returns numbers based on different errors:
+ *                  0: Program ran with no errors
+ *                  1: Too many command line arguments
+ *                  2: Files do not exist
+ */
 
-// argc: num arguments
-// argv: vector of parameters
-// ORDER OF PARAMETERS: USERFILE ITEMFILE OUTPUTDIRECTORY
-// Example: ./frontend.out ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
+//  * ORDER OF PARAMETERS: USERFILE ITEMFILE OUTPUTDIRECTORY
+//  * Example: ./frontend.out ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
 int main(int argc, char *argv[])
 {
     if (argc != 4)

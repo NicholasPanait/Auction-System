@@ -1,13 +1,20 @@
 #include "delete.h"
 
-// TODO:implement the delete function so that it can delete user data when ran by an admin
+/**
+ * Function to handle parameters and transaction code generation
+ * for the delete command which is responsible for deleting users
+ * in the system
+ * NOTE: Only usable by Admins
+ */
+
 void Delete()
 {
     if (CheckPermission(AppState::getInstance().getCurrentUser().privilege_type, "delete"))
     {
         string username;
         cout << "Please enter the user to delete:" << endl;
-        cin >> username; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, username);
 
         switch (ValidateUsername(username))
         {

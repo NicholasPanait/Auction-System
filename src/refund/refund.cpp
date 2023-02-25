@@ -1,14 +1,22 @@
 #include "refund.h"
 
-//TODO: implement refund so it takes money from one account and transfers it to another
-void Refund(){
+/**
+ * Function to handle parameters and transaction code generation
+ * for the refund command responsible for refunds between buyers
+ * and sellers
+ * NOTE: Only usable by Admins
+ */
+
+void Refund()
+{
     if (CheckPermission(AppState::getInstance().getCurrentUser().privilege_type, "refund"))
     {
         string buyer;
         string seller;
         string refund_amount;
         cout << "Please enter the buyer's username:" << endl;
-        cin >> buyer; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, buyer);
 
         switch (ValidateUsername(buyer))
         {
@@ -24,7 +32,7 @@ void Refund(){
         }
 
         cout << "Please enter the seller's username:" << endl;
-        cin >> seller; // TODO change so that it reads the entire line
+        getline(cin, seller);
 
         switch (ValidateUsername(seller))
         {
@@ -40,34 +48,40 @@ void Refund(){
         }
 
         cout << "Please enter the refund amount:" << endl;
-        cin >> refund_amount; // TODO change so that it reads the entire line
-        
+        cin >> refund_amount;
+
         float refund;
-        try{
+        try
+        {
             refund = stof(refund_amount);
-            if (refund <= 0){
+            if (refund <= 0)
+            {
                 cout << "Transaction Failed! Refund amount must be more than 0 credits!" << endl;
                 return;
             }
-            if (GetUser(seller).credit < refund){
+            if (GetUser(seller).credit < refund)
+            {
                 cout << GetUser(seller).username << " does not have enough credit to refund" << endl;
                 return;
             }
-            else if ((GetUser(buyer).credit + refund) > 999999.00){
+            else if ((GetUser(buyer).credit + refund) > 999999.00)
+            {
                 cout << "Refund cancelled, this refund would put " << GetUser(buyer).username << " over the credit limit" << endl;
                 return;
             }
-        } catch(exception e){
+        }
+        catch (exception e)
+        {
             cout << "Please enter a numeric amount" << endl;
             return;
         }
 
         stringstream stream;
-        stream << fixed << setprecision(2) << stof(refund);
+        stream << fixed << setprecision(2) << refund;
         refund_amount = stream.str();
 
         // TODO Still need to implement the code to refund
-        
+
         string transaction_code = "05 ";
 
         transaction_code += buyer;
@@ -85,11 +99,10 @@ void Refund(){
             transaction_code += '0';
         }
         transaction_code += refund_amount + "\n";
-        
 
         AppState::getInstance().appendTransactionBuffer(transaction_code);
         /*
-        REFUND Transaction Format: 
+        REFUND Transaction Format:
 
         XX_UUUUUUUUUUUUUUU_SSSSSSSSSSSSSSS_CCCCCCCCC
         XX - The 2 Digit Transaction Code 05 that represents refund
@@ -98,8 +111,8 @@ void Refund(){
         CCCCCCCCC - The Refund Credit
         */
 
-        cout << "Refund will be issued from " << buyer << " to " << seller 
-        << " for $" << refund_amount << " upon logout" << endl;
+        cout << "Refund will be issued from " << buyer << " to " << seller
+             << " for $" << refund_amount << " upon logout" << endl;
     }
     else
     {

@@ -1,6 +1,11 @@
 #include "bid.h"
 
-// TODO: implement the bid function so that it can be used to bid on an item
+/**
+ * Function to handle parameters and transaction code generation
+ * for the bid command which will create bids on auction items
+ * NOTE: Admin accounts can bid under the 5% mandatory increase per bid
+ */
+
 void Bid()
 {
     bool is_privilleged = AppState::getInstance().getCurrentUser().privilege_type == "AA";
@@ -9,7 +14,8 @@ void Bid()
         string item_name;
         string seller;
         cout << "Please enter the item's name:" << endl;
-        cin >> item_name; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, item_name);
 
         switch (ValidateItemName(item_name))
         {
@@ -22,7 +28,7 @@ void Bid()
         }
 
         cout << "Please enter the seller's name:" << endl;
-        cin >> seller;  // TODO change so that it reads the entire line
+        getline(cin, seller);
         
         switch (ValidateUsername(seller))
         {
@@ -38,7 +44,7 @@ void Bid()
         }
 
         Item item = GetItem(item_name, seller);
-        if (to_string(item.minimum_bid).empty())
+        if (item.item_name.empty() && item.seller.empty())
         {
             cout << "Transaction Failed! Item does not exist!" << endl;
             return;
@@ -50,8 +56,8 @@ void Bid()
         cout << setprecision(2)
         <<  "The current highest bid is $" << item.highest_bid 
         << " and the minimum bid is $" << item.minimum_bid
-        << ", please enter your desired bid amount: (must be at least $" 
-        << required_bid << ")" << endl;
+        << ", please enter your desired bid amount (must be at least $" 
+        << required_bid << "):" << endl;
 
         string desired_bid;
         cin >> desired_bid;

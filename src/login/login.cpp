@@ -1,12 +1,17 @@
 #include "login.h"
 
-// TODO: finish login command
+/**
+ * Function to handle parameters and appState updates for the login command
+ * NOTE: Only usable when not logged in
+ */
+
 void Login()
 {
 	string username;
 
 	cout << "Please enter a username:" << endl;
-	cin >> username;
+    cin.ignore();
+    getline(cin, username);
 
 	User user = GetUser(username);
 

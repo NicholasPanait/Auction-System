@@ -1,6 +1,12 @@
 #include "create.h"
 
-// TODO:implement the create command so that it can create user accounts
+/**
+ * Function to handle parameters and transaction code generation
+ * for the create command which is responsible for creating new
+ * users in the system
+ * NOTE: Only usable by Admins
+ */
+
 void Create()
 {
     if (CheckPermission(AppState::getInstance().getCurrentUser().privilege_type, "create"))
@@ -8,7 +14,8 @@ void Create()
         string username;
         string permission;
         cout << "Please enter new user’s username:" << endl;
-        cin >> username; // TODO change so that it reads the entire line
+        cin.ignore();
+        getline(cin, username);
 
         switch (ValidateUsername(username))
         {
@@ -24,7 +31,7 @@ void Create()
         }
 
         cout << "Please enter the account type:" << endl;
-        cin >> permission; // TODO change so that it reads the entire line
+        getline(cin, permission);
 
         if (!ValidatePermission(permission))
         {
