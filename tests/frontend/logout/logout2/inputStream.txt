@@ -1,0 +1,10 @@
+login
+MasterAdmin
+logout
+delete
+Advertise
+Bid
+Refund
+Addcredit
+Listall
+logout

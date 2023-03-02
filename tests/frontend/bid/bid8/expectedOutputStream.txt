@@ -1,0 +1,22 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin your current balance is $999999.00
+Please enter a command:
+Please enter the item's name:
+Please Enter the seller's username:
+The current highest bid is $921.30 and your minimum bid is $921.31, please enter your desired bid amount:
+Please enter a positive bid!
+Please enter a command:
+Please enter the item's name:
+Please Enter the seller's username:
+The current highest bid is $921.30 and your minimum bid is $921.31, please enter your desired bid amount:
+Please enter a bid larger than the minimum bid!
+Please enter a command:
+Please enter the item's name:
+Please Enter the seller's username:
+The current highest bid is $921.30 and your minimum bid is $921.31, please enter your desired bid amount:
+You can not bid over $999.99!
+Please enter a command:
+Session terminated, transactions saved
+Please enter a command:

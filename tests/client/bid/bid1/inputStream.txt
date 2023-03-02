@@ -1,4 +1,0 @@
-login
-NoBuyOlivia
-bid
-logout

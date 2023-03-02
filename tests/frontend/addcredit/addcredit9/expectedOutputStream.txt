@@ -1,0 +1,14 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome NoBuyOlivia, your current balance is $289759.80
+Please enter a command:
+Please select an ammount of credits to add (max of $1000):
+Credits successfully added! Your current balance is $289859.80
+Please enter a command:
+Session terminated, transaction saved
+Please enter a command:
+Please enter a username:
+Welcome NoBuyOlivia, your current balance is $289859.80
+Session terminated, transaction saved
+Please enter a command:

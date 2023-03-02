@@ -1,9 +1,0 @@
-login
-MasterAdmin
-advertise
-ItemD
--1
-advertise
-ItemD
-1000
-logout

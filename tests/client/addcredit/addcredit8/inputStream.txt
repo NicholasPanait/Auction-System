@@ -1,8 +1,0 @@
-login
-NewBuyerSteve
-addcredit
-100
-logout
-login
-NewBuyerSteve
-logout

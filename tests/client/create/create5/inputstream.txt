@@ -1,5 +1,0 @@
-login
-MasterAdmin
-create
-HiMyNameIsLongerThan15Characters
-logout

@@ -1,2 +1,0 @@
-03 ItemC               MasterAdmin     001 000000
-00 MasterAdmin     AA 999999.00

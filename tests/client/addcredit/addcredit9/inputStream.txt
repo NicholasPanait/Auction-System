@@ -1,8 +1,0 @@
-login
-NoBuyOlivia
-addcredit
-100
-logout
-login
-NoBuyOlivia
-logout

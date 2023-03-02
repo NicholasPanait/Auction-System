@@ -1,0 +1,12 @@
+login
+MasterAdmin
+logout
+login
+SuperMod
+addcredit
+1000
+MasterAdmin
+logout
+login
+MasterAdmin
+logout

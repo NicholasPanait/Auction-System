@@ -1,0 +1,12 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Welcome MasterAdmin your current balance is $999999.00
+Please enter a command:
+Please enter the item's name:
+Please enter the seller's username:
+The current highest bid is $4.0 and your minimum bid is $4.01, please enter your desired bid amount:
+Bid placed on Washers (5pcs) sold by WarehouserJane for $4.01
+Please enter a command:
+Session terminated, transactions saved
+Please enter a command:

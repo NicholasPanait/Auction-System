@@ -1,0 +1,7 @@
+login
+MasterAdmin
+advertise
+ItemC
+0
+1
+logout

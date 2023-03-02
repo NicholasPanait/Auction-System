@@ -1,0 +1,11 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Welcome MasterAdmin your current balance is $999999.00
+Please enter a command:
+Please enter your item name:
+Please enter your item's minimum bid in dollars:
+Please enter your item's auction duration in days:
+Your auction of ItemC will be put up for auction at the end of the day with a minimum bid of $0 for 1 day(s)
+Please enter a command:
+Session terminated, transaction saved
+Please enter a command:
