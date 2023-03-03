@@ -6,3 +6,4 @@ NotRealUser
 refund
 NotRealUser
 logout
+exit

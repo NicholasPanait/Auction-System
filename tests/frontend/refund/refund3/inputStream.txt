@@ -2,3 +2,4 @@ login
 NewBuyerSteve
 refund
 logout
+exit
