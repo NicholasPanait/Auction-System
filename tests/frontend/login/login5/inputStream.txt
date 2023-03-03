@@ -1,3 +1,4 @@
 login
 NoBuyOlivia
 logout
+exit

@@ -5,3 +5,4 @@ CheapKent
 SuperMod
 -999
 logout
+exit
