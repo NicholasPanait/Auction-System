@@ -3,3 +3,4 @@ MasterAdmin
 create
 LongTimeJoe
 logout
+exit

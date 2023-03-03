@@ -4,3 +4,4 @@ create
 NewbieTim
 BS
 logout
+exit

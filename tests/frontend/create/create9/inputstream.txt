@@ -4,3 +4,4 @@ create
 NewbieTim
 FS
 logout
+exit

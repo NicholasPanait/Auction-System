@@ -3,3 +3,4 @@ MasterAdmin
 create
 
 logout
+exit

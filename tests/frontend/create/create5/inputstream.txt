@@ -3,3 +3,4 @@ MasterAdmin
 create
 HiMyNameIsLongerThan15Characters
 logout
+exit
