@@ -1,12 +1,7 @@
 login
-CheapKent
-logout
-login
 MasterAdmin
 addcredit
 100
 CheapKent
 logout
-login
-CheapKent
-logout
+exit

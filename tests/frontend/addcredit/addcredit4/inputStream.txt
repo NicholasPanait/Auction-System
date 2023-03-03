@@ -1,12 +1,7 @@
 login
-NoBuyOlivia
-logout
-login
 MasterAdmin
 addcredit
 100
 NoBuyOlivia
 logout
-login
-NoBuyOlivia
-logout
+exit
