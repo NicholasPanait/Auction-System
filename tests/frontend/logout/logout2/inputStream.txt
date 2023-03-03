@@ -8,3 +8,4 @@ Refund
 Addcredit
 Listall
 logout
+exit
