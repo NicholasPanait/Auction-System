@@ -33,8 +33,9 @@ class User{
     public:
         string username;
         string privilege_type;
+        int password;
         float credit;
-        User(string username, string privilege_type, float credit);
+        User(string username, string privilege_type, float credit, int password);
         User();
         friend ostream &operator<<(ostream &strm, const User &user);
 };

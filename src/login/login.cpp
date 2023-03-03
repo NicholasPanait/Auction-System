@@ -8,6 +8,8 @@
 void Login()
 {
 	string username;
+	string password;
+	int pass_total = 0;
 
 	cout << "Please enter a username:" << endl;
     cin.ignore();
@@ -18,6 +20,18 @@ void Login()
 	if (user.username.empty())
 	{
 		cout << "Transaction Failed! User does not exist!" << endl;
+		return;
+	}
+
+	cout << "Please enter the password:" << endl;
+    getline(cin, password);
+	for (int i = 0; i < password.length();i++){
+		pass_total += int(password[i]);
+	}
+	if (pass_total != user.password){
+		user = User();
+		
+		cout << "Transaction Failed! Incorrect Password!" << endl;
 		return;
 	}
 

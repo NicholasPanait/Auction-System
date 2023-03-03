@@ -10,11 +10,12 @@
  * @param privilege_type    The privilege type of the user
  * @param credit            The available credit of the user
  */
-User::User(string username, string privilege_type, float credit)
+User::User(string username, string privilege_type, float credit, int password)
 {
     this->username = username;
     this->privilege_type = privilege_type;
     this->credit = credit;
+    this->password = password;
 }
 
 /**
@@ -26,6 +27,7 @@ User::User()
     this->username = "";
     this->privilege_type = "";
     this->credit = 0;
+    this->password = -1;
 }
 
 /**
@@ -119,6 +121,11 @@ User GetUser(string username)
                 user.username = RemoveTrailing(line.substr(0, 15), ' ');
                 user.privilege_type = line.substr(16, 2);
                 user.credit = stof(line.substr(19, 9));
+                user.password = 0;
+                string pass = RemoveTrailing(line.substr(29, 10), ' ');
+                for (int i = 0; i < pass.length(); i++) {
+                    user.password = user.password * 10 + (pass[i] - '0');
+                }
                 input.close();
                 return user;
             }

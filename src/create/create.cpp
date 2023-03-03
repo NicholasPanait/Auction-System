@@ -13,6 +13,9 @@ void Create()
     {
         string username;
         string permission;
+        string password;
+        int password_encrypted;
+
         cout << "Please enter new user’s username:" << endl;
         cin.ignore();
         getline(cin, username);
@@ -39,6 +42,13 @@ void Create()
             return;
         }
 
+        cout << "Please enter the password for the account that is less than 15 characters long" << endl;
+        getline(cin, password);
+
+        for (int i = 0; i < password.size(); i++){
+            password_encrypted += int(password[i]);
+        }
+
         // TODO Still need to implement the code to create the account
 
         string transaction_code = "01 ";
@@ -49,17 +59,21 @@ void Create()
             transaction_code += ' ';
         }
         transaction_code += permission + " ";
-        transaction_code += "000000.00\n";
+        transaction_code += "000000.00_";
+
+        transaction_code +=  to_string(password_encrypted);
+        transaction_code += "\n";
 
         AppState::getInstance().appendTransactionBuffer(transaction_code);
         /*
         CREATE Transaction Format: 
 
-        XX_UUUUUUUUUUUUUUU_TT_CCCCCCCCC
+        XX_UUUUUUUUUUUUUUU_TT_CCCCCCCCC_PPPPPPPPPP
         XX - The 2 Digit Transaction Code
         UUUUUUUUUUUUUUU - The Maximum 15 Character Username
         TT - The 2 Digit Account Type Code of the User
         CCCCCCCCC - The Available Credit of the Account
+        PPPPPPPPPP - the password for the account
         _ - Represents a Space
 
         */
