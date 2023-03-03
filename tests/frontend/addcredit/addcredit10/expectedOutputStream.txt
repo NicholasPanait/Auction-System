@@ -8,7 +8,3 @@ Credits successfully added! Your current balance is $138747.82
 Please enter a command:
 Session terminated, transaction saved
 Please enter a command:
-Please enter a username:
-Welcome WarehouserJane, your current balance is $138747.82
-Session terminated, transaction saved
-Please enter a command:

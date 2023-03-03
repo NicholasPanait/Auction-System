@@ -8,7 +8,3 @@ Credits successfully added! Your current balance is $289859.80
 Please enter a command:
 Session terminated, transaction saved
 Please enter a command:
-Please enter a username:
-Welcome NoBuyOlivia, your current balance is $289859.80
-Session terminated, transaction saved
-Please enter a command:

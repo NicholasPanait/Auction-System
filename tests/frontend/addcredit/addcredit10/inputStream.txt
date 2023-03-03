@@ -3,6 +3,4 @@ WarehouserJane
 addcredit
 100
 logout
-login
-WarehouserJane
-logout
+exit
