@@ -13,3 +13,4 @@ BulkNails (5000pcs)
 WarehouserJane
 1000
 logout
+exit

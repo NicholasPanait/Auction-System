@@ -2,3 +2,4 @@ login
 NoBuyOlivia
 bid
 logout
+exit

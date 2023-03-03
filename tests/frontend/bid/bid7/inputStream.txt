@@ -5,3 +5,4 @@ BulkNails (5000pcs)
 WarehouserJane
 A
 logout
+exit

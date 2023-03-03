@@ -3,3 +3,4 @@ MasterAdmin
 bid
 NonExistentItem
 logout
+exit
