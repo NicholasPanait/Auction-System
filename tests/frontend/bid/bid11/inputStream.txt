@@ -4,3 +4,4 @@ bid
 This Website
 MasterAdmin
 logout
+exit

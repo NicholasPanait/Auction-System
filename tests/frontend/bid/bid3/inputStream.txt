@@ -5,3 +5,4 @@ RussianSuperYaught
 NoBuyOlivia
 34.1
 logout
+exit
