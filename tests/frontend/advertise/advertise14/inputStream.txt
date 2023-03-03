@@ -5,3 +5,4 @@ ItemD
 10
 0
 logout
+exit

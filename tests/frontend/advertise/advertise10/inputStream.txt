@@ -4,3 +4,4 @@ advertise
 ItemD
 -1
 logout
+exit

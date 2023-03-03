@@ -2,3 +2,4 @@ login
 CheapKent
 advertise
 logout
+exit

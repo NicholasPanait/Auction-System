@@ -5,3 +5,4 @@ ItemA
 0
 1
 logout
+exit

@@ -3,3 +3,4 @@ MasterAdmin
 advertise
 
 logout
+exit
