@@ -1,5 +1,5 @@
 MasterAdmin     AA 999999.00 361       
-SuperMod        AA 124234.00 526       
+SuperMod        AA 124234.00 528       
 LongTimeJoe     FS 245289.70 150       
 WarehouserJane  FS 138647.82 630       
 CheapKent       BS 000438.00 1456      
