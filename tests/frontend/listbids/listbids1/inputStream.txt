@@ -2,3 +2,4 @@ login
 MasterAdmin
 listbids
 logout
+exit
