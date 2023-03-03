@@ -1,12 +1,7 @@
 login
-SuperMod
-logout
-login
 MasterAdmin
 addcredit
 1000
 SuperMod
 logout
-login
-SuperMod
-logout
+exit
