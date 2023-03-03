@@ -10,10 +10,10 @@ void Logout()
     ofstream file;
     string file_name = AppState::getInstance().getOutputDirectory() + "/ ";
 
-    const auto p1 = chrono::system_clock::now();
-    int epoch_time = chrono::duration_cast<chrono::seconds>(p1.time_since_epoch()).count() - 1677191500;
+    //const auto p1 = chrono::system_clock::now();
+    //int epoch_time = chrono::duration_cast<chrono::seconds>(p1.time_since_epoch()).count() - 1677191500;
 
-    file_name.append(to_string(epoch_time));
+    //file_name.append(to_string(epoch_time));
 
     file_name.append(AppState::getInstance().getCurrentUser().username + ".txt");
 
