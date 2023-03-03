@@ -3,3 +3,4 @@ MasterAdmin
 delete
 MasterAdmin
 logout
+exit

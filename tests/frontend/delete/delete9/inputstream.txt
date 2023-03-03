@@ -6,3 +6,4 @@ create
 CheapKent
 FS
 logout
+exit

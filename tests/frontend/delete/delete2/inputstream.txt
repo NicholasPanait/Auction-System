@@ -2,3 +2,4 @@ login
 LongTimeJoe
 delete
 logout
+exit

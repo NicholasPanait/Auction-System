@@ -3,3 +3,4 @@ MasterAdmin
 delete
 DoesNotExist
 logout
+exit
