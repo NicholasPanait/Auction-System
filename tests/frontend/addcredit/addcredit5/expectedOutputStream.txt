@@ -1,19 +1,10 @@
 Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
-Welcome LongTimeJoe, your current balance is $245289.70
-Please enter a command:
-Session terminated, transaction saved
-Please enter a command:
-Please enter a username:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Please select an ammount of credits to add (max of $1000):
 Please select a user to add credits to:
 Please enter a command:
-Session terminated, transaction saved
-Please enter a command:
-Please enter a username:
-Welcome LongTimeJoe, your current balance is $245389.70
 Session terminated, transaction saved
 Please enter a command:
