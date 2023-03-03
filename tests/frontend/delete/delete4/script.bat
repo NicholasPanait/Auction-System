@@ -6,14 +6,14 @@ frontend.exe ./localTestUsers.txt ./localTestItems.txt ./ < ./inputStream.txt > 
 
 fc output.txt expectedOutputStream.txt
 if errorlevel 1 goto different
+fc transactionFile.txt expectedTransactionFile.txt
+if errorlevel 1 goto different
 
-color 02
-echo TEST PASSED
+echo [92mTEST PASSED[0m
 PAUSE
 EXIT
 
 :different
-color 04
-echo TEST FAILED
+echo [91mTEST FAILED[0m
 PAUSE
 EXIT

@@ -1,5 +1,6 @@
 login
 SuperMod
+Super
 addcredit
 abcd
 logout

@@ -45,7 +45,18 @@ bool filesExist(char *argv[])
  */
 
 //  * ORDER OF PARAMETERS: USERFILE ITEMFILE OUTPUTDIRECTORY
-//  * Example: ./frontend.out ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
+//  * Example: ./frontend.exe ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
+/*
+? Account Info
+! MasterAdmin = ADMIN
+! SuperMod = Super
+! LongTimeJoe = 123
+! WarehouserJane = Houser
+! CheapKent = discounts4life
+! NoBuyOlivia = Sella
+! NewBuyerSteve = L33TSP33K
+! Test Space = S P A C E
+*/
 int main(int argc, char *argv[])
 {
     if (argc != 4)
