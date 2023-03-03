@@ -60,12 +60,12 @@ int main(int argc, char *argv[])
         AppState::getInstance().setOutputDirectory(argv[3]);
 
         cout << "Welcome to Hubble Auction House" << endl;
-        string command == "";
+        string command = "";
         while (command != "exit")
         {
             cout << "Please enter a command:" << endl;
             cin >> command;
-            ProcessCommand(command);
+            if (command != "exit") ProcessCommand(command);
         }
         return 0;
     }
