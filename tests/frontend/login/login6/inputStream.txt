@@ -5,3 +5,4 @@ Bid
 Refund
 Addcredit
 Listall
+exit
