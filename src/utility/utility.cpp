@@ -10,7 +10,7 @@
  * @param privilege_type    The privilege type of the user
  * @param credit            The available credit of the user
  */
-User::User(string username, string privilege_type, float credit, int password)
+User::User(string username, string privilege_type, double credit, int password)
 {
     this->username = username;
     this->privilege_type = privilege_type;
@@ -51,7 +51,7 @@ ostream &operator<<(ostream &strm, const User &user)
  * @param minimum_bid   The starting bid
  * @param highest_bid   The current highest bid
  */
-Item::Item(string item_name, string seller, int duration, float minimum_bid, float highest_bid)
+Item::Item(string item_name, string seller, int duration, double minimum_bid, double highest_bid)
 {
     this->item_name = item_name;
     this->seller = seller;
@@ -120,7 +120,9 @@ User GetUser(string username)
             {
                 user.username = RemoveTrailing(line.substr(0, 15), ' ');
                 user.privilege_type = line.substr(16, 2);
-                user.credit = stof(line.substr(19, 9));
+
+                user.credit = stod(line.substr(19, 9));
+
                 user.password = 0;
                 string pass = RemoveTrailing(line.substr(29, 10), ' ');
                 for (int i = 0; i < pass.length(); i++) {
@@ -163,16 +165,16 @@ Item GetItem(string item_name, string seller)
                 try {
                     item.duration = stoi(RemoveLeading(line.substr(58, 3), '0'));
                     if (RemoveLeading(line.substr(58, 6), '0')[0] == '.'){
-                        item.minimum_bid = stof("0" + RemoveLeading(line.substr(62, 6), '0'));
+                        item.minimum_bid = stod("0" + RemoveLeading(line.substr(62, 6), '0'));
                     }
                     else{
-                        item.minimum_bid = stof(RemoveLeading(line.substr(62, 6), '0'));
+                        item.minimum_bid = stod(RemoveLeading(line.substr(62, 6), '0'));
                     }
                     if (RemoveLeading(line.substr(69, 6), '0')[0] == '.'){
-                        item.highest_bid = stof("0" + RemoveLeading(line.substr(69, 6), '0'));
+                        item.highest_bid = stod("0" + RemoveLeading(line.substr(69, 6), '0'));
                     }
                     else{
-                        item.highest_bid = stof(RemoveLeading(line.substr(69, 6), '0'));
+                        item.highest_bid = stod(RemoveLeading(line.substr(69, 6), '0'));
                     }
                 } catch(const exception &e){
                     cerr << e.what() << endl;
@@ -390,11 +392,11 @@ int ValidateItemName(string item_name)
 int ValidateBid(string bid)
 {
     try {
-        if (stof(bid) < 0)
+        if (stod(bid) < 0)
         {
             return 2;
         }
-        else if (stof(bid) > 999.99)
+        else if (stod(bid) > 999.99)
         {
             return 3;
         }

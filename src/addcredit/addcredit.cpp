@@ -51,16 +51,24 @@ void AddCredit()
         return;
     }
 
-    if (stof(amount) + GetUser(username).credit > 999999.99){
-        cout << "Transaction Failed! User cannot exceed 999999.99 credits" << endl;
+    if (is_privilleged){
+        if (stod(amount) + GetUser(username).credit > 999999.99){
+            cout << "Transaction Failed! User cannot exceed $999999.99" << endl;
+            return;
+        }
+    }
+    else{
+        if (stod(amount) + AppState::getInstance().getCurrentUser().credit > 999999.99){
+            cout << "Transaction Failed! User cannot exceed $999999.99" << endl;
+            return;
+        }
+    }
+    double addedCredit = AppState::getInstance().getAddedCredit();
+    if (stod(amount) + addedCredit > 1000){
+        cout << "Transaction Failed! You may not add more than $1000 in a session!" << endl;
         return;
     }
-    float addedCredit = AppState::getInstance().getAddedCredit();
-    if (stof(amount) + addedCredit > 1000){
-        cout << "Transaction Failed! You may not add more than 1000 credits in a session!" << endl;
-        return;
-    }
-    AppState::getInstance().addCredit(stof(amount));
+    AppState::getInstance().addCredit(stod(amount));
 
     string transaction_code = "06 ";
 
@@ -69,10 +77,20 @@ void AddCredit()
     {
         transaction_code += ' ';
     }
-    transaction_code += AppState::getInstance().getCurrentUser().privilege_type + ' ';
+    if (is_privilleged){
+        transaction_code += GetUser(username).privilege_type + ' ';
+    }
+    else{
+        transaction_code += AppState::getInstance().getCurrentUser().privilege_type + ' ';
+    }
 
     stringstream stream;
-    stream << fixed << setprecision(2) << GetUser(username).credit + stof(amount);
+    if (is_privilleged){
+        stream << fixed << setprecision(2) << GetUser(username).credit + stod(amount);
+    }
+    else{
+        stream << fixed << setprecision(2) << AppState::getInstance().getCurrentUser().credit + stod(amount);
+    }
     string new_amount = stream.str();
 
     for (int i = 0; i < (9 - new_amount.length()); i++)

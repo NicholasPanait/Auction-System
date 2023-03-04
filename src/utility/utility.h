@@ -22,6 +22,7 @@ are used by files for at least 2 commands
 #include <iomanip>
 #include <algorithm>
 #include <map>
+#include <cmath>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -34,8 +35,8 @@ class User{
         string username;
         string privilege_type;
         int password;
-        float credit;
-        User(string username, string privilege_type, float credit, int password);
+        double credit;
+        User(string username, string privilege_type, double credit, int password);
         User();
         friend ostream &operator<<(ostream &strm, const User &user);
 };
@@ -44,10 +45,10 @@ class Item {
     public:
         string item_name;
         string seller;
-        float highest_bid;
+        double highest_bid;
         int duration;
-        float minimum_bid;
-        Item(string item_name, string seller, int duration, float minimum_bid, float highest_bid);
+        double minimum_bid;
+        Item(string item_name, string seller, int duration, double minimum_bid, double highest_bid);
         Item();
 };
 

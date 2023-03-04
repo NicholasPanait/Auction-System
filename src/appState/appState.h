@@ -20,7 +20,7 @@ public:
     string getUserFile() const;          // make this method const
     string getItemFile() const;          // make this method const
     string getOutputDirectory() const;   // make this method const
-    float getAddedCredit() const;
+    double getAddedCredit() const;
     void resetCurrentUser();
     void resetAddedCredit();
     void setCurrentUser(User user);
@@ -28,7 +28,7 @@ public:
     void setUserFile(string file);
     void setItemFile(string file);
     void setOutputDirectory(string directory);
-    void addCredit(float credit);
+    void addCredit(double credit);
 
 private:
     AppState(); // make the constructor private
@@ -38,7 +38,7 @@ private:
     string itemFile;
     string userFile;
     string outputDirectory;
-    float addedCredit;
+    double addedCredit;
 };
 
 #endif

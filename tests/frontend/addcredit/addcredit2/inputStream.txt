@@ -1,5 +1,6 @@
 login
 MasterAdmin
+ADMIN
 addcredit
 1000
 SuperMod

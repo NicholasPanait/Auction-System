@@ -84,7 +84,7 @@ string AppState::getOutputDirectory() const
 /**
  * @return The session's current Added Credit (for addcredit's limit of $1000)
  */
-float AppState::getAddedCredit() const
+double AppState::getAddedCredit() const
 {
     return this->addedCredit;
 }
@@ -164,7 +164,7 @@ void AppState::setOutputDirectory(string directory)
  *
  * @param credit The credit to be added to the session's Added Credit
  */
-void AppState::addCredit(float credit)
+void AppState::addCredit(double credit)
 {
     this->addedCredit += credit;
 }

@@ -50,10 +50,10 @@ void Refund()
         cout << "Please enter the refund amount:" << endl;
         cin >> refund_amount;
 
-        float refund;
+        double refund;
         try
         {
-            refund = stof(refund_amount);
+            refund = stod(refund_amount);
             if (refund <= 0)
             {
                 cout << "Transaction Failed! Refund amount must be more than 0 credits!" << endl;

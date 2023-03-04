@@ -45,7 +45,8 @@ bool filesExist(char *argv[])
  */
 
 //  * ORDER OF PARAMETERS: USERFILE ITEMFILE OUTPUTDIRECTORY
-//  * Example: ./frontend.exe ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
+//  * Linux Example: ./frontend.exe ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
+//  * Windows Example: frontend.exe ../res/UserFile.txt ../res/ItemFile.txt ../res/logs
 /*
 ? Account Info
 ! MasterAdmin = ADMIN

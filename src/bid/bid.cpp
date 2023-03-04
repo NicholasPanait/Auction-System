@@ -50,7 +50,7 @@ void Bid()
             return;
         }
 
-        float required_bid = item.minimum_bid;
+        double required_bid = item.minimum_bid;
         if (item.highest_bid == 0 && !is_privilleged) required_bid = item.highest_bid * 1.05;
 
         cout << setprecision(2)
@@ -63,7 +63,7 @@ void Bid()
         cin >> desired_bid;
 
         try{
-            if (stof(desired_bid) >= required_bid){
+            if (stod(desired_bid) >= required_bid){
                 // Still need to implement the code to place the bid
 
                 string transaction_code = "04 ";

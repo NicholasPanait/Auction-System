@@ -45,7 +45,7 @@ void Advertise()
             return;
         }
         stringstream stream;
-        stream << fixed << setprecision(2) << stof(min_bid_input);
+        stream << fixed << setprecision(2) << stod(min_bid_input);
         min_bid_input = stream.str();
 
         cout << "Please enter your item's auction duration in days:" << endl;
