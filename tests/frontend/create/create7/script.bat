@@ -9,11 +9,11 @@ if errorlevel 1 goto different
 fc transactionFile.txt expectedTransactionFile.txt
 if errorlevel 1 goto different
 
-echo [92mTEST PASSED[0m
+echo %cd% [92mTEST PASSED[0m
 PAUSE
 EXIT
 
 :different
-echo [91mTEST FAILED[0m
+echo %cd% [91mTEST FAILED[0m
 PAUSE
 EXIT

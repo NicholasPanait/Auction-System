@@ -1,5 +1,6 @@
 login
 NewBuyerSteve
+L33TSP33K
 addcredit
 100
 logout

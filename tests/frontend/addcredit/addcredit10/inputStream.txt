@@ -1,5 +1,6 @@
 login
 WarehouserJane
+Houser
 addcredit
 100
 logout

@@ -1,11 +1,12 @@
 Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
+Please enter the password:
 Welcome SuperMod, your current balance is $124234.00
 Please enter a command:
 Please select an amount of credits to add (max of $1000):
 Please select a user to add credits to:
-Transaction Failed! User cannot exceed 999999.99 credits
+Transaction Failed! User cannot exceed $999999.99
 Please enter a command:
 Session terminated, transaction saved
 Please enter a command:

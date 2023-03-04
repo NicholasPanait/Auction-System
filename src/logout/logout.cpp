@@ -27,8 +27,18 @@ void Logout()
         transaction_code += ' ';
     }
     transaction_code += AppState::getInstance().getCurrentUser().privilege_type + " ";
-    transaction_code += to_string(AppState::getInstance().getCurrentUser().credit);
-    transaction_code = transaction_code.substr(0, transaction_code.length() - 4);
+
+    stringstream stream;
+    stream << fixed << setprecision(2) << AppState::getInstance().getCurrentUser().credit;
+    string credit = stream.str();
+
+    for (int i = 0; i < (9 - credit.length()); i++)
+    {
+        transaction_code += '0';
+    }
+    transaction_code += credit;
+
+    // transaction_code = transaction_code.substr(0, transaction_code.length() - 4);
     if (AppState::getInstance().getTransactionBuffer() != "")
     {
         file << setprecision(2) << AppState::getInstance().getTransactionBuffer().substr(0, AppState::getInstance().getTransactionBuffer().length() - 1) << endl;
