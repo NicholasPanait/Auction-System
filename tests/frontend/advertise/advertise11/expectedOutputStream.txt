@@ -9,5 +9,5 @@ Please enter your item's minimum bid in dollars:
 Please enter your item's auction duration in days:
 Please enter an integer value
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

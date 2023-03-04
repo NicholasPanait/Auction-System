@@ -4,8 +4,6 @@ Please enter a username:
 Please enter the password:
 Welcome NoBuyOlivia, your current balance is $289759.80
 Please enter a command:
-Please select an amount of credits to add (max of $1000):
-$100 credits have been successfully added to: NoBuyOlivia
-Please enter a command:
-Session terminated, transactions saved
+Transaction Failed! You do not have permission to place bids!Please enter a command:
+Session terminated, transaction saved
 Please enter a command:

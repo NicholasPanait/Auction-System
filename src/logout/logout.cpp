@@ -48,5 +48,5 @@ void Logout()
 
     AppState::getInstance().resetCurrentUser();
     AppState::getInstance().resetAddedCredit();
-    cout << "Session terminated, transaction saved" << endl;
+    cout << "Session terminated, transactions saved" << endl;
 }

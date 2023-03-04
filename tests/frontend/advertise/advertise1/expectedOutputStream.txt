@@ -6,5 +6,5 @@ Welcome CheapKent, your current balance is $438.00
 Please enter a command:
 Transaction Failed! You do not have permission to place bids!
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

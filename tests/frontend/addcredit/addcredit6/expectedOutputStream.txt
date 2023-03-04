@@ -8,5 +8,5 @@ Please select an amount of credits to add (max of $1000):
 Please select a user to add credits to:
 Transaction Failed! User cannot exceed $999999.99
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

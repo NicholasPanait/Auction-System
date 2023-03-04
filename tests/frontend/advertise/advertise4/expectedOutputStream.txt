@@ -9,5 +9,5 @@ Please enter your item's minimum bid in dollars:
 Please enter your item's auction duration in days:
 Your auction of ItemC will be put up for auction at the end of the day with a minimum bid of $0.00 for 1 day(s)
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:
