@@ -1,5 +1,6 @@
 login
 MasterAdmin
+ADMIN
 advertise
 ItemC
 0

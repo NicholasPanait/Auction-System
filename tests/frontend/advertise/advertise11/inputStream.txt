@@ -1,8 +1,10 @@
 login
 MasterAdmin
+ADMIN
 advertise
 ItemD
 10
 
+test
 logout
 exit

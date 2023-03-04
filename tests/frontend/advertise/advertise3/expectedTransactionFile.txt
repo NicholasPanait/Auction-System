@@ -1,2 +1,2 @@
-03 ItemB               NoBuyOlivia     001 000000
-00 LongTimeJoe    SS 245289.70
+03 ItemB                     LongTimeJoe     001 000.00
+00 LongTimeJoe     FS 245289.70

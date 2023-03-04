@@ -1,7 +1,9 @@
 login
 MasterAdmin
+ADMIN
 advertise
 ItemD
 
+test
 logout
 exit

@@ -17,7 +17,7 @@ void Advertise()
         int duration;
         cout << "Please enter your item name:" << endl;
         cin.ignore();
-        getline(cin, item_name);
+        getline(cin, item_name, '\n');
 
         switch (ValidateItemName(item_name))
         {
@@ -29,19 +29,19 @@ void Advertise()
             return;
         }
 
-        cout << "Please enter your item's minimum bid in dollars" << endl;
+        cout << "Please enter your item's minimum bid in dollars:" << endl;
         cin >> min_bid_input;
 
         switch ((ValidateBid(min_bid_input)))
         {
         case 1:
-            cout << "Please enter a credit amount that is numeric" << endl;
+            cout << "Please enter a minimum bid that is numeric" << endl;
             return;
         case 2:
-            cout << "Please enter a credit amount that is positive" << endl;
+            cout << "Please enter a minimum bid that is positive and at least $0.01" << endl;
             return;
         case 3:
-            cout << "Please enter a credit amount that is less than $1000 credits" << endl;
+            cout << "Please enter a minimum bid that is less than $1000" << endl;
             return;
         }
         stringstream stream;
@@ -49,8 +49,7 @@ void Advertise()
         min_bid_input = stream.str();
 
         cout << "Please enter your item's auction duration in days:" << endl;
-        cin.ignore();
-        getline(cin, duration_input);
+        cin >> duration_input;
 
         try
         {
@@ -67,7 +66,7 @@ void Advertise()
             }
             else if (duration > 99)
             {
-                cout << "Please enter a duration that is less than 99 days" << endl;
+                cout << "Please enter a duration that is less than 100 days" << endl;
                 return;
             }
             if (duration_input.length() > 2){
@@ -122,10 +121,10 @@ void Advertise()
         if (duration != 1) s = "s";
 
         cout << "Your auction of " << item_name << " will be put up for auction at the end of the day"
-             << " with a minimum bid of " << min_bid_input << " for " << duration << " day" << s << endl;
+             << " with a minimum bid of $" << min_bid_input << " for " << duration << " day(s)" << s << endl;
     }
     else
     {
-        cout << "Transaction Failed! You do not have permission to place bids!";
+        cout << "Transaction Failed! You do not have permission to place bids!" << endl;
     }
 }

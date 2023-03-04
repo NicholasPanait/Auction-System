@@ -1,0 +1,2 @@
+03 ItemB                     LongTimeJoe     001 000.00
+00 LongTimeJoe     FS 245289.70
