@@ -4,5 +4,6 @@ Advertise
 Bid
 Refund
 Addcredit
-Listall
+Listbids
+Listusers
 exit

@@ -1,9 +1,10 @@
 Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
+Please enter the password:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Transaction Failed! Please logout before trying to login again!
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

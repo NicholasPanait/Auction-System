@@ -5,7 +5,3 @@ Transaction Failed! User does not exist!
 Please enter a command:
 Please login before using any other command!
 Please enter a command:
-Invalid Command!
-Please enter a command:
-Invalid Command!
-Please enter a command:

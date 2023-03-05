@@ -1,4 +1,3 @@
 login
 testthatusernameisthecorrectlength
-login
 exit

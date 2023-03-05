@@ -1,7 +1,8 @@
 Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
+Please enter the password:
 Welcome NoBuyOlivia, your current balance is $289759.80
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

@@ -1,0 +1,14 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Please enter the password:
+Transaction Failed! Incorrect Password!
+Please enter a command:
+Invalid Command!
+Please enter a command:
+Invalid Command!
+Please enter a command:
+Invalid Command!
+Please enter a command:
+Please login before using any other command!
+Please enter a command:

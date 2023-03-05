@@ -1,4 +1,5 @@
 login
 LongTimeJoe
+123
 logout
 exit

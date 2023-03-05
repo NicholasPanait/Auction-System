@@ -1,8 +1,4 @@
 login
 Test
 logout
-<<<<<<< HEAD
 exit
-=======
-exit
->>>>>>> 2d77a32f2541814dc500fa88de66b4a274a2d250

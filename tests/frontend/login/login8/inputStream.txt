@@ -1,5 +1,6 @@
 login
 MasterAdmin
+ADMIN
 login
 logout
 exit
