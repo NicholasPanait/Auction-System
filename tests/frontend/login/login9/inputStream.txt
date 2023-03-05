@@ -1,0 +1,4 @@
+login
+MasterAdmin
+wrongpassword
+exit

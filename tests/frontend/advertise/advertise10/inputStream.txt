@@ -3,6 +3,6 @@ MasterAdmin
 ADMIN
 advertise
 ItemD
--1
+0
 logout
 exit

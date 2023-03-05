@@ -3,7 +3,7 @@ NoBuyOlivia
 Sella
 advertise
 ItemA
-0
+0.01
 1
 logout
 exit

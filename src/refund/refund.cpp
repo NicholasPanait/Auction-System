@@ -116,7 +116,7 @@ void Refund()
     }
     else
     {
-        cout << "Transaction Failed! You do not have permission to refund accounts!";
+        cout << "Transaction Failed! You do not have permission to refund accounts!" << endl;
     }
 }
 

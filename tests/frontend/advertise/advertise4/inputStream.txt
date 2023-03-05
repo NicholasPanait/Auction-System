@@ -3,7 +3,7 @@ MasterAdmin
 ADMIN
 advertise
 ItemC
-0
+0.01
 1
 logout
 exit

@@ -158,7 +158,7 @@ Item GetItem(string item_name, string seller)
     {
         while (getline(input, line))
         {
-            if (item_name == RemoveTrailing(line.substr(0, 25), ' '))
+            if (item_name == RemoveTrailing(line.substr(0, 25), ' ') && seller == RemoveTrailing(line.substr(26, 15), ' '))
             {
                 item.item_name = RemoveTrailing(line.substr(0, 25), ' ');
                 item.seller = RemoveTrailing(line.substr(26, 15), ' ');
@@ -392,7 +392,7 @@ int ValidateItemName(string item_name)
 int ValidateBid(string bid)
 {
     try {
-        if (stod(bid) < 0)
+        if (stod(bid) < 0.01)
         {
             return 2;
         }

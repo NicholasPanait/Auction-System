@@ -84,6 +84,6 @@ void Create()
     }
     else
     {
-        cout << "Transaction Failed! You do not have permission to create new accounts!";
+        cout << "Transaction Failed! You do not have permission to create new accounts!" << endl;
     }
 }

@@ -1,13 +1,6 @@
 login
 MasterAdmin
-bid
-RussianSuperYaught
-NoBuyOlivia
--1
-bid
-BulkNails (5000pcs)
-WarehouserJane
-30
+ADMIN
 bid
 BulkNails (5000pcs)
 WarehouserJane

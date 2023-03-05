@@ -31,18 +31,18 @@ void Advertise()
 
         cout << "Please enter your item's minimum bid in dollars:" << endl;
         cin >> min_bid_input;
-
+        
         switch ((ValidateBid(min_bid_input)))
         {
-        case 1:
-            cout << "Please enter a minimum bid that is numeric" << endl;
-            return;
-        case 2:
-            cout << "Please enter a minimum bid that is positive and at least $0.01" << endl;
-            return;
-        case 3:
-            cout << "Please enter a minimum bid that is less than $1000" << endl;
-            return;
+            case 1:
+                cout << "Please enter a minimum bid that is numeric" << endl;
+                return;
+            case 2:
+                cout << "Please enter a minimum bid that is positive and at least $0.01" << endl;
+                return;
+            case 3:
+                cout << "Please enter a minimum bid that is less than $1000" << endl;
+                return;
         }
         stringstream stream;
         stream << fixed << setprecision(2) << stod(min_bid_input);

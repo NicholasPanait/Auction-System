@@ -10,7 +10,6 @@ fc transactionFile.txt expectedTransactionFile.txt
 if errorlevel 1 goto different
 
 echo %cd% [92mTEST PASSED[0m
-PAUSE
 EXIT
 
 :different

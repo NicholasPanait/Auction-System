@@ -1,8 +1,9 @@
 login
-MasterAdmin
+LongTimeJoe
+123
 bid
-RussianSuperYaught
-NoBuyOlivia
-32.5
+Washers (5pcs)
+WarehouserJane
+4.1
 logout
 exit

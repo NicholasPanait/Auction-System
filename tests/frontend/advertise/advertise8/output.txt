@@ -8,5 +8,5 @@ Please enter your item name:
 Please enter your item's minimum bid in dollars:
 Please enter a minimum bid that is numeric
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

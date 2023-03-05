@@ -1,8 +1,9 @@
 login
-LongTimeJoe
+MasterAdmin
+ADMIN
 bid
-Washers (5pcs)
+BulkNails (5000pcs)
 WarehouserJane
-4.1
+0
 logout
 exit

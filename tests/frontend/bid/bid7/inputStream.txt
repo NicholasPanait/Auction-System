@@ -1,5 +1,6 @@
 login
 MasterAdmin
+ADMIN
 bid
 BulkNails (5000pcs)
 WarehouserJane

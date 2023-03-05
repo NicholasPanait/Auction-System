@@ -57,6 +57,6 @@ void Delete()
     }
     else
     {
-        cout << "Transaction Failed! You do not have permission to delete accounts!";
+        cout << "Transaction Failed! You do not have permission to delete accounts!" << endl;
     }
 }

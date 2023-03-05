@@ -7,5 +7,5 @@ Please enter a command:
 Please select an amount of credits to add (max of $1000):
 $100 credits have been successfully added to: NoBuyOlivia
 Please enter a command:
-Session terminated, transaction saved
+Session terminated, transactions saved
 Please enter a command:

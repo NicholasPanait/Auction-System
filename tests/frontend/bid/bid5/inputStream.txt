@@ -1,6 +1,8 @@
 login
 MasterAdmin
+ADMIN
 bid
 NonExistentItem
+NoBuyOlivia
 logout
 exit
