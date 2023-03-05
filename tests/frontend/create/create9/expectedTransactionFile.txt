@@ -1,2 +1,2 @@
-01 NewbieTim       FS 000000.00 4270447
+01 NewbieTim       FS 000000.00 310
 00 MasterAdmin     AA 999999.00

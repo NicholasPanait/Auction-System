@@ -14,7 +14,7 @@ void Create()
         string username;
         string permission;
         string password;
-        int password_encrypted;
+        int password_encrypted = 0;
 
         cout << "Please enter new user’s username:" << endl;
         cin.ignore();
