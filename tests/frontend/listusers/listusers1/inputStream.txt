@@ -1,0 +1,6 @@
+login
+MasterAdmin
+ADMIN
+listusers
+logout
+exit
