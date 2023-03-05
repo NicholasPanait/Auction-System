@@ -1,6 +1,6 @@
 login
-MasterAdmin
-ADMIN
+LongTimeJoe
+123
 listbids
 logout
 exit

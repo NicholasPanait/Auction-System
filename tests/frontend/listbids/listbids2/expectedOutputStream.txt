@@ -2,9 +2,13 @@ Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
 Please enter the password:
-Welcome MasterAdmin, your current balance is $999999.00
+Welcome LongTimeJoe, your current balance is $245289.70
 Please enter a command:
-There are currently no items up for sale right now!
+Item Name	    Seller	    Days Left	Min Bid 	Highest Bid
+BulkNails (5000pcs)       Warehouser   		$   009		$50.00
+This Website              MasterAdmi   		$   021		$500.00
+RussianSuperYaught        NoBuyOlivitev		$   003		$20.00
+Washers (5pcs)            Warehouser   		$   002		$2.00
 Please enter a command:
 Session terminated, transactions saved
 Please enter a command:
