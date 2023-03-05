@@ -5,7 +5,7 @@ Please enter the password:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Please select an amount of credits to add (max of $1000):
-Please enter a credit amount that is less than $1000 credits
+Please enter a credit amount that is less than $1000 credits!
 Please enter a command:
 Session terminated, transactions saved
 Please enter a command:

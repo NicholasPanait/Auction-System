@@ -22,10 +22,10 @@ void Advertise()
         switch (ValidateItemName(item_name))
         {
         case 1:
-            cout << "Please enter an item name that is less than 26 characters long" << endl;
+            cout << "Please enter an item name that is less than 26 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter an item name that is at least 1 character long" << endl;
+            cout << "Please enter an item name that is at least 1 character long!" << endl;
             return;
         }
 
@@ -35,13 +35,13 @@ void Advertise()
         switch ((ValidateBid(min_bid_input)))
         {
             case 1:
-                cout << "Please enter a minimum bid that is numeric" << endl;
+                cout << "Please enter a minimum bid that is numeric!" << endl;
                 return;
             case 2:
-                cout << "Please enter a minimum bid that is positive and at least $0.01" << endl;
+                cout << "Please enter a minimum bid that is positive and at least $0.01!" << endl;
                 return;
             case 3:
-                cout << "Please enter a minimum bid that is less than $1000" << endl;
+                cout << "Please enter a minimum bid that is less than $1000!" << endl;
                 return;
         }
         stringstream stream;
@@ -55,18 +55,18 @@ void Advertise()
         {
             if (!isNumeric(duration_input))
             {
-                cout << "Please enter an integer value" << endl;
+                cout << "Please enter an integer value!" << endl;
                 return;
             }
             duration = stoi(duration_input);
             if (duration < 1)
             {
-                cout << "Please enter a duration that is at least 1 day" << endl;
+                cout << "Please enter a duration that is at least 1 day!" << endl;
                 return;
             }
             else if (duration > 99)
             {
-                cout << "Please enter a duration that is less than 100 days" << endl;
+                cout << "Please enter a duration that is less than 100 days!" << endl;
                 return;
             }
             if (duration_input.length() > 2){
@@ -76,7 +76,7 @@ void Advertise()
         }
         catch (exception e)
         {
-            cout << "Please enter an integer value" << endl;
+            cout << "Please enter an integer value!" << endl;
             return;
         }
 
@@ -120,7 +120,7 @@ void Advertise()
         string s = "";
         if (duration != 1) s = "s";
 
-        cout << "Your auction of " << item_name << " will be put up for auction at the end of the day"
+        cout << "Your auction of \'" << item_name << "\' will be put up for auction at the end of the day"
              << " with a minimum bid of $" << min_bid_input << " for " << duration << " day(s)" << s << endl;
     }
     else

@@ -5,7 +5,7 @@ Please enter the password:
 Welcome NewBuyerSteve, your current balance is $42378.00
 Please enter a command:
 Please select an amount of credits to add (max of $1000):
-$100 credits have been successfully added to: NewBuyerSteve
+$100 credits have been successfully added to: "NewBuyerSteve"
 Please enter a command:
 Session terminated, transactions saved
 Please enter a command:

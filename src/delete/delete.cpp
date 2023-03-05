@@ -22,10 +22,10 @@ void Delete()
             cout << "Transaction Failed! The user \"" << username << "\" does not exist!" << endl;
             return;
         case 1:
-            cout << "Please enter a username that is less than 16 characters long" << endl;
+            cout << "Please enter a username that is less than 16 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter a username that is at least 1 character long" << endl;
+            cout << "Please enter a username that is at least 1 character long!" << endl;
             return;
         }
 

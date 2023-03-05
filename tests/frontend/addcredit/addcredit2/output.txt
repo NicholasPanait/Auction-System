@@ -6,7 +6,7 @@ Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Please select an amount of credits to add (max of $1000):
 Please select a user to add credits to:
-$1000 credits have been successfully added to: SuperMod
+$1000 credits have been successfully added to: "SuperMod"
 Please enter a command:
 Session terminated, transactions saved
 Please enter a command:

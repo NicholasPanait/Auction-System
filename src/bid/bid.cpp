@@ -20,10 +20,10 @@ void Bid()
         switch (ValidateItemName(item_name))
         {
         case 1:
-            cout << "Please enter an item name that is less than 26 characters long" << endl;
+            cout << "Please enter an item name that is less than 26 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter an item name that is at least 1 character long" << endl;
+            cout << "Please enter an item name that is at least 1 character long!" << endl;
             return;
         }
 
@@ -38,13 +38,13 @@ void Bid()
         switch (ValidateUsername(seller))
         {
         case 0:
-            cout << "Please enter an existing username" << endl;
+            cout << "Please enter an existing username!" << endl;
             return;
         case 1:
-            cout << "Please enter a username that is less than 16 characters long" << endl;
+            cout << "Please enter a username that is less than 16 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter a username that is at least 1 character long" << endl;
+            cout << "Please enter a username that is at least 1 character long!" << endl;
             return;
         }
 
@@ -82,13 +82,13 @@ void Bid()
         switch ((ValidateBid(desired_bid)))
         {
             case 1:
-                cout << "Please enter a numeric bid" << endl;
+                cout << "Please enter a numeric bid!" << endl;
                 return;
             case 2:
-                cout << "Please enter a bid that is positive and at least $0.01" << endl;
+                cout << "Please enter a bid that is positive and at least $0.01!" << endl;
                 return;
             case 3:
-                cout << "Please enter a bid that is less than $1000" << endl;
+                cout << "Please enter a bid that is less than $1000!" << endl;
                 return;
         }
 
@@ -128,8 +128,8 @@ void Bid()
 
             */
 
-            cout << "Bid placed on " << string(item.item_name) 
-            << " sold by " << string(item.seller) << " for $" << desired_bid << endl;
+            cout << "Bid placed on \'" << string(item.item_name) 
+            << "\' sold by \"" << string(item.seller) << "\" for $" << desired_bid << endl;
         }
         else {
             cout << "Transaction failed! Your bid is not high enough!" << endl;

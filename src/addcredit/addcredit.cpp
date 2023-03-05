@@ -17,14 +17,14 @@ void AddCredit()
     switch (ValidateBid(amount))
     {
     case 1:
-        cout << "Please enter a credit amount that is numeric" << endl;
+        cout << "Please enter a credit amount that is numeric!" << endl;
         return;
     case 2:
-        cout << "Please enter a credit amount that is positive" << endl;
+        cout << "Please enter a credit amount that is positive!" << endl;
         return;
     case 3:
         if (amount != "1000"){
-            cout << "Please enter a credit amount that is less than $1000 credits" << endl;
+            cout << "Please enter a credit amount that is less than $1000 credits!" << endl;
             return;
         }
     }
@@ -39,10 +39,10 @@ void AddCredit()
     switch (ValidateUsername(username))
     {
     case 1:
-        cout << "Please enter a username that is less than 16 characters long" << endl;
+        cout << "Please enter a username that is less than 16 characters long!" << endl;
         return;
     case 2:
-        cout << "Please enter a username that is at least 1 character long" << endl;
+        cout << "Please enter a username that is at least 1 character long!" << endl;
         return;
     }
     if (!(UsernameExists(username)))
@@ -53,13 +53,13 @@ void AddCredit()
 
     if (is_privilleged){
         if (stod(amount) + GetUser(username).credit > 999999.99){
-            cout << "Transaction Failed! User cannot exceed $999999.99" << endl;
+            cout << "Transaction Failed! A User cannot exceed $999999.99!" << endl;
             return;
         }
     }
     else{
         if (stod(amount) + AppState::getInstance().getCurrentUser().credit > 999999.99){
-            cout << "Transaction Failed! User cannot exceed $999999.99" << endl;
+            cout << "Transaction Failed! A User cannot exceed $999999.99!" << endl;
             return;
         }
     }
@@ -100,5 +100,5 @@ void AddCredit()
     transaction_code += (new_amount + "\n");
     AppState::getInstance().appendTransactionBuffer(transaction_code);
 
-    cout << "$" << amount << " credits have been successfully added to: " << username << endl;
+    cout << "$" << amount << " credits have been successfully added to: \"" << username << "\"" << endl;
 }

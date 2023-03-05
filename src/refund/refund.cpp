@@ -21,13 +21,13 @@ void Refund()
         switch (ValidateUsername(buyer))
         {
         case 0:
-            cout << "Please enter an existing username" << endl;
+            cout << "Please enter an existing username!" << endl;
             return;
         case 1:
-            cout << "Please enter a username that is less than 16 characters long" << endl;
+            cout << "Please enter a username that is less than 16 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter a username that is at least 1 character long" << endl;
+            cout << "Please enter a username that is at least 1 character long!" << endl;
             return;
         }
 
@@ -37,13 +37,13 @@ void Refund()
         switch (ValidateUsername(seller))
         {
         case 0:
-            cout << "Please enter an existing username" << endl;
+            cout << "Please enter an existing username!" << endl;
             return;
         case 1:
-            cout << "Please enter a username that is less than 16 characters long" << endl;
+            cout << "Please enter a username that is less than 16 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter a username that is at least 1 character long" << endl;
+            cout << "Please enter a username that is at least 1 character long!" << endl;
             return;
         }
 
@@ -72,7 +72,7 @@ void Refund()
         }
         catch (exception e)
         {
-            cout << "Please enter a numeric amount" << endl;
+            cout << "Please enter a numeric amount!" << endl;
             return;
         }
 
@@ -111,8 +111,8 @@ void Refund()
         CCCCCCCCC - The Refund Credit
         */
 
-        cout << "Refund will be issued from " << buyer << " to " << seller
-             << " for $" << refund_amount << " upon logout" << endl;
+        cout << "Refund will be issued from \"" << buyer << "\" to \"" << seller
+             << "\" for $" << refund_amount << " upon logout" << endl;
     }
     else
     {

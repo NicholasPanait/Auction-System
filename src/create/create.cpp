@@ -23,10 +23,10 @@ void Create()
         switch (ValidateUsername(username))
         {
         case 1:
-            cout << "Please enter a username that is less than 16 characters long" << endl;
+            cout << "Please enter a username that is less than 16 characters long!" << endl;
             return;
         case 2:
-            cout << "Please enter a username that is at least 1 character long" << endl;
+            cout << "Please enter a username that is at least 1 character long!" << endl;
             return;
         case 3:
             cout << "Transaction Failed! Username already exists!" << endl;
@@ -38,7 +38,7 @@ void Create()
 
         if (!ValidatePermission(permission))
         {
-            cout << "Please enter a valid account type (AA,FS,BS,SS)" << endl;
+            cout << "Please enter a valid account type (AA,FS,BS,SS):" << endl;
             return;
         }
 
