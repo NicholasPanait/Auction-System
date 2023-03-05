@@ -29,7 +29,7 @@ void Create()
             cout << "Please enter a username that is at least 1 character long" << endl;
             return;
         case 3:
-            cout << "Username already exists" << endl;
+            cout << "Transaction Failed! Username already exists!" << endl;
             return;
         }
 
@@ -59,7 +59,7 @@ void Create()
             transaction_code += ' ';
         }
         transaction_code += permission + " ";
-        transaction_code += "000000.00_";
+        transaction_code += "000000.00 ";
 
         transaction_code +=  to_string(password_encrypted);
         transaction_code += "\n";

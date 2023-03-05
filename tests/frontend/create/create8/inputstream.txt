@@ -1,7 +1,9 @@
 login
 MasterAdmin
+ADMIN
 create
 NewbieTim
 AA
+TEMP
 logout
 exit

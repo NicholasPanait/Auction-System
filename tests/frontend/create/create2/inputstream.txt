@@ -1,5 +1,6 @@
 login
 CheapKent
+discounts4life
 create
 logout
 exit
