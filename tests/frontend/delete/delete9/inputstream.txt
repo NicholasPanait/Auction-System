@@ -1,9 +1,9 @@
 login
 SuperMod
+Super
 delete
 CheapKent
 create
 CheapKent
-FS
 logout
 exit

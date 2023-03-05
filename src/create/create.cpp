@@ -42,7 +42,7 @@ void Create()
             return;
         }
 
-        cout << "Please enter the password for the account that is less than 15 characters long" << endl;
+        cout << "Please enter the password for the account (must be less than 15 characters long):" << endl;
         getline(cin, password);
 
         for (int i = 0; i < password.size(); i++){
@@ -79,7 +79,7 @@ void Create()
         */
         map<string, string> privileges{{"AA", "Admin"}, {"FS", "Full Standard"}, {"BS", "Buy Standard"}, {"SS", "Sell Standard"}};
 
-               cout << "User " << username << " will be created upon logout with permission type " 
+               cout << "User \"" << username << "\" will be created upon logout with permission type " 
                     << privileges[permission] << " and a balance of $0 credits." << endl;
     }
     else

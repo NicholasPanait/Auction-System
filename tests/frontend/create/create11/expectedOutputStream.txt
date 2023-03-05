@@ -6,8 +6,8 @@ Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Please enter new user’s username:
 Please enter the account type:
-Please enter the password for the account that is less than 15 characters long
-User NewbieTim will be created upon logout with permission type Sell Standard and a balance of $0 credits.
+Please enter the password for the account (must be less than 15 characters long):
+User "NewbieTim" will be created upon logout with permission type Sell Standard and a balance of $0 credits.
 Please enter a command:
 Session terminated, transactions saved
 Please enter a command:

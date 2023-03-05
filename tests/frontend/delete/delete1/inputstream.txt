@@ -1,5 +1,6 @@
 login
 MasterAdmin
+ADMIN
 delete
 NewBuyerSteve
 logout

@@ -19,13 +19,18 @@ void Delete()
         switch (ValidateUsername(username))
         {
         case 0:
-            cout << "Please enter an existing username" << endl;
+            cout << "Transaction Failed! The user \"" << username << "\" does not exist!" << endl;
             return;
         case 1:
             cout << "Please enter a username that is less than 16 characters long" << endl;
             return;
         case 2:
             cout << "Please enter a username that is at least 1 character long" << endl;
+            return;
+        }
+
+        if (username == AppState::getInstance().getCurrentUser().username){
+            cout << "Transaction Failed! You can not delete yourself!" << endl;
             return;
         }
 
@@ -39,7 +44,16 @@ void Delete()
             transaction_code += ' ';
         }
         transaction_code += GetUser(username).privilege_type + " ";
-        transaction_code += "000000.00\n";
+        
+        stringstream stream;
+        stream << fixed << setprecision(2) << GetUser(username).credit;
+        string credit = stream.str();
+
+        for (int i = 0; i < (9 - credit.length()); i++)
+        {
+            transaction_code += '0';
+        }
+        transaction_code += credit + "\n";
 
         AppState::getInstance().appendTransactionBuffer(transaction_code);
         /*
@@ -53,7 +67,7 @@ void Delete()
         _ - Represents a Space
         */
 
-        cout << "User " << username << " will be deleted upon logout" << endl;
+        cout << "User \"" << username << "\" will be deleted upon logout" << endl;
     }
     else
     {
