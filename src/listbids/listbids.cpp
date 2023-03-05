@@ -35,8 +35,14 @@ void ListBids()
             }
         }
     }
-    cout << output << endl;
     input.close();
+    if (output == "Item Name\t    Seller\t    Days Left\tMin Bid \tHighest Bid"){
+        cout << "There are currently no items up for sale right now!" << endl;
+        return;
+    }
+    else{
+        cout << output << endl;
+    }
 }
 
 /*

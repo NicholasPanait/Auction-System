@@ -1,5 +1,4 @@
 @echo off
-copy ..\..\globalTestItems.txt .\localTestItems.txt
 copy ..\..\globalTestUsers.txt .\localTestUsers.txt
 copy .\..\..\..\..\build\frontend.exe .\frontend.exe
 frontend.exe ./localTestUsers.txt ./localTestItems.txt ./ < ./inputStream.txt > ./output.txt
