@@ -1,12 +1,13 @@
 Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
+Please enter the password:
 Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
 Please enter the buyer's username:
 Please enter the seller's username:
 Please enter the refund amount:
-User MasterAdmin can not receive this refund because it would put them over the credit limit!
+Refund cancelled, this refund would put "MasterAdmin" over the credit limit!
 Please enter a command:
 Session terminated, transactions saved
 Please enter a command:

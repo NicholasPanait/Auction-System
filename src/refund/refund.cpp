@@ -61,12 +61,12 @@ void Refund()
             }
             if (GetUser(seller).credit < refund)
             {
-                cout << GetUser(seller).username << " does not have enough credit to refund" << endl;
+                cout << "User \"" << GetUser(seller).username << "\" does not have enough credit to refund $" << refund << "!" << endl;
                 return;
             }
             else if ((GetUser(buyer).credit + refund) > 999999.00)
             {
-                cout << "Refund cancelled, this refund would put " << GetUser(buyer).username << " over the credit limit" << endl;
+                cout << "Refund cancelled, this refund would put \"" << GetUser(buyer).username << "\" over the credit limit!" << endl;
                 return;
             }
         }

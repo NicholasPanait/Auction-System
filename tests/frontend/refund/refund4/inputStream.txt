@@ -1,5 +1,6 @@
 login
 LongTimeJoe
+123
 refund
 logout
 exit

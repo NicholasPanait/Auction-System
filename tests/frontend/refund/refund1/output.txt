@@ -2,13 +2,12 @@ Welcome to Hubble Auction House
 Please enter a command:
 Please enter a username:
 Please enter the password:
-Transaction Failed! Incorrect Password!
+Welcome MasterAdmin, your current balance is $999999.00
 Please enter a command:
-Invalid Command!
+Please enter the buyer's username:
+Please enter the seller's username:
+Please enter the refund amount:
+Refund will be issued from SuperMod to CheapKent for $100.00 upon logout
 Please enter a command:
-Invalid Command!
-Please enter a command:
-Invalid Command!
-Please enter a command:
-Please login before using any other command!
+Session terminated, transactions saved
 Please enter a command:

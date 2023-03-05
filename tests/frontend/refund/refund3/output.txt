@@ -1,0 +1,10 @@
+Welcome to Hubble Auction House
+Please enter a command:
+Please enter a username:
+Please enter the password:
+Welcome NewBuyerSteve, your current balance is $42378.00
+Please enter a command:
+Transaction Failed! You do not have permission to refund accounts!
+Please enter a command:
+Session terminated, transactions saved
+Please enter a command:
