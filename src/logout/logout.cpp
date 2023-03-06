@@ -46,6 +46,12 @@ void Logout()
     file << transaction_code << endl;
     file.close();
 
+    file_name = AppState::getInstance().getOutputDirectory() + "/";
+    file_name.append("dailyTransactionFile.txt");
+    file.open(file_name, ios::app);
+    file << transaction_code << endl;
+    file.close();
+
     AppState::getInstance().resetCurrentUser();
     AppState::getInstance().resetAddedCredit();
     cout << "Session terminated, transactions saved" << endl;
