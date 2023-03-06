@@ -1,0 +1,6 @@
+login
+CheapKent
+discounts4life
+listusers
+logout
+exit

@@ -1,0 +1,6 @@
+login
+LongTimeJoe
+123
+listusers
+logout
+exit
