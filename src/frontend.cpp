@@ -5,6 +5,9 @@
 #include <fstream>
 using namespace std;
 
+// TODO: add a check for password length
+// TODO: add a transaction to change password
+
 // NOTE: We recomend using the Better Comments extension from the VSCode Marketplace
 
 /**

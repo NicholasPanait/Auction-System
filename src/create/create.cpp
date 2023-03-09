@@ -42,6 +42,7 @@ void Create()
             return;
         }
 
+        // TODO CHECK THE LENGTH OF THE PASSWORD
         cout << "Please enter the password for the account (must be less than 15 characters long):" << endl;
         getline(cin, password);
 
