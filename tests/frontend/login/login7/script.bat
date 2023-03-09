@@ -6,7 +6,6 @@ frontend.exe ./localTestUsers.txt ./localTestItems.txt ./ < ./inputStream.txt > 
 
 fc output.txt expectedOutputStream.txt
 if errorlevel 1 goto different
-
 echo %cd% [92mTEST PASSED[0m
 EXIT
 

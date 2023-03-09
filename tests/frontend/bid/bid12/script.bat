@@ -2,6 +2,7 @@
 REM copy ..\..\globalTestItems.txt .\localTestItems.txt
 REM copy ..\..\globalTestUsers.txt .\localTestUsers.txt
 copy .\..\..\..\..\build\frontend.exe .\frontend.exe
+del dailyTransactionFile.txt
 frontend.exe ./localTestUsers.txt ./localTestItems.txt ./ < ./inputStream.txt > ./output.txt
 
 fc output.txt expectedOutputStream.txt
