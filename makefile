@@ -3,7 +3,7 @@
 TARGET_EXEC ?= build/frontend.exe
 
 BUILD_DIR ?= ./build
-SRC_DIRS ?= ./src
+SRC_DIRS ?= ./srcFront
 
 SRCS := $(wildcard $(SRC_DIRS)/*.cpp) $(wildcard $(SRC_DIRS)/**/*.cpp)
 
