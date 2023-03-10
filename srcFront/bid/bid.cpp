@@ -6,9 +6,12 @@
  * NOTE: Admin accounts can bid under the 5% mandatory increase per bid
  */
 
+using namespace std;
+
 void Bid()
 {
     bool is_privilleged = AppState::getInstance().getCurrentUser().privilege_type == "AA";
+
     if (CheckPermission(AppState::getInstance().getCurrentUser().privilege_type, "bid"))
     {
         string item_name;
@@ -91,48 +94,55 @@ void Bid()
                 cout << "Please enter a bid that is less than $1000!" << endl;
                 return;
         }
+        User currentUser = AppState::getInstance().getCurrentUser();
 
-        if (stod(desired_bid) >= required_bid){
-            // Still need to implement the code to place the bid
+        if (stod(desired_bid) + currentUser.pending_credit <= currentUser.credit){
 
-            string transaction_code = "04 ";
+            if (stod(desired_bid) >= required_bid){
 
-            transaction_code += item_name;
-            for (int i = 0; i < 26-item_name.length(); i++){
-                transaction_code += ' ';
+                string transaction_code = "04 ";
+
+                transaction_code += item_name;
+                for (int i = 0; i < 26-item_name.length(); i++){
+                    transaction_code += ' ';
+                }
+                transaction_code += item.seller;
+                for (int i = 0; i < 16-item.seller.length(); i++){
+                    transaction_code += ' ';
+                }
+                transaction_code += AppState::getInstance().getCurrentUser().username;
+                for (int i = 0; i < 16-AppState::getInstance().getCurrentUser().username.length(); i++){
+                    transaction_code += ' ';
+                }
+                for (int i = 0; i < 6-desired_bid.length(); i++){
+                    transaction_code += '0';
+                }
+                transaction_code += (desired_bid + "\n");
+
+                AppState::getInstance().appendTransactionBuffer(transaction_code);
+                /*
+                BID Transaction Format: 
+                XX_IIIIIIIIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUUU_PPPPPP
+
+                XX - The 2 Digit Transaction Code 04 for bid
+                IIIIIIIIIIIIIIIIIIIIIIIII - The Maximum 25 Character Item Name
+                SSSSSSSSSSSSSSS - The Maximum 15 Character Seller Username
+                UUUUUUUUUUUUUUU - The Maximum 15 Character Buyer Username 
+                PPPPPP - The Maximum $999.99 New Bid
+                _ - Represents a Space
+
+                */
+
+                AppState::getInstance().getCurrentUser().pending_credit += stod(desired_bid);
+
+                cout<< "Bid placed on \'" << string(item.item_name)
+                    << "\' sold by \"" << string(item.seller) << "\" for $" << desired_bid << endl;
             }
-            transaction_code += item.seller;
-            for (int i = 0; i < 16-item.seller.length(); i++){
-                transaction_code += ' ';
+            else {
+                cout << "Transaction failed! Your bid is not high enough!" << endl;
             }
-            transaction_code += AppState::getInstance().getCurrentUser().username;
-            for (int i = 0; i < 16-AppState::getInstance().getCurrentUser().username.length(); i++){
-                transaction_code += ' ';
-            }
-            for (int i = 0; i < 6-desired_bid.length(); i++){
-                transaction_code += '0';
-            }
-            transaction_code += (desired_bid + "\n");
-
-            AppState::getInstance().appendTransactionBuffer(transaction_code);
-            /*
-            BID Transaction Format: 
-            XX_IIIIIIIIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUUU_PPPPPP
-
-            XX - The 2 Digit Transaction Code 04 for bid
-            IIIIIIIIIIIIIIIIIIIIIIIII - The Maximum 25 Character Item Name
-            SSSSSSSSSSSSSSS - The Maximum 15 Character Seller Username
-            UUUUUUUUUUUUUUU - The Maximum 15 Character Buyer Username 
-            PPPPPP - The Maximum $999.99 New Bid
-            _ - Represents a Space
-
-            */
-
-            cout << "Bid placed on \'" << string(item.item_name) 
-            << "\' sold by \"" << string(item.seller) << "\" for $" << desired_bid << endl;
-        }
-        else {
-            cout << "Transaction failed! Your bid is not high enough!" << endl;
+        }else{
+            cout << "Transaction Failed! You do not have enough credit!" << endl;
         }
     }
     else{

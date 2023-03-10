@@ -1,0 +1,9 @@
+MasterAdmin     AA 000500.00 361       
+SuperMod        AA 124234.00 527       
+LongTimeJoe     FS 245289.70 150       
+WarehouserJane  FS 138647.82 630       
+CheapKent       BS 000438.00 1456      
+NoBuyOlivia     SS 289759.80 497       
+NewBuyerSteve   BS 042378.00 602       
+Test Space      AA 000005.12 492       
+END

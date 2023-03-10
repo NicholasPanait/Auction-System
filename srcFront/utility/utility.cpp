@@ -15,6 +15,7 @@ User::User(string username, string privilege_type, double credit, int password)
     this->username = username;
     this->privilege_type = privilege_type;
     this->credit = credit;
+    this-> pending_credit = 0;
     this->password = password;
 }
 
@@ -27,6 +28,7 @@ User::User()
     this->username = "";
     this->privilege_type = "";
     this->credit = 0;
+    this->pending_credit = 0;
     this->password = -1;
 }
 

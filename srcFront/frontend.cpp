@@ -7,7 +7,6 @@ using namespace std;
 
 // TODO: add a check for password length
 // TODO: add a transaction to change password
-// TODO: Make sure that the user has enough credit to make all their bids when creating a new bid, if not, don't complete the bid 
 // TODO: If user does not have enough funds for a winning bid (e.g. they refunded money to someone else), the auction is cancelled and the item is removed from the file. 
 
 

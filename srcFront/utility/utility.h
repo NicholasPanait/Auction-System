@@ -36,6 +36,7 @@ class User{
         string privilege_type;
         int password;
         double credit;
+        double pending_credit; //credit put into a bid pending closure
         User(string username, string privilege_type, double credit, int password);
         User();
         friend ostream &operator<<(ostream &strm, const User &user);
