@@ -290,6 +290,21 @@ bool UsernameExists(string username)
     input.close();
     return false;
 }
+/**
+ * @brief tests if the string can be parsed into a float
+ * 
+ * @param myString 
+ * @return true 
+ * @return false 
+ */
+bool isFloat(string myString)
+{
+    std::istringstream iss(myString);
+    float f;
+    iss >> noskipws >> f; // noskipws considers leading whitespace invalid
+    // Check the entire string was consumed and if either failbit or badbit is set
+    return iss.eof() && !iss.fail();
+}
 
 /**
  * This function checks if the Item exists in the ItemFile
@@ -392,6 +407,9 @@ int ValidateItemName(string item_name)
 int ValidateBid(string bid)
 {
     try {
+        if (!isFloat(bid)){
+            return 1;
+        }
         if (stod(bid) < 0.01)
         {
             return 2;
