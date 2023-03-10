@@ -18,6 +18,7 @@ are used by files for at least 2 commands
 #include "../listbids/listbids.h"
 #include "../create/create.h"
 #include "../appState/appState.h"
+#include "../setpassword/setpassword.h"
 #include <iostream>
 #include <iomanip>
 #include <algorithm>

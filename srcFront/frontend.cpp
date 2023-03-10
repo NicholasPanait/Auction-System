@@ -8,7 +8,7 @@ using namespace std;
 // TODO: add a check for password length
 // TODO: add a transaction to change password
 // TODO: If user does not have enough funds for a winning bid (e.g. they refunded money to someone else), the auction is cancelled and the item is removed from the file. 
-
+// TODO: (NEW SPECIFICATION) Bid priority on competing bids
 
 // NOTE: We recomend using the Better Comments extension from the VSCode Marketplace
 
