@@ -456,7 +456,8 @@ map<string, CommandFunction> commandMap = {
     {"refund", Refund},
     {"addcredit", AddCredit},
     {"listbids", ListBids},
-    {"listusers", ListUsers}
+    {"listusers", ListUsers},
+    {"setpassword", SetPassword}
 };
 
 /**
