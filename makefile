@@ -14,8 +14,8 @@ CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 
 CXX = g++
 
-$(BUILD_DIR)/$(TARGET_EXEC):
-	$(CXX) $(INC_FLAGS) $(SRCS) -o $@
+all:
+	$(CXX) $(INC_FLAGS) $(SRCS) -o $(TARGET_EXEC)
 .PHONY: all build clean
 
 clean:
