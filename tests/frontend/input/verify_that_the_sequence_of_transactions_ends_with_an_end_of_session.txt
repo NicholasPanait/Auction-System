@@ -1,0 +1,4 @@
+login
+testAAUser
+password
+logout

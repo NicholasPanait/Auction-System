@@ -1,9 +1,0 @@
-login
-SuperMod
-Super
-delete
-CheapKent
-create
-CheapKent
-logout
-exit

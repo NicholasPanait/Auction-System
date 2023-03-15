@@ -1,0 +1,9 @@
+login
+testFSUser
+password
+advertise
+testing12334342432432423q
+testingBid4
+15
+12
+logout

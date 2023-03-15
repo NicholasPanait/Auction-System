@@ -1,0 +1,17 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Buy-Standard User: testBSUser!
+
+***MENU***
+logout - Logout
+bid - Make a bid on an available item
+addcredit - Add Credit
+listitems - List Items Up For Auction
+
+You have successfully logged out.

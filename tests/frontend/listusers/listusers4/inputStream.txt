@@ -1,6 +1,0 @@
-login
-NoBuyOlivia
-Sella
-listusers
-logout
-exit

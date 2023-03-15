@@ -1,0 +1,9 @@
+login
+testFSUser
+password
+advertise
+itemForBid3
+1000
+216
+5
+logout

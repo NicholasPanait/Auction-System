@@ -1,0 +1,2 @@
+03 itemForBid2         testAAUser      012 047.00
+00 testAAUser      AA 000000.00

@@ -1,0 +1,8 @@
+login
+testAAUser
+password
+bid
+exampleItem
+exampleSeller
+40
+logout

@@ -1,0 +1,2 @@
+02 buyUserTest     BS 000000.00
+00 testAAUser      AA 000000.00

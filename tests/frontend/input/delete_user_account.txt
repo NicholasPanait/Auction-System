@@ -1,0 +1,6 @@
+login
+testAAUser
+password
+delete
+testDelete
+logout

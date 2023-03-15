@@ -1,0 +1,2 @@
+04 itemToBidOn         sellerUserTest  testBSUser      031.00
+00 testBSUser      BS 000000.00

@@ -1,0 +1,33 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Buy-Standard User: testBSUser!
+
+***MENU***
+logout - Logout
+bid - Make a bid on an available item
+addcredit - Add Credit
+listitems - List Items Up For Auction
+***MAKING A BID***
+
+Enter Item Name: 
+Enter seller's username: 
+Currrent Highest Bid: 10.000000
+Enter New Bid: New bid amount is not at least 5%greater than the current bid. Please try again.
+
+Enter New Bid: A bid has been successfully made for this item!
+
+NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
+
+***MENU***
+logout - Logout
+bid - Make a bid on an available item
+addcredit - Add Credit
+listitems - List Items Up For Auction
+
+You have successfully logged out.

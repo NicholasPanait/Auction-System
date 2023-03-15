@@ -1,0 +1,6 @@
+login
+testFSUser
+password
+addcredit
+100
+logout

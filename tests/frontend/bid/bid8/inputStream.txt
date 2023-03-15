@@ -1,9 +1,0 @@
-login
-MasterAdmin
-ADMIN
-bid
-BulkNails (5000pcs)
-WarehouserJane
-1000
-logout
-exit

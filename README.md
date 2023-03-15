@@ -1,19 +1,23 @@
 # CSCI3060U_Project
 
 # IMPORTANT NOTE
-**PLEASE RUN `make -B` BEFORE ANY TESTING AND MAKE SURE YOU HAVE A `build` FOLDER**
-
-**ALL BATCH TEST FILES SHOULD BE RUN ON WINDOWS**<br>
-**INDIVIDUAL TEST FILES MAY WORK WITH WINE ON LINUX BUT THE GLOBAL TEST FILE WILL NOT**
-
 # System Requirements
 For use, please either:
 1. Be on Linux and have `g++` and `make` available
-2. Be on Windows and have [MinGW](https://sourceforge.net/projects/mingw/) installed with its tools for `g++` and `make`
 
 # How to Run
 This project requires linux style build tools, primarily `g++` and `make`. As long a there requirement are fulfilled, it should be buildable and runnable on any operating system.
 
-**Please make sure**
+To build the frontend program
 
-Run `make -B` in the same directory as this makefile and readme, the executable will appear in the `build/` directory.
+`cd srcFront`
+`make`
+
+The resulting executable will appear in this folder as `main`
+
+To test frontend program
+
+`cd tests/frontend`
+`./run_tests.sh`
+
+This shell script will auto build the program, test failures will be seen as any file in `tests/frontend/comparison` that is not empty.

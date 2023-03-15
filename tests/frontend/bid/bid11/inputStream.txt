@@ -1,9 +1,0 @@
-login
-MasterAdmin
-ADMIN
-bid
-RussianSuperYaught
-NoBuyOlivia
-32.5
-logout
-exit

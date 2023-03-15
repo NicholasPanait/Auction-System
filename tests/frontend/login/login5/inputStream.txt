@@ -1,5 +1,0 @@
-login
-NoBuyOlivia
-Sella
-logout
-exit

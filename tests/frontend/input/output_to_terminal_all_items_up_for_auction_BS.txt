@@ -1,0 +1,5 @@
+login
+testBSUser
+password
+Listitems
+logout

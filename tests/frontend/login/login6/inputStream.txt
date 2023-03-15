@@ -1,9 +1,0 @@
-logout
-delete
-Advertise
-Bid
-Refund
-Addcredit
-Listbids
-Listusers
-exit

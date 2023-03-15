@@ -1,0 +1,4 @@
+login
+testBSUser
+password
+logout

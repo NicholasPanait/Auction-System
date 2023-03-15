@@ -1,0 +1,2 @@
+06 testBSUser      BS 000100.00
+00 testBSUser      BS 000000.00

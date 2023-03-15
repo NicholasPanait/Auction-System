@@ -1,9 +1,0 @@
-login
-LongTimeJoe
-123
-bid
-RussianSuperYaught
-NoBuyOlivia
-34.1
-logout
-exit

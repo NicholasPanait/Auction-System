@@ -1,0 +1,29 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Sell-Standard User: testSSUser!
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+addcredit - Add Credit
+listitems - List Items Up For Auction
+
+***ADVERTISE***
+Enter Item Name: Enter minimumBid: Enter Number of Days until auction ends: 
+Item has been successfully put up for a bid!
+
+NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+addcredit - Add Credit
+listitems - List Items Up For Auction
+
+You have successfully logged out.

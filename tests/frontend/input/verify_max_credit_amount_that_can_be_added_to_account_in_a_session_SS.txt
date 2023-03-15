@@ -1,0 +1,7 @@
+login
+testSSUser
+password
+addcredit
+1500
+720
+logout

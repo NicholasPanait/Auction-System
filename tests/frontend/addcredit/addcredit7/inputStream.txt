@@ -1,7 +1,0 @@
-login
-MasterAdmin
-ADMIN
-addcredit
-5000
-logout
-exit

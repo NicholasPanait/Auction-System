@@ -1,9 +1,0 @@
-login
-LongTimeJoe
-123
-advertise
-ItemB
-0.01
-1
-logout
-exit

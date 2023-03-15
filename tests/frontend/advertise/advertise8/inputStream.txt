@@ -1,8 +1,0 @@
-login
-MasterAdmin
-ADMIN
-advertise
-ItemD
-A
-logout
-exit

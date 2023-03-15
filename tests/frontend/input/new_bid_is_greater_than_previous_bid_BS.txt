@@ -1,0 +1,9 @@
+login
+testBSUser
+password
+bid
+itemToBidOn
+sellerUserTest
+9
+31
+logout

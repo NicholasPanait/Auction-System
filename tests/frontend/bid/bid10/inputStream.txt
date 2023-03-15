@@ -1,9 +1,0 @@
-login
-LongTimeJoe
-123
-bid
-Washers (5pcs)
-WarehouserJane
-4.1
-logout
-exit

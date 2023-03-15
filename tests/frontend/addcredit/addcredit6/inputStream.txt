@@ -1,8 +1,0 @@
-login
-SuperMod
-Super
-addcredit
-1000
-MasterAdmin
-logout
-exit

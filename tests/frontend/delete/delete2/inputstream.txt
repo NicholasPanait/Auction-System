@@ -1,6 +1,0 @@
-login
-LongTimeJoe
-123
-delete
-logout
-exit

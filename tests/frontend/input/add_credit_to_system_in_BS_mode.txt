@@ -1,0 +1,6 @@
+login
+testBSUser
+password
+addcredit
+100
+logout

@@ -1,0 +1,11 @@
+login
+testBSUser
+password
+bid
+itemDoesNotExist
+fakeSeller
+bid
+itemToBidOn
+sellerUserTest
+25
+logout

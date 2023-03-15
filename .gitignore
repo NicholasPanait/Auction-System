@@ -1,2 +1,5 @@
 build/
 .vscode/
+tests/frontend/comparison/
+tests/frontend/outputs/
+srcFront/main

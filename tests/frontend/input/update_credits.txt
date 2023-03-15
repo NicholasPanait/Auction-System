@@ -1,0 +1,7 @@
+login
+testAAUser
+password
+addcredit
+testAAUser
+100
+logout

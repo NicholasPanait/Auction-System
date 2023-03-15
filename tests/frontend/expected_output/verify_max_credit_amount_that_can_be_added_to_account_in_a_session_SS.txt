@@ -1,0 +1,32 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Sell-Standard User: testSSUser!
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+addcredit - Add Credit
+listitems - List Items Up For Auction
+***Add Credit***
+User Found! Please proceed to add a credit amount.
+Enter the amount of credit to add: Credit Amount to be added is greater than 1000. Please try again.
+
+Enter the amount of credit to add: 
+
+The specified credit has been successfully add to the indicated account!
+
+NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+addcredit - Add Credit
+listitems - List Items Up For Auction
+
+You have successfully logged out.
