@@ -3,3 +3,7 @@ testFSUser      FS 000000.00 password
 testingNEWUser  AA 000000.00 password
 testBSUser      BS 000140.00 password
 testAAUser      AA 000100.00 password
+testingNEWUser  testingNEWUser  AA000000.00emp
+testingNEWUser  testingNEWUser  AA000000.00emp
+testingNEWUser  testingNEWUser  AA000000.00emp
+testUser        testUser        AA000000.00emp

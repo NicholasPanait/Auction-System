@@ -1,6 +1,6 @@
 CXX = g++ -std=c++17
 CPPFLAGS = -g -Wall
-TARGET_EXEC ?= main
+TARGET_EXEC ?= main.out
 
 
 SRCS := $(wildcard *.cpp)

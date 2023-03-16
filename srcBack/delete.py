@@ -1,0 +1,2 @@
+def delete(username):
+    return
