@@ -2,6 +2,7 @@ import create
 import delete
 import advertise
 
+# Class used to store user information: Username, Privilege Type, Available Credit, and Password
 class User:
     def __init__(self, username, privilege_type, credit, password):
         self.username = username
@@ -12,7 +13,8 @@ class User:
     def __str__(self):
         user = self.username + (16 - len(self.username))*" "
         return user + self.privilege_type + self.credit + self.password
-    
+
+# Class used to store item information: Item Name, Seller, Buyer, Duration, Minimum Bid, Winning Bid
 class Item:
     def __init__(self, item_name, seller, buyer, duration, min_bid, winning_bid):
         self.item_name = item_name
