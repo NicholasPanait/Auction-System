@@ -36,18 +36,24 @@ def process_transaction(transaction, users, items):
         print("END OF SESSION")
     elif transaction[:2] == "01":
         if len(transaction) < 32: transaction += "temp"
-        create.create(transaction[3:19], transaction[3:21], transaction[22:31], transaction[32:], users)
+        create.create(transaction[3:19], transaction[19:22], transaction[22:32], transaction[32:], users)
         print("CREATE")
     elif transaction[:2] == "02":
+        # TODO
         print("DELETE")
     elif transaction[:2] == "03":
+        # TODO
         print("ADVERTISE")
     elif transaction[:2] == "04":
+        # TODO
         print("BID")
     elif transaction[:2] == "05":
+        # TODO
         print("REFUND")
     elif transaction[:2] == "06":
+        # TODO
         print("ADDCREDIT")
     elif transaction[:2] == "07":
+        # TODO
         print("CHANGEPASSWORD")
     return users, items
