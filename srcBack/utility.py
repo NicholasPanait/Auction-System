@@ -1,6 +1,7 @@
 import create
 import delete
 import advertise
+import addcredit
 
 # Class used to store user information: Username, Privilege Type, Available Credit, and Password
 class User:
@@ -52,8 +53,10 @@ def process_transaction(transaction, users, items):
         print("REFUND")
     elif transaction[:2] == "06":
         # TODO
+        addcredit.addcredit(transaction[3:19],transaction[22:32],users)
         print("ADDCREDIT")
     elif transaction[:2] == "07":
         # TODO
+        
         print("CHANGEPASSWORD")
     return users, items

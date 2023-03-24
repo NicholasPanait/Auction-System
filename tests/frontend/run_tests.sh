@@ -54,8 +54,12 @@ cd outputs
 #loop across all files in outputs folder
 for output in *;do
 	echo "Validating test: $output"
-	#Show the difference between file in outputs and corresponding file in
-	#expected_outputs folder
-	#Difference between the files is printed to file in comparison folder
-	diff $output ../expected_output/$output > ../comparison/"$output"
+	DIFF=$(diff $output ../expected_output/$output) 
+	if [ "$DIFF" != "" ];then
+   		echo "FAIL: "
+		echo $DIFF
+		read -n 1 -s -r -p "Press any key to continue"
+	else
+		echo "PASS"
+	fi
 done
