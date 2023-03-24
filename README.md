@@ -15,9 +15,14 @@ To build the frontend program
 
 The resulting executable will appear in this folder as `main`
 
-To test frontend program
+## To test frontend program
 
 `cd tests/frontend`
 `./run_tests.sh`
 
-This shell script will auto build the program, test failures will be seen as any file in `tests/frontend/comparison` that is not empty.
+This shell script will auto build the program, test results will be shown on screen
+
+## To test the backend program
+Requires Python, Pip, and PyTest
+Install pytest via `pip install -U pytest`
+In the root of the project, or in srcBack run `pytest`
