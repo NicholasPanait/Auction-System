@@ -3,3 +3,5 @@ build/
 tests/frontend/comparison/
 tests/frontend/outputs/
 srcFront/main
+.pytest_cache/
+__pycache__/
