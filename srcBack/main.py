@@ -1,5 +1,22 @@
+#
+# CSCI 3060 - Phase 5: Backend Implementation With Testing
+# Authors: Nicholas Panait, Alden Chan, Alexander Naylor, Ryan De Sousa
+#
+# Group Name: Team Hubble
+#
+# Submission Date: March 31, 2023
+# Version: 1.0
+#  
+# Description:
+# The following program is a full implementation of the backend responsible for handling the
+# Daily Transaction File and modifying the Accounts and Items File at the end of the day
+
 import utility
 import sys
+import re
+
+# The main method is used to start running the program in the command line by reading
+# the user, items, and transaction files, making changes to those files, and saving them
 
 # Lists storing the user, item, and daily transaction file data
 users = []
@@ -22,15 +39,25 @@ def read_files():
     # Reads in the user file, stores the users as User objects in the users list
     Lines = userFile.readlines()
     for line in Lines:
-        username = line[:16]
-        user = utility.User(line[:16], line[16:19], line[19:28], line[28:-1])
-        users.append(user)
+        if (len(line) != 1):
+            line = re.split("\s+", line[:-1])
+            user = utility.User(line[0], line[1], line[2], line[3])
+            #user = utility.User(line[:16], line[16:19], line[19:28], line[28:-1])
+            users.append(user)
 
     # Reads in the item file, stores the items as Item objects in the items list
     Lines = itemFile.readlines()
     for line in Lines:
-        item = utility.Item(line[:26], line[26:42], line[42:58], line[58:62], line[62:69], line[69:-1])
+        line = re.split("\s+", line[:-1])
+        if len(line) == 5:
+            item = utility.Item(line[0], line[1], '                ', line[2], line[3], line[4])
+        else:
+            item = utility.Item(line[0], line[1], line[2], line[3], line[4], line[5])
+        #item = utility.Item(line[:26], line[26:42], line[42:58], line[58:62], line[62:69], line[69:-1])
         items.append(item)
+        # ['BulkNails(5000pcs)', 'testAAUser', '009050.00', '00.00', '']
+
+        # BulkNails(5000pcs) testAAUser                             02 009050.00 00.00
 
     # Reads in the daily transaction file, stores the transactions in the transactions list
     Lines = transactionFile.readlines()

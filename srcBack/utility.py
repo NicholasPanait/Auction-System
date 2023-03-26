@@ -2,6 +2,7 @@ import create
 import delete
 import advertise
 import addcredit
+import re
 
 # Class used to store user information: Username, Privilege Type, Available Credit, and Password
 class User:
@@ -12,8 +13,7 @@ class User:
         self.password = password
 
     def __str__(self):
-        user = self.username + (16 - len(self.username))*" "
-        return user + self.privilege_type + self.credit + self.password
+        return pad_string(self.username, 16) + pad_string(self.privilege_type, 3) + pad_string(self.credit, 10) + self.password
 
 # Class used to store item information: Item Name, Seller, Buyer, Duration, Minimum Bid, Winning Bid
 class Item:
@@ -26,37 +26,75 @@ class Item:
         self.winning_bid = winning_bid
 
     def __str__(self):
-        item_name = self.item_name + (20 - len(self.item_name))*" "
-        seller_name = self.seller + (16 - len(self.seller))*" "
-        buyer_name = self.buyer + (16 - len(self.buyer))*" "
-        return item_name + seller_name + buyer_name + self.duration + self.min_bid + self.winning_bid
+        return pad_string(self.item_name, 25) + pad_string(self.seller, 16) + pad_string(self.buyer, 16) + pad_number(self.duration, 2) + " " + pad_number(self.min_bid, 6) + " " + pad_number(self.winning_bid, 6)
+
+def pad_string(string, length):
+    result = string
+    for i in range(length-len(string)):
+        result += " "
+    return result
+
+def pad_number(number, length):
+    zeros = ''
+    for i in range(length-len(number)):
+        zeros += '0'
+    return zeros + number
 
 # Takes a line of the transaction file and calls the appropriate function
 def process_transaction(transaction, users, items):
-    if transaction[:2] == "00":
+    transactions = re.split("\s+", transaction)
+    if transactions[0] == "00":
         print("END OF SESSION")
-    elif transaction[:2] == "01":
-        if len(transaction) < 32: transaction += "temp"
-        create.create(transaction[3:19], transaction[19:22], transaction[22:32], transaction[32:], users)
+    elif transactions[0] == "01":
+        if len(transactions) < 5: transactions += "temp"
+        create.create(transactions[1], transactions[2], transactions[3], transactions[4], users)
         print("CREATE")
-    elif transaction[:2] == "02":
+    elif transactions[0] == "02":
         # TODO
         print("DELETE")
-    elif transaction[:2] == "03":
+    elif transactions[0] == "03":
         # TODO
         print("ADVERTISE")
-    elif transaction[:2] == "04":
+    elif transactions[0] == "04":
         # TODO
         print("BID")
-    elif transaction[:2] == "05":
+    elif transactions[0] == "05":
         # TODO
         print("REFUND")
-    elif transaction[:2] == "06":
+    elif transactions[0] == "06":
         # TODO
-        addcredit.addcredit(transaction[3:19],transaction[22:32],users)
+        addcredit.addcredit(transaction[1],transaction[2],users)
         print("ADDCREDIT")
-    elif transaction[:2] == "07":
+    elif transactions[0] == "07":
         # TODO
         
         print("CHANGEPASSWORD")
     return users, items
+
+# bounds 32 - 126, diff is 94
+
+def encrypt(input):
+    password = ""
+    ascii_values = list(input.encode("ascii"))
+    for value in ascii_values:
+        if value >= 123:
+            password += chr(value-90)
+        else:
+            password += chr(value+4)
+    return password
+
+def decrypt(input):
+    password = ''
+    for letter in input:
+        # abcd
+        # [97, 98, 99, 100]
+        nums = list(letter.encode("ascii"))
+        for number in nums:
+            if number <= 35:
+                password += chr(number+90)
+            else:
+                password += chr(number-4)
+
+    for i in password:
+        print(i)
+    return password
