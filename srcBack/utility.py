@@ -2,6 +2,7 @@ import create
 import delete
 import advertise
 import addcredit
+import changepassword
 import re
 
 # Class used to store user information: Username, Privilege Type, Available Credit, and Password
@@ -44,17 +45,18 @@ def pad_number(number, length):
 def process_transaction(transaction, users, items):
     transactions = re.split("\s+", transaction)
     if transactions[0] == "00":
-        print("END OF SESSION")
+        # print("END OF SESSION")
+        return users, items
     elif transactions[0] == "01":
         if len(transactions) < 5: transactions += "temp"
         create.create(transactions[1], transactions[2], transactions[3], transactions[4], users)
-        print("CREATE")
+        # print("CREATE")
     elif transactions[0] == "02":
-        # TODO
-        print("DELETE")
+        delete.delete(transactions[0], users, items)
+        # print("DELETE")
     elif transactions[0] == "03":
-        # TODO
-        print("ADVERTISE")
+        advertise.advertise(transactions[1], transactions[2], transactions[3], transactions[4], items)
+        # print("ADVERTISE")
     elif transactions[0] == "04":
         # TODO
         print("BID")
@@ -62,39 +64,35 @@ def process_transaction(transaction, users, items):
         # TODO
         print("REFUND")
     elif transactions[0] == "06":
-        # TODO
-        addcredit.addcredit(transaction[1],transaction[2],users)
-        print("ADDCREDIT")
+        addcredit.addcredit(transaction[1], transaction[2], users)
+        # print("ADDCREDIT")
     elif transactions[0] == "07":
-        # TODO
-        
-        print("CHANGEPASSWORD")
+        changepassword.changepassword(transaction[1], transaction[2], users)
+        # print("CHANGEPASSWORD")
     return users, items
 
-# bounds 32 - 126, diff is 94
+# def encrypt(input):
+#     password = ""
+#     ascii_values = list(input.encode("ascii"))
+#     for value in ascii_values:
+#         if value >= 123:
+#             password += chr(value-90)
+#         else:
+#             password += chr(value+4)
+#     return password
 
-def encrypt(input):
-    password = ""
-    ascii_values = list(input.encode("ascii"))
-    for value in ascii_values:
-        if value >= 123:
-            password += chr(value-90)
-        else:
-            password += chr(value+4)
-    return password
+# def decrypt(input):
+#     password = ''
+#     for letter in input:
+#         # abcd
+#         # [97, 98, 99, 100]
+#         nums = list(letter.encode("ascii"))
+#         for number in nums:
+#             if number <= 35:
+#                 password += chr(number+90)
+#             else:
+#                 password += chr(number-4)
 
-def decrypt(input):
-    password = ''
-    for letter in input:
-        # abcd
-        # [97, 98, 99, 100]
-        nums = list(letter.encode("ascii"))
-        for number in nums:
-            if number <= 35:
-                password += chr(number+90)
-            else:
-                password += chr(number-4)
-
-    for i in password:
-        print(i)
-    return password
+#     for i in password:
+#         print(i)
+#     return password

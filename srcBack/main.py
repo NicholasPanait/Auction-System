@@ -94,8 +94,16 @@ def write_files():
 if __name__ == "__main__":
     # sets the file paths for the three files
     user_file_path = sys.argv[1]
+    if (user_file_path[:-3] != ".txt"):
+        print("Invalid file type for Accounts File!")
+
     item_file_path = sys.argv[2]
+    if (item_file_path[:-3] != ".txt"):
+        print("Invalid file type for Item File!")
+
     transaction_file_path = sys.argv[3]
+    if (transaction_file_path[:-3] != ".txt"):
+        print("Invalid file type for Transaction File!")
 
     # reads in the data from the three files
     read_files()
