@@ -1,4 +1,4 @@
-01 testingNEWUser  AA 000000.00 password
+01 testingNEWUser  AA 000000.00 teww{svh
 06 testBSUser      BS 000040.00
 00 testAAUser      AA 000000.00
 06 testBSUser      BS 000140.00
@@ -6,5 +6,5 @@
 00 testAAUser      AA 000000.00
 00 testAAUser      AA 000100.00
 00 testAAUser      AA 000100.00
-01 testUser        AA 000000.00 password
+01 testUser        AA 000000.00 teww{svh
 00 testAAUser      AA 000000.00
