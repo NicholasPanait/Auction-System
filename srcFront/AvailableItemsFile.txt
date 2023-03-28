@@ -1,4 +1,4 @@
-BulkNails(5000pcs)       testAAUser                      02 050.00 000.00
+BulkNails(5000pcs)       testAAUser                      02 050.00 065.00
 This_Website             testSSUser      testBSUser      05 040.00 060.00
 RussianSuperYaught       testBSUser      testBSUser      14 020.00 030.00
 Washers(5pcs)            testAAUser      testAAUser      23 002.00 004.00

@@ -1,4 +1,3 @@
-01 testingNEWUser  AA 000000.00 teww{svh
 06 testBSUser      BS 000040.00
 00 testAAUser      AA 000000.00
 06 testBSUser      BS 000140.00
@@ -6,5 +5,7 @@
 00 testAAUser      AA 000000.00
 00 testAAUser      AA 000100.00
 00 testAAUser      AA 000100.00
-01 testUser        AA 000000.00 teww{svh
+01 testUser        AA 000000.00 332
 00 testAAUser      AA 000000.00
+04 BulkNails(5000pcs)        testAAUser      testBSUser      065.00
+05 testAAUser      testBSUser      000040.00
