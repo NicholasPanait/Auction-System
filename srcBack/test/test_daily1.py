@@ -18,16 +18,20 @@ testSSUser      SS 000000.00 password
 testingBuyer    BS 010000.00 password
 testingSeller   SS 010000.00 password
 sellerUserTest  SS 000000.00 password
-buyUserTest     BS 000000.00 password"""
+buyUserTest     BS 000000.00 password
+"""
 
 ITEM_FILE_TEXT = """\
-itemToBidOn         sellerUserTest  testBSUser     100 000010"""
+itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
+"""
 
 TRANSACTION_FILE_TEXT = """\
-00 testAAUser      AA 000000.00   """
+00 testAAUser      AA 000000.00
+"""
 
 EXPECTED_ITEM_FILE_TEXT = """\
-itemToBidOn         sellerUserTest  testBSUser     100 000010"""
+itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
+"""
 
 EXPECTED_USER_FILE_TEXT = """\
 testAAUser      AA 000000.00 password
@@ -37,7 +41,8 @@ testSSUser      SS 000000.00 password
 testingBuyer    BS 010000.00 password
 testingSeller   SS 010000.00 password
 sellerUserTest  SS 000000.00 password
-buyUserTest     BS 000000.00 password"""
+buyUserTest     BS 000000.00 password
+"""
 
 def build_files():
 	with open(USER_FILE_PATH, 'wt') as file:
