@@ -119,10 +119,6 @@ def main():
 
     # Replaces the old user and item files with the data in users and items lists
     write_files()
-    #reset lists to empty to allow for testing
-    users = []
-    items = []
-    transactions = []
 
 def arg_main(user_path, item_path, transaction_path):
     # a more convienient way to run the program from the tests
