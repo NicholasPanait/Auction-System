@@ -149,8 +149,7 @@ def pad_number(number, length):
 def process_transaction(transaction, users, items):
     transactions = re.split("\s+", transaction)
     if len(transactions) > 5:
-        print("Fatal Error: Incorrect Number of Arguments in Daily Transaction File!")
-        quit()
+        raise Exception("Fatal Error: Incorrect Number of Arguments in Daily Transaction File!")
 
     # validate if the transaction are correct and formatted correctly
     if (validate_transaction(transaction) == False):
@@ -182,8 +181,7 @@ def process_transaction(transaction, users, items):
         changepassword.changepassword(transaction[1], transaction[2], users)
         # print("CHANGEPASSWORD")
     else:
-        print("Fatal Error: Incorrect Transaction Code in Daily Transaction File!")
-        quit()
+        raise Exception('Fatal Error: Incorrect Transaction Code in Daily Transaction File!')
     return users, items
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

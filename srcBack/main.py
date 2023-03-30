@@ -38,6 +38,7 @@ transaction_file_path = ""
 # transactions before we write it back to their respective files after all our processing
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def read_files():
+    
     # opens the files in read only mode
     userFile = open(user_file_path, "r")
     itemFile = open(item_file_path, "r")
@@ -101,6 +102,33 @@ def write_files():
     itemFile.close()
 
 
+def main():
+    if (user_file_path[-4:] != ".txt"):
+        raise Exception('Invalid file type for users file: ' + user_file_path)
+    if (item_file_path[-4:] != ".txt"):
+        raise Exception('Invalid file type for items file: ' + item_file_path)
+    if (transaction_file_path[-4:] != ".txt"):
+        raise Exception('Invalid file type for transaction file:' + transaction_file_path)
+    # reads in the data from the three files
+    read_files()
+    global users, items
+
+    # Edits the users and items lists based on the transaction codes
+    for transaction in transactions:
+        users, items = utility.process_transaction(transaction, users, items)
+
+    # Replaces the old user and item files with the data in users and items lists
+    write_files()
+
+def arg_main(user_path, item_path, transaction_path):
+    # a more convienient way to run the program from the tests
+    global transaction_file_path
+    transaction_file_path = transaction_path
+    global item_file_path
+    item_file_path = item_path
+    global user_file_path
+    user_file_path = user_path
+    main()
 
 #! Use the following command to run the python script directly
 #* python3 main.py ../srcFront/UserAccountsFile.txt ../srcFront/AvailableItemsFile.txt ../srcFront/DailyTransactionFile.txt
@@ -115,26 +143,7 @@ def write_files():
 if __name__ == "__main__":
     # sets the file paths for the three files
     user_file_path = sys.argv[1]
-    if (user_file_path[-4:] != ".txt"):
-        print("Invalid file type for Accounts File!")
-        quit()
-
     item_file_path = sys.argv[2]
-    if (item_file_path[-4:] != ".txt"):
-        print("Invalid file type for Item File!")
-        quit()
-
     transaction_file_path = sys.argv[3]
-    if (transaction_file_path[-4:] != ".txt"):
-        print("Invalid file type for Transaction File!")
-        quit()
+    main()
 
-    # reads in the data from the three files
-    read_files()
-
-    # Edits the users and items lists based on the transaction codes
-    for transaction in transactions:
-        users, items = utility.process_transaction(transaction, users, items)
-    
-    # Replaces the old user and item files with the data in users and items lists
-    write_files()
