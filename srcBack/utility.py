@@ -175,10 +175,10 @@ def process_transaction(transaction, users, items):
         refund.refund(transactions[1], transactions[2], transactions[3], users)
         # print("REFUND")
     elif transactions[0] == "06":
-        addcredit.addcredit(transaction[1], transaction[2], users)
+        addcredit.addcredit(transactions[1], transactions[3], users)
         # print("ADDCREDIT")
     elif transactions[0] == "07":
-        changepassword.changepassword(transaction[1], transaction[2], users)
+        changepassword.changepassword(transactions[1], transactions[2], users)
         # print("CHANGEPASSWORD")
     else:
         raise Exception('Fatal Error: Incorrect Transaction Code in Daily Transaction File!')
@@ -199,7 +199,7 @@ def process_transaction(transaction, users, items):
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def validate_transaction(transaction):
     transaction_code = transaction[:2]
-    # End of Session and Refund
+    # End of Session and add credit
     if transaction_code == "00" or transaction_code == "06":
         if re.match("^(00|06) (\\S)(.){14} (AA|FS|SS|BS|AM) (\\d){6}\.(\\d){2}", transaction):
             return True
@@ -207,7 +207,7 @@ def validate_transaction(transaction):
             if transaction_code == "00":
                 print("Error: Incorrect formatting for End of Session in Daily Transaction File")
             else:
-                print("Error: Incorrect formatting for Refund in Daily Transaction File")
+                print("Error: Incorrect formatting for Add Credit in Daily Transaction File")
             
 
     # Create and Delete

@@ -27,11 +27,16 @@ def addcredit(username, credit, users):
             # add credits to the user
             float_cred = float(user.credit)
             float_cred += float(credit)
-            str_cred = str(float_cred)
 
-            # ensure proper formatting
-            if (str_cred[-3] != "."):
-                str_cred+=".00"
+            if float_cred > 999999.99:
+                print("ERROR: This add credit transaction would put the user over the limit.")
+                return
+            if float(credit) > 1000.00:
+                print("ERROR: This add credit transaction is over the credit limit.")
+                return
+            str_cred = "{:09.2f}".format(float_cred)
+
+           
             str_cred = utility.pad_string(str_cred, 9)
             user.credit = str_cred
     return

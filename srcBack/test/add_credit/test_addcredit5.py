@@ -1,10 +1,11 @@
 import os
 import sys
 import pytest
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 # allows us to import python files in parent directory
 # EG
 from main import *
+
 
 USER_FILE_PATH = '_test_users.txt'
 ITEM_FILE_PATH = '_test_items.txt'
@@ -26,6 +27,7 @@ itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 TRANSACTION_FILE_TEXT = """\
+06 testFSUser      FS 000100.00
 00 testAAUser      AA 000000.00
 """
 
@@ -36,13 +38,14 @@ itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 EXPECTED_USER_FILE_TEXT = """\
 testAAUser      AA 000000.00 password
 testBSUser      BS 000000.00 password
-testFSUser      FS 000000.00 password
+testFSUser      FS 000100.00 password
 testSSUser      SS 000000.00 password
 testingBuyer    BS 010000.00 password
 testingSeller   SS 010000.00 password
 sellerUserTest  SS 000000.00 password
 buyUserTest     BS 000000.00 password
 """
+
 
 def build_files():
 	with open(USER_FILE_PATH, 'wt') as file:
@@ -52,6 +55,7 @@ def build_files():
 	with open(TRANSACTION_FILE_PATH, 'wt') as file:
 		file.write(TRANSACTION_FILE_TEXT)
 
+
 def delete_files():
 	if os.path.exists(USER_FILE_PATH):
 		os.remove(USER_FILE_PATH)
@@ -60,7 +64,8 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
 
-def test_daily3():
+
+def test_add_credit5():
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()

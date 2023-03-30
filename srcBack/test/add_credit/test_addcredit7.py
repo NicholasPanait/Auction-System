@@ -1,10 +1,11 @@
 import os
 import sys
 import pytest
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 # allows us to import python files in parent directory
 # EG
 from main import *
+
 
 USER_FILE_PATH = '_test_users.txt'
 ITEM_FILE_PATH = '_test_items.txt'
@@ -26,6 +27,7 @@ itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 TRANSACTION_FILE_TEXT = """\
+06 testFSUser      FS 010000.00
 00 testAAUser      AA 000000.00
 """
 
@@ -44,6 +46,7 @@ sellerUserTest  SS 000000.00 password
 buyUserTest     BS 000000.00 password
 """
 
+
 def build_files():
 	with open(USER_FILE_PATH, 'wt') as file:
 		file.write(USER_FILE_TEXT)
@@ -51,6 +54,7 @@ def build_files():
 		file.write(ITEM_FILE_TEXT)
 	with open(TRANSACTION_FILE_PATH, 'wt') as file:
 		file.write(TRANSACTION_FILE_TEXT)
+
 
 def delete_files():
 	if os.path.exists(USER_FILE_PATH):
@@ -60,7 +64,8 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
 
-def test_daily1():
+
+def test_add_credit7(capsys):
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()
@@ -71,6 +76,8 @@ def test_daily1():
 			assert file.read() == EXPECTED_USER_FILE_TEXT
 		with open(ITEM_FILE_PATH, "rt") as file:
 			assert file.read() == EXPECTED_ITEM_FILE_TEXT
+
+		assert capsys.readouterr().out == "ERROR: This add credit transaction is over the credit limit.\n"
 
 	finally:
 		# test files must always be deleted

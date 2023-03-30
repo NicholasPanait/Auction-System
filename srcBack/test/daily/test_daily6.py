@@ -1,7 +1,7 @@
 import os
 import sys
 import pytest
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 # allows us to import python files in parent directory
 # EG
 from main import *

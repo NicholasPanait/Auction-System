@@ -76,7 +76,7 @@ def read_files():
     itemFile.close()
     transactionFile.close()
 
-    if transactions[-1][:2] != "00" or not utility.validate_transaction(transactions[0]):
+    if transactions[-1][:2] != "00" or not utility.validate_transaction(transactions[-1]):
         raise Exception('Format Error: Transaction file does not end in logout!')
         
 
