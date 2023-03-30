@@ -8,7 +8,7 @@ from main import *
 
 USER_FILE_PATH = '_test_users.txt'
 ITEM_FILE_PATH = '_test_items.txt'
-TRANSACTION_FILE_PATH = '_test_transaction.txt'
+TRANSACTION_FILE_PATH = '_test_transaction.bin'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
 USER_FILE_TEXT = """\
 testAAUser      AA 000000.00 password
@@ -45,6 +45,11 @@ buyUserTest     BS 000000.00 password
 """
 
 def build_files():
+	global users, items, transactions
+	# reset lists to empty to allow for testing
+	users = []
+	items = []
+	transactions = []
 	with open(USER_FILE_PATH, 'wt') as file:
 		file.write(USER_FILE_TEXT)
 	with open(ITEM_FILE_PATH, 'wt') as file:
@@ -60,22 +65,11 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
 
-def test_daily1():
-	global users, items, transactions
-	# reset lists to empty to allow for testing
-	users = []
-	items = []
-	transactions = []
-	#PUT TEST CODE HERE, example is a system test
+def test_daily2():
 	try:
 		build_files()
-		
-		arg_main(USER_FILE_PATH,ITEM_FILE_PATH,TRANSACTION_FILE_PATH)
-
-		with open(USER_FILE_PATH, "rt") as file:
-			assert file.read() == EXPECTED_USER_FILE_TEXT
-		with open(ITEM_FILE_PATH, "rt") as file:
-			assert file.read() == EXPECTED_ITEM_FILE_TEXT
+		with pytest.raises(Exception, match="Invalid file type for transaction file:"):
+			arg_main(USER_FILE_PATH, ITEM_FILE_PATH, TRANSACTION_FILE_PATH)
 
 	finally:
 		# test files must always be deleted

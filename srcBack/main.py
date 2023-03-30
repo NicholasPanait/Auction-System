@@ -111,7 +111,7 @@ def main():
         raise Exception('Invalid file type for transaction file:' + transaction_file_path)
     # reads in the data from the three files
     read_files()
-    global users, items
+    global users, items, transactions
 
     # Edits the users and items lists based on the transaction codes
     for transaction in transactions:
@@ -119,6 +119,10 @@ def main():
 
     # Replaces the old user and item files with the data in users and items lists
     write_files()
+    #reset lists to empty to allow for testing
+    users = []
+    items = []
+    transactions = []
 
 def arg_main(user_path, item_path, transaction_path):
     # a more convienient way to run the program from the tests
