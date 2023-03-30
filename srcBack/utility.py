@@ -166,7 +166,7 @@ def process_transaction(transaction, users, items):
         delete.delete(transactions[0], users, items)
         # print("DELETE")
     elif transactions[0] == "03":
-        advertise.advertise(transactions[1], transactions[2], transactions[3], transactions[4], items)
+        advertise.advertise(transactions[1], transactions[2], transactions[3], transactions[4], items,users)
         # print("ADVERTISE")
     elif transactions[0] == "04":
         bid.bid(transactions[1], transactions[2], transactions[3], transactions[4], users, items)

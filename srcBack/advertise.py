@@ -22,8 +22,14 @@ import utility
 # min_bid - The starting bid of the auction
 # items - The list of Items storing the information from the Items File
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-def advertise(item_name, seller_name, duration, min_bid, items):
+def advertise(item_name, seller_name, duration, min_bid, items,users):
     # Create a new Item and append it to the items list
+    for user in users:
+        if user.username == seller_name:
+            if user.privilege_type[0] == 'B' or user.privilege_type == 'AM':
+                print("ERROR: User does not have permission to advertise.")
+                return
+
     new_item = utility.Item(item_name, seller_name, "               ", duration, min_bid, "00.00")
     items.append(new_item)
     return
