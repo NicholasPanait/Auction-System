@@ -76,6 +76,10 @@ def read_files():
     itemFile.close()
     transactionFile.close()
 
+    if transactions[-1][:2] != "00" or not utility.validate_transaction(transactions[0]):
+        raise Exception('Format Error: Transaction file does not end in logout!')
+        
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Function Name: write_files
 #
@@ -103,6 +107,8 @@ def write_files():
 
 
 def main():
+    global users, items, transactions
+    users,items,transactions = [],[],[]
     if (user_file_path[-4:] != ".txt"):
         raise Exception('Invalid file type for users file: ' + user_file_path)
     if (item_file_path[-4:] != ".txt"):
@@ -111,7 +117,7 @@ def main():
         raise Exception('Invalid file type for transaction file:' + transaction_file_path)
     # reads in the data from the three files
     read_files()
-    global users, items, transactions
+    
 
     # Edits the users and items lists based on the transaction codes
     for transaction in transactions:

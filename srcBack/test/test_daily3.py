@@ -45,11 +45,6 @@ buyUserTest     BS 000000.00 password
 """
 
 def build_files():
-	global users,items,transactions
-	# reset lists to empty to allow for testing
-	users = []
-	items = []
-	transactions = []
 	with open(USER_FILE_PATH, 'wt') as file:
 		file.write(USER_FILE_TEXT)
 	with open(ITEM_FILE_PATH, 'wt') as file:

@@ -61,11 +61,6 @@ def delete_files():
 		os.remove(TRANSACTION_FILE_PATH)
 
 def test_daily1():
-	global users, items, transactions
-	# reset lists to empty to allow for testing
-	users = []
-	items = []
-	transactions = []
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()

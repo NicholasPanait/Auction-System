@@ -8,7 +8,7 @@ from main import *
 
 USER_FILE_PATH = '_test_users.txt'
 ITEM_FILE_PATH = '_test_items.txt'
-TRANSACTION_FILE_PATH = '_test_transaction.bin'
+TRANSACTION_FILE_PATH = '_test_transaction.txt'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
 USER_FILE_TEXT = """\
 testAAUser      AA 000000.00 password
@@ -25,9 +25,6 @@ ITEM_FILE_TEXT = """\
 itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
-TRANSACTION_FILE_TEXT = """\
-00 testAAUser      AA 000000.00
-"""
 
 EXPECTED_ITEM_FILE_TEXT = """\
 itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
@@ -49,8 +46,6 @@ def build_files():
 		file.write(USER_FILE_TEXT)
 	with open(ITEM_FILE_PATH, 'wt') as file:
 		file.write(ITEM_FILE_TEXT)
-	with open(TRANSACTION_FILE_PATH, 'wt') as file:
-		file.write(TRANSACTION_FILE_TEXT)
 
 def delete_files():
 	if os.path.exists(USER_FILE_PATH):
@@ -60,10 +55,12 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
 
-def test_daily2():
+
+def test_daily5():
+	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()
-		with pytest.raises(Exception, match="Invalid file type for transaction file:"):
+		with pytest.raises(Exception, match="No such file or directory:"):
 			arg_main(USER_FILE_PATH, ITEM_FILE_PATH, TRANSACTION_FILE_PATH)
 
 	finally:

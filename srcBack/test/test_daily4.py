@@ -8,7 +8,7 @@ from main import *
 
 USER_FILE_PATH = '_test_users.txt'
 ITEM_FILE_PATH = '_test_items.txt'
-TRANSACTION_FILE_PATH = '_test_transaction.bin'
+TRANSACTION_FILE_PATH = '_test_transaction.txt'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
 USER_FILE_TEXT = """\
 testAAUser      AA 000000.00 password
@@ -26,7 +26,7 @@ itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 TRANSACTION_FILE_TEXT = """\
-00 testAAUser      AA 000000.00
+00testAAUserAA000000.00
 """
 
 EXPECTED_ITEM_FILE_TEXT = """\
@@ -60,12 +60,14 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
 
-def test_daily2():
+
+def test_daily4():
+	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()
-		with pytest.raises(Exception, match="Invalid file type for transaction file:"):
-			arg_main(USER_FILE_PATH, ITEM_FILE_PATH, TRANSACTION_FILE_PATH)
 
+		with pytest.raises(Exception, match="Format Error: Transaction file does not end in logout!"):
+			arg_main(USER_FILE_PATH, ITEM_FILE_PATH, TRANSACTION_FILE_PATH)
 	finally:
 		# test files must always be deleted
 		delete_files()
