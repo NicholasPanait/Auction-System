@@ -23,15 +23,16 @@ buyUserTest     BS 000000.00 password
 """
 
 ITEM_FILE_TEXT = """\
-itemToBidOn              testingSeller   testingBuyer    10 001.00 100.00
+itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 TRANSACTION_FILE_TEXT = """\
-02 testingBuyer    SS 010000.00 420
-00 testAAUser      AA 000000.00
+01 testAAUser      AA 000000.00 123
+00 testFSUser      FS 000000.00
 """
 
 EXPECTED_ITEM_FILE_TEXT = """\
+itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 EXPECTED_USER_FILE_TEXT = """\
@@ -39,11 +40,12 @@ testAAUser      AA 000000.00 password
 testBSUser      BS 000000.00 password
 testFSUser      FS 000000.00 password
 testSSUser      SS 000000.00 password
+testingBuyer    BS 010000.00 password
 testingSeller   SS 010000.00 password
 sellerUserTest  SS 000000.00 password
 buyUserTest     BS 000000.00 password
 """
-EXPECTED_TERMINAL_OUTPUT = ""
+EXPECTED_TERMINAL_OUTPUT = "Error: User already exists!\n"
 
 def build_files():
 	with open(USER_FILE_PATH, 'wt') as file:
@@ -63,7 +65,7 @@ def delete_files():
 		os.remove(TRANSACTION_FILE_PATH)
 
 
-def test_delete5(capsys):
+def test_create6(capsys):
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()

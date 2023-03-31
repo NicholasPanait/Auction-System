@@ -25,5 +25,14 @@ import utility
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def create(username, account_type, credit, password, users):
     # Creates a new user and adds them to the users list
+    acc = 0
+    no_error = True
+    for user in users:
+        if (user.username == username):
+            no_error = False
+        acc += 1
+    if no_error == False:
+        print("Error: User already exists!")
+        return
     user = utility.User(username, account_type, credit, password)
     users.append(user)

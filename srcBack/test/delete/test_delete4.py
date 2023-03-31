@@ -23,16 +23,15 @@ buyUserTest     BS 000000.00 password
 """
 
 ITEM_FILE_TEXT = """\
-itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
+itemToBidOn              testingSeller   testingBuyer    10 001.00 100.00
 """
 
 TRANSACTION_FILE_TEXT = """\
-02 testAAUser      AA 000000.00 420
+02 testingSeller   SS 010000.00 420
 00 testAAUser      AA 000000.00
 """
 
 EXPECTED_ITEM_FILE_TEXT = """\
-itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 EXPECTED_USER_FILE_TEXT = """\
@@ -40,8 +39,7 @@ testAAUser      AA 000000.00 password
 testBSUser      BS 000000.00 password
 testFSUser      FS 000000.00 password
 testSSUser      SS 000000.00 password
-testingBuyer    BS 010000.00 password
-testingSeller   SS 010000.00 password
+testingBuyer    BS 010100.00 password
 sellerUserTest  SS 000000.00 password
 buyUserTest     BS 000000.00 password
 """
