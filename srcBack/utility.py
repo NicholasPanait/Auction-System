@@ -195,7 +195,7 @@ def process_transaction(transaction, users, items):
 #
 # Return:
 # 1. If the transaction is improperly formatted it will return False
-# 2. If the transaction is not improperly formatted it will return True
+# 2. If the transaction is properly formatted it will return True
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def validate_transaction(transaction):
     transaction_code = transaction[:2]
@@ -205,46 +205,81 @@ def validate_transaction(transaction):
             return True
         else:
             if transaction_code == "00":
-                print("Error: Incorrect formatting for End of Session in Daily Transaction File")
+                raise Exception('Error: Incorrect formatting for End of Session in Daily Transaction File')
             else:
-                print("Error: Incorrect formatting for Add Credit in Daily Transaction File")
+                raise Exception('Error: Incorrect formatting for Add Credit in Daily Transaction File')
             
-
     # Create and Delete
     elif transaction_code == "01" or transaction_code == "02":
         if re.match("^(01|02) (\\S)(.){14} (AA|FS|SS|BS|AM) (\\d){6}\.(\\d){2} (\\d){1,4}", transaction):
             return True
         else:
             if transaction_code == "01":
-                print("Error: Incorrect formatting for Create in Daily Transaction File")
+                raise Exception("Error: Incorrect formatting for Create in Daily Transaction File")
             else:
-                print("Error: Incorrect formatting for Delete in Daily Transaction File")
+                raise Exception("Error: Incorrect formatting for Delete in Daily Transaction File")
 
     # Advertise
     elif transaction_code == "03":
         if re.match("^(03) (\\S)(.){24} (\\S)(.){14} (\\d){2} (\\d){3}\\.(\\d){2}", transaction):
             return True
         else:
-            print("Error: Incorrect formatting for Advertise in Daily Transaction File")
+            raise Exception("Error: Incorrect formatting for Advertise in Daily Transaction File")
             
     # Bid
     elif transaction_code == "04":
         if re.match("^(04) (\\S)(.){24} (\\S)(.){14} (\\S)(.){14} (\\d){3}\\.(\\d){2}", transaction):
             return True
         else:
-            print("Error: Incorrect formatting for Bid in Daily Transaction File")   
+            raise Exception("Error: Incorrect formatting for Bid in Daily Transaction File")   
         
     # Refund
     elif transaction_code == "05":
         if re.match("^(05) (\\S)(.){14} (\\S)(.){14} (\\d){6}\\.(\\d){2}", transaction):
             return True
         else:
-            print("Error: Incorrect formatting for Refund in Daily Transaction File")     
+            raise Exception("Error: Incorrect formatting for Refund in Daily Transaction File")     
         
     # Changepassword
     elif transaction_code == "07":
         if re.match("^(03) (\\S)(.){14} (\\d){1,4}", transaction):
             return True
         else:
-            print("Error: Incorrect formatting for Changepassword in Daily Transaction File")     
+            raise Exception("Error: Incorrect formatting for Changepassword in Daily Transaction File")     
+    return False
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Function Name: validate_user
+#
+# Parameters:
+# user - The line from the User File
+#
+# Description:
+# The following function will validate formatting of a user from the User File
+#
+# Return:
+# 1. If the transaction is improperly formatted it will return False
+# 2. If the transaction is properly formatted it will return True
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+def validate_user(user):
+    if re.match("^\\S(.){14} (AA|SS|BS|FS|AM) \\d{6}.\d{2} \\d{1,4}". user):
+        return True
+    return False
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Function Name: validate_item
+#
+# Parameters:
+# item - The line from the Item File
+#
+# Description:
+# The following function will validate formatting of a item from the Items File
+#
+# Return:
+# 1. If the transaction is improperly formatted it will return False
+# 2. If the transaction is properly formatted it will return True
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+def validate_item(item):
+    if re.match("^\\S(.){24} \\S(.){14} [\\S, ]{15} \\d{2} \\d{3}.\\d{2} \\d{3}.\\d{2}", item):
+        return True
     return False

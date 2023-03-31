@@ -29,11 +29,9 @@ def addcredit(username, credit, users):
             float_cred += float(credit)
 
             if float_cred > 999999.99:
-                print("ERROR: This add credit transaction would put the user over the limit.")
-                return
+                raise Exception('ERROR: This add credit transaction would put the user over the limit.')
             if float(credit) > 1000.00:
-                print("ERROR: This add credit transaction is over the credit limit.")
-                return
+                raise Exception('ERROR: This add credit transaction is over the credit limit.')
             str_cred = "{:09.2f}".format(float_cred)
 
            

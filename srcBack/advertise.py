@@ -27,16 +27,13 @@ def advertise(item_name, seller_name, duration, min_bid, items,users):
     for user in users:
         if user.username == seller_name:
             if user.privilege_type[0] == 'B' or user.privilege_type == 'AM':
-                print("ERROR: User does not have permission to advertise.")
-                return
+                raise Exception('ERROR: User does not have permission to advertise.')
             
     if float(min_bid) < 0.01:
-        print("ERROR: Advertise min bid below 0.01")
-        return
+        raise Exception('ERROR: Advertise min bid below 0.01')
     
     if int(duration) < 1:
-        print("ERROR: Advertise duration below 1 day")
-        return
+        raise Exception('ERROR: Advertise duration below 1 day')
 
     new_item = utility.Item(item_name, seller_name, "               ", duration, min_bid, "00.00")
     items.append(new_item)

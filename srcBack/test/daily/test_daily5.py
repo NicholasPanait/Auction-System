@@ -22,12 +22,12 @@ buyUserTest     BS 000000.00 password
 """
 
 ITEM_FILE_TEXT = """\
-itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
+itemToBidOn               sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 
 EXPECTED_ITEM_FILE_TEXT = """\
-itemToBidOn              sellerUserTest  testBSUser      10 001.00 000.00
+itemToBidOn               sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 EXPECTED_USER_FILE_TEXT = """\
