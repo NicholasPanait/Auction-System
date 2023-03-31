@@ -242,7 +242,7 @@ def validate_transaction(transaction):
         
     # Changepassword
     elif transaction_code == "07":
-        if re.match("^(03) (\\S)(.){14} (\\d){1,4}", transaction):
+        if re.match("^(07) (\\S)(.){14} (\\d){1,4}", transaction):
             return True
         else:
             print("Error: Incorrect formatting for Changepassword in Daily Transaction File")     
