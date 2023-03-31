@@ -25,6 +25,14 @@ import utility
 # items - The list of Items storing the information from the Items File
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def bid(item_name, seller_name, buyer_name, bid, users, items):
+    Admin = False
+    if (seller_name == buyer_name):
+        print("Error: you can\'t bid on your own item")
+        return
+
+    if (float(bid) < 0.01):
+        print("Error: Bid value too low")
+        return
     
     # find the buyer in the items list
     old_buyer = ""
@@ -37,17 +45,30 @@ def bid(item_name, seller_name, buyer_name, bid, users, items):
             old_credits = item.winning_bid
             break
 
+    
     # find the buyer in the users list
+    oacc = -1
     uacc = -1
     buyer_set = False
+    old_set = False
     for user in users:
         if buyer_set == False:
             uacc += 1
+        if  not old_set:
+            oacc +=1
         if (user.username == buyer_name and buyer_set == False):
             buyer_set = True
+            if (user.privilege_type == "AA"):
+                Admin = True
         elif (user.username == old_buyer):
-            user.credits += old_credits
+            old_set=True
 
+    if((float(bid) < float(old_credits)*1.05) and not Admin):
+        print("Error: bid does not exceed 5% of the previous bid")
+        return        
+    else:
+        users[oacc].credit = utility.pad_number(str(float(users[oacc].credit) + float(old_credits))+"0",9)
+    
     # place the bid on the item
     if (float(bid) <= float(users[uacc].credit)):
         for item in items:
