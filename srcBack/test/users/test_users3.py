@@ -12,7 +12,7 @@ ITEM_FILE_PATH = '_test_items.txt'
 TRANSACTION_FILE_PATH = '_test_transaction.txt'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
 USER_FILE_TEXT = """\
-testAAUser      AA 000000.00 1234
+testAAUser       AA 000000.00 1234
 testBSUser      BS 000000.00 1234
 testFSUser      FS 000000.00 1234
 testSSUser      SS 000000.00 1234
@@ -33,7 +33,7 @@ EXPECTED_ITEM_FILE_TEXT = """\
 """
 
 EXPECTED_USER_FILE_TEXT = """\
-testAAUser      AA 000000.00 1234
+testAAUser       AA 000000.00 1234
 testBSUser      BS 000000.00 1234
 testFSUser      FS 000000.00 1234
 testSSUser      SS 000000.00 1234
@@ -60,21 +60,12 @@ def delete_files():
 		os.remove(ITEM_FILE_PATH)
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
-
-
-def test_users3(capsys):
-	#PUT TEST CODE HERE, example is a system test
+        
+def test_users3():
 	try:
 		build_files()
-		
-		arg_main(USER_FILE_PATH,ITEM_FILE_PATH,TRANSACTION_FILE_PATH)
-
-		with open(USER_FILE_PATH, "rt") as file:
-			assert file.read() == EXPECTED_USER_FILE_TEXT
-		with open(ITEM_FILE_PATH, "rt") as file:
-			assert file.read() == EXPECTED_ITEM_FILE_TEXT
-
-		assert capsys.readouterr().out == EXPECTED_TERMINAL_OUTPUT
+		with pytest.raises(Exception, match="Format Error: User in user file not properly formatted"):
+			arg_main(USER_FILE_PATH, ITEM_FILE_PATH, TRANSACTION_FILE_PATH)
 
 	finally:
 		# test files must always be deleted
