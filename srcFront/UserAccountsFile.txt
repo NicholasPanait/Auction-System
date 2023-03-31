@@ -3,4 +3,3 @@ testFSUser      FS 000000.00 123
 testingNEWUser  AA 000000.00 321
 testBSUser      BS 000140.00 859
 testAAUser      AA 000100.00 4172
-testUser        AA 000000.00 2344

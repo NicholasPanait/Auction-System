@@ -87,7 +87,7 @@ class Item:
     # The following function handles the string conversion of the Item
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     def __str__(self):
-        return pad_string(self.item_name, 25) + pad_string(self.seller, 16) + pad_string(self.buyer, 16) + pad_number(self.duration, 2) + " " + pad_number(self.min_bid, 6) + " " + pad_number(self.winning_bid, 6)
+        return pad_string(self.item_name, 26) + pad_string(self.seller, 16) + pad_string(self.buyer, 16) + pad_number(self.duration, 2) + " " + pad_number(self.min_bid, 6) + " " + pad_number(self.winning_bid, 6)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Function Name: pad_string
@@ -149,7 +149,7 @@ def pad_number(number, length):
 def process_transaction(transaction, users, items):
     transactions = re.split("\s+", transaction)
     if len(transactions) > 5:
-        raise Exception("Fatal Error: Incorrect Number of Arguments in Daily Transaction File!")
+        print("Fatal Error: Incorrect Number of Arguments in Daily Transaction File!")
 
     # validate if the transaction are correct and formatted correctly
     if (validate_transaction(transaction) == False):
@@ -181,7 +181,7 @@ def process_transaction(transaction, users, items):
         changepassword.changepassword(transactions[1], transactions[2], users)
         # print("CHANGEPASSWORD")
     else:
-        raise Exception('Fatal Error: Incorrect Transaction Code in Daily Transaction File!')
+        print('Fatal Error: Incorrect Transaction Code in Daily Transaction File!')
     return users, items
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -205,9 +205,9 @@ def validate_transaction(transaction):
             return True
         else:
             if transaction_code == "00":
-                raise Exception('Error: Incorrect formatting for End of Session in Daily Transaction File')
+                print('Error: Incorrect formatting for End of Session in Daily Transaction File')
             else:
-                raise Exception('Error: Incorrect formatting for Add Credit in Daily Transaction File')
+                print('Error: Incorrect formatting for Add Credit in Daily Transaction File')
             
     # Create and Delete
     elif transaction_code == "01" or transaction_code == "02":
@@ -215,37 +215,37 @@ def validate_transaction(transaction):
             return True
         else:
             if transaction_code == "01":
-                raise Exception("Error: Incorrect formatting for Create in Daily Transaction File")
+                print("Error: Incorrect formatting for Create in Daily Transaction File")
             else:
-                raise Exception("Error: Incorrect formatting for Delete in Daily Transaction File")
+                print("Error: Incorrect formatting for Delete in Daily Transaction File")
 
     # Advertise
     elif transaction_code == "03":
         if re.match("^(03) (\\S)(.){24} (\\S)(.){14} (\\d){2} (\\d){3}\\.(\\d){2}", transaction):
             return True
         else:
-            raise Exception("Error: Incorrect formatting for Advertise in Daily Transaction File")
+            print("Error: Incorrect formatting for Advertise in Daily Transaction File")
             
     # Bid
     elif transaction_code == "04":
         if re.match("^(04) (\\S)(.){24} (\\S)(.){14} (\\S)(.){14} (\\d){3}\\.(\\d){2}", transaction):
             return True
         else:
-            raise Exception("Error: Incorrect formatting for Bid in Daily Transaction File")   
+            print("Error: Incorrect formatting for Bid in Daily Transaction File")   
         
     # Refund
     elif transaction_code == "05":
         if re.match("^(05) (\\S)(.){14} (\\S)(.){14} (\\d){6}\\.(\\d){2}", transaction):
             return True
         else:
-            raise Exception("Error: Incorrect formatting for Refund in Daily Transaction File")     
+            print("Error: Incorrect formatting for Refund in Daily Transaction File")     
         
     # Changepassword
     elif transaction_code == "07":
         if re.match("^(03) (\\S)(.){14} (\\d){1,4}", transaction):
             return True
         else:
-            raise Exception("Error: Incorrect formatting for Changepassword in Daily Transaction File")     
+            print("Error: Incorrect formatting for Changepassword in Daily Transaction File")     
     return False
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -262,7 +262,7 @@ def validate_transaction(transaction):
 # 2. If the transaction is properly formatted it will return True
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def validate_user(user):
-    if re.match("^\\S(.){14} (AA|SS|BS|FS|AM) \\d{6}.\d{2} \\d{1,4}". user):
+    if re.match("^\\S(.){14} (AA|SS|BS|FS|AM) \\d{6}.\d{2} \\d{1,4}", user):
         return True
     return False
 

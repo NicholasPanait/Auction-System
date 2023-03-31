@@ -33,15 +33,19 @@ def refund(buyer_name, seller_name, credit, users):
             break
         sacc += 1
     if (sacc >= len(users)):
-        raise Exception('Error: Seller does not exist')
+        print('Error: Seller does not exist')
+        return
     if (bacc >= len(users)):
-        raise Exception('Error: Buyer does not exist')
+        print('Error: Buyer does not exist')
+        return
     if (float(users[bacc].credit) + float(credit) > 999999.0):
-        raise Exception('Error: Buyer credit would exceed $999,999 if refund was processed')
+        print('Error: Buyer credit would exceed $999,999 if refund was processed')
+        return
     if float(users[sacc].credit) >= float(credit):
         users[bacc].credit = utility.pad_number(str(float(users[bacc].credit) + float(credit)) + '0', 9)
         users[sacc].credit = utility.pad_number(str(float(users[sacc].credit) - float(credit)) + '0', 9)
     else:
-        raise Exception('Error: Seller does not have enough money for a refund')
+        print('Error: Seller does not have enough money for a refund')
+        return
 
     return

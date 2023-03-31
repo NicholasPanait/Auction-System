@@ -12,14 +12,14 @@ ITEM_FILE_PATH = '_test_items.txt'
 TRANSACTION_FILE_PATH = '_test_transaction.txt'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
 USER_FILE_TEXT = """\
-testAAUser      AA 000000.00 password
-testBSUser      BS 000000.00 password
-testFSUser      FS 000000.00 password
-testSSUser      SS 000000.00 password
-testingBuyer    BS 010000.00 password
-testingSeller   SS 010000.00 password
-sellerUserTest  SS 000000.00 password
-buyUserTest     BS 000000.00 password
+testAAUser      AA 000000.00 1234
+testBSUser      BS 000000.00 1234
+testFSUser      FS 000000.00 1234
+testSSUser      SS 000000.00 1234
+testingBuyer    BS 010000.00 1234
+testingSeller   SS 010000.00 1234
+sellerUserTest  SS 000000.00 1234
+buyUserTest     BS 000000.00 1234
 """
 
 ITEM_FILE_TEXT = """\
@@ -27,7 +27,7 @@ itemToBidOn               sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 TRANSACTION_FILE_TEXT = """\
-06 testBSUser      BS 000a00.00
+06 testBSUser      BS b
 00 testAAUser      AA 000000.00
 """
 
@@ -36,14 +36,14 @@ itemToBidOn               sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 EXPECTED_USER_FILE_TEXT = """\
-testAAUser      AA 000000.00 password
-testBSUser      BS 000000.00 password
-testFSUser      FS 000000.00 password
-testSSUser      SS 000000.00 password
-testingBuyer    BS 010000.00 password
-testingSeller   SS 010000.00 password
-sellerUserTest  SS 000000.00 password
-buyUserTest     BS 000000.00 password
+testAAUser      AA 000000.00 1234
+testBSUser      BS 000000.00 1234
+testFSUser      FS 000000.00 1234
+testSSUser      SS 000000.00 1234
+testingBuyer    BS 010000.00 1234
+testingSeller   SS 010000.00 1234
+sellerUserTest  SS 000000.00 1234
+buyUserTest     BS 000000.00 1234
 """
 
 

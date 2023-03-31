@@ -48,8 +48,8 @@ def read_files():
     Lines = userFile.readlines()
     for line in Lines:
         if (len(line) != 1):
-            line = re.split("\s+", line[:-1])
-            if (utility.validate_user):
+            if (utility.validate_user(line[:-1])):
+                line = re.split("\s+", line[:-1])
                 user = utility.User(line[0], line[1], line[2], line[3])
             else:
                 raise Exception('Format Error: User in user file not properly formatted')
@@ -59,14 +59,15 @@ def read_files():
     # Reads in the item file, stores the items as Item objects in the items list
     Lines = itemFile.readlines()
     for line in Lines:
-        if len(line) == 5:
-            line = re.split("\s+", line[:-1])
-            if (utility.validate_item(line)):
+        if len(re.split("\s+", line[:-1])) == 5:
+            if (utility.validate_item(line[:-1])):
+                line = re.split("\s+", line[:-1])
                 item = utility.Item(line[0], line[1], '                ', line[2], line[3], line[4])
             else:
                 raise Exception('Format Error: Item in item file not properly formatted')
             #(item_name, seller, buyer, duration, min_bid, winning_bid):
         else:
+            line = re.split("\s+", line[:-1])
             item = utility.Item(line[0], line[1], line[2], line[3], line[4], line[5])
         items.append(item)
 

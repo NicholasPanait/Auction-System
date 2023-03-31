@@ -32,6 +32,7 @@ def create(username, account_type, credit, password, users):
             no_error = False
         acc += 1
     if no_error == False:
-        raise Exception('Error: User already exists in Users File!')
+        print('Error: User already exists in Users File!')
+        return
     user = utility.User(username, account_type, credit, password)
     users.append(user)

@@ -57,5 +57,6 @@ def delete(username, users, items):
             break
         acc += 1
     if no_error == False:
-        raise Exception('Error: User already exists in Users File!')
+        print('Error: User does not exist in Users File!')
+        return
     return
