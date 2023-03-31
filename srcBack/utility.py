@@ -262,7 +262,7 @@ def validate_transaction(transaction):
 # 2. If the transaction is properly formatted it will return True
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def validate_user(user):
-    if re.match("^\\S(.){14} (AA|SS|BS|FS|AM) \\d{6}.\d{2} \\d{1,4}", user):
+    if re.match("^\\S(.){14} (AA|SS|BS|FS|AM) \\d{6}.\d{2} \\d{1,4}$", user):
         return True
     return False
 
