@@ -47,7 +47,7 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
         
-def test_items3():
+def test_items6():
 	try:
 		build_files()
 		with pytest.raises(Exception, match="Format Error: Item in item file not properly formatted"):
