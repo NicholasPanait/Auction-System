@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from main import *
 
 
-USER_FILE_PATH = '_test_users.bin'
+USER_FILE_PATH = '_test_users.txt'
 ITEM_FILE_PATH = '_test_items.txt'
 TRANSACTION_FILE_PATH = '_test_transaction.txt'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
@@ -62,7 +62,7 @@ def delete_files():
 		os.remove(TRANSACTION_FILE_PATH)
 
 
-def test_UNNAMED(capsys):
+def test_users3(capsys):
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()

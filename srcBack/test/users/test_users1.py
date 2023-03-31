@@ -62,7 +62,7 @@ def delete_files():
 		os.remove(TRANSACTION_FILE_PATH)
 
 
-def test_UNNAMED(capsys):
+def test_users1(capsys):
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()

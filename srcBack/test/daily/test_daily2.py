@@ -44,13 +44,13 @@ sellerUserTest  SS 000000.00 1234
 buyUserTest     BS 000000.00 1234
 """
 
+EXPECTED_TERMINAL_OUTPUT = ""
+
 def build_files():
 	with open(USER_FILE_PATH, 'wt') as file:
 		file.write(USER_FILE_TEXT)
 	with open(ITEM_FILE_PATH, 'wt') as file:
 		file.write(ITEM_FILE_TEXT)
-	with open(TRANSACTION_FILE_PATH, 'wt') as file:
-		file.write(TRANSACTION_FILE_TEXT)
 
 def delete_files():
 	if os.path.exists(USER_FILE_PATH):
@@ -60,7 +60,9 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
 
-def test_daily2():
+
+def test_UNNAMED():
+	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()
 		with pytest.raises(Exception, match="Invalid file type for transaction file:"):
