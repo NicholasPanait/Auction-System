@@ -163,7 +163,7 @@ def process_transaction(transaction, users, items):
         create.create(transactions[1], transactions[2], transactions[3], transactions[4], users)
         # print("CREATE")
     elif transactions[0] == "02":
-        delete.delete(transactions[0], users, items)
+        delete.delete(transactions[1], users, items)
         # print("DELETE")
     elif transactions[0] == "03":
         advertise.advertise(transactions[1], transactions[2], transactions[3], transactions[4], items,users)
