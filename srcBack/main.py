@@ -67,8 +67,11 @@ def read_files():
                 raise Exception('Format Error: Item in item file not properly formatted')
             #(item_name, seller, buyer, duration, min_bid, winning_bid):
         else:
-            line = re.split("\s+", line[:-1])
-            item = utility.Item(line[0], line[1], line[2], line[3], line[4], line[5])
+            if (utility.validate_item(line[:-1])):
+                line = re.split("\s+", line[:-1])
+                item = utility.Item(line[0], line[1], line[2], line[3], line[4], line[5])
+            else:
+                raise Exception('Format Error: Item in item file not properly formatted')
         items.append(item)
 
     # Reads in the daily transaction file, stores the transactions in the transactions list

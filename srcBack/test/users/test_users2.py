@@ -6,6 +6,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 # EG
 from main import *
 
+
 USER_FILE_PATH = '_test_users.bin'
 ITEM_FILE_PATH = '_test_items.txt'
 TRANSACTION_FILE_PATH = '_test_transaction.txt'
@@ -61,7 +62,7 @@ def delete_files():
 		os.remove(TRANSACTION_FILE_PATH)
 
 
-def test_UNNAMED():
+def test_users2():
 	#PUT TEST CODE HERE, example is a system test
 	try:
 		build_files()

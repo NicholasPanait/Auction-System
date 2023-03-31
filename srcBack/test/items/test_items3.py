@@ -12,17 +12,10 @@ ITEM_FILE_PATH = '_test_items.txt'
 TRANSACTION_FILE_PATH = '_test_transaction.txt'
 # Note, do not indent mutli line strings, else they will be indented in the file causing issues.
 USER_FILE_TEXT = """\
-testAAUser       AA 000000.00 1234
-testBSUser      BS 000000.00 1234
-testFSUser      FS 000000.00 1234
-testSSUser      SS 000000.00 1234
-testingBuyer    BS 010000.00 1234
-testingSeller   SS 010000.00 1234
-sellerUserTest  SS 000000.00 1234
-buyUserTest     BS 000000.00 1234
 """
 
 ITEM_FILE_TEXT = """\
+itemToBidOn                sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 TRANSACTION_FILE_TEXT = """\
@@ -30,17 +23,10 @@ TRANSACTION_FILE_TEXT = """\
 """
 
 EXPECTED_ITEM_FILE_TEXT = """\
+itemToBidOn                sellerUserTest  testBSUser      10 001.00 000.00
 """
 
 EXPECTED_USER_FILE_TEXT = """\
-testAAUser       AA 000000.00 1234
-testBSUser      BS 000000.00 1234
-testFSUser      FS 000000.00 1234
-testSSUser      SS 000000.00 1234
-testingBuyer    BS 010000.00 1234
-testingSeller   SS 010000.00 1234
-sellerUserTest  SS 000000.00 1234
-buyUserTest     BS 000000.00 1234
 """
 EXPECTED_TERMINAL_OUTPUT = ""
 
@@ -61,10 +47,10 @@ def delete_files():
 	if os.path.exists(TRANSACTION_FILE_PATH):
 		os.remove(TRANSACTION_FILE_PATH)
         
-def test_users3():
+def test_items3():
 	try:
 		build_files()
-		with pytest.raises(Exception, match="Format Error: User in user file not properly formatted"):
+		with pytest.raises(Exception, match="Format Error: Item in item file not properly formatted"):
 			arg_main(USER_FILE_PATH, ITEM_FILE_PATH, TRANSACTION_FILE_PATH)
 
 	finally:
