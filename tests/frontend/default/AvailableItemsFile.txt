@@ -1,1 +1,1 @@
-itemToBidOn         sellerUserTest  testBSUser     100 000010
+itemToBidOn               sellerUserTest  testBSUser     01 050.00 065.00
