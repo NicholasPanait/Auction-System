@@ -36,7 +36,7 @@ struct TransactionInfo
     const char* itemName;
     int numDaysToAuction;
     double minBid;
-    double newBId;
+    double newBid;
 
     bool operator==(const TransactionInfo &right)
     {

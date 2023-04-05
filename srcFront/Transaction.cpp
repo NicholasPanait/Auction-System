@@ -92,6 +92,14 @@ bool Transaction::createUser(User *user)
     std::cout << "Enter new password: ";
     std::cin >> newPassword;
     std::cout<<"\n";
+
+    int encrypted_password = 0;
+
+    for (int i = 0; i < int(std::string(newPassword).length()); i++){
+        encrypted_password += int(std::string(newPassword)[i]);
+    }
+
+    newPassword = std::to_string(encrypted_password);
     //TO DO: add transaction to transaction file - call file function
     TransactionFile transactionFile;
     transactionFile.appendToFile({
@@ -102,13 +110,12 @@ bool Transaction::createUser(User *user)
     });
 
     // add user data to user accounts file
-    userAccountsFile.appendUserToFile({newUsername, userType, 0.0, newPassword});
+    // userAccountsFile.appendUserToFile({newUsername, userType, 0.0, newPassword});
 
     //print success message to console
     std::cout << "\nYou have successfully created a new User: " << newUsername << "!" << std::endl;
 
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+     
 
     //return true if able to successfully write to file.
     return false;
@@ -142,7 +149,7 @@ bool Transaction::deleteUser(User *user)
     }
 
     // delete entered user from user accounts file
-    userAccountsFile.deleteUserFromFile(userToDelete);
+    // userAccountsFile.deleteUserFromFile(userToDelete);
 
     // add transaction to transaction file
     TransactionFile transactionFile;
@@ -156,8 +163,7 @@ bool Transaction::deleteUser(User *user)
     //print success message to console.
     std::cout << "\nDeletion Confirmed. The account associated with the username: " << userToDelete << " has been deleted." << std::endl;
 
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+     
 
     //return true if user has been successfully deleted
     return true;
@@ -199,7 +205,7 @@ bool Transaction::advertise(User *user)
     //get number of days until auction from user
     std::cout << "Enter Number of Days until auction ends: ";
     std::cin >> numDaysToAuction;
-    while (numDaysToAuction > 100){
+    while (numDaysToAuction > 99){
         std::cout << "Number of days to auction is greater than 100 days. Please try again.\n";
         std::cout << "Enter Number of Days until auction ends: ";
         std::cin >> numDaysToAuction;
@@ -217,20 +223,19 @@ bool Transaction::advertise(User *user)
     });
 
     //TO DO: add item info to item file
-    AvailableItemsFile availableItemsFile;
-    availableItemsFile.appendItemToFile(ItemInfo{
-        .itemName=itemName.c_str(),
-        .sellerUsername=user->getUsername().c_str(),
-        .highestBidUser="",
-        .numDaysRemaining=numDaysToAuction,
-        .currentHighestBid=minimumBid,
-    });
+    // AvailableItemsFile availableItemsFile;
+    // availableItemsFile.appendItemToFile(ItemInfo{
+    //     .itemName=itemName.c_str(),
+    //     .sellerUsername=user->getUsername().c_str(),
+    //     .highestBidUser="",
+    //     .numDaysRemaining=numDaysToAuction,
+    //     .currentHighestBid=minimumBid,
+    // });
 
     //print success message
     std::cout << "\nItem has been successfully put up for a bid!" << std::endl;
  
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+     
 
     //return true if an item has been succesfully advertised
     return false;
@@ -275,7 +280,7 @@ bool Transaction::bid(User *user)
 
     double currentHighestBid = item->currentHighestBid; //TO DO: get current highest bid for item from file
     std::string userWithHighestBid = item->highestBidUser; //TO DO: get user with highest bid for item from file
-    int numDaysToAuction = item->numDaysRemaining; //TO DO: get num days to auction for item from file
+    // int numDaysToAuction = item->numDaysRemaining; //TO DO: get num days to auction for item from file
 
     //print out current highest bid
     std::cout << "\nCurrrent Highest Bid: " << std::to_string(currentHighestBid) << std::endl;
@@ -298,23 +303,22 @@ bool Transaction::bid(User *user)
         .buyerUsername=user->getUsername().c_str(),
         .transactionCode=TransactionCode::BID,
         .itemName=itemName.c_str(),
-        .newBId=newBid,
+        .newBid=newBid,
     });
 
     // update item in items file
-    availableItemsFile.deleteItemFromFile(*item);
-    availableItemsFile.appendItemToFile(ItemInfo{
-        .itemName=itemName.c_str(),
-        .sellerUsername=sellerName.c_str(),
-        .highestBidUser=user->getUsername().c_str(),
-        .numDaysRemaining=numDaysToAuction,
-        .currentHighestBid=newBid,
-    });
+    // availableItemsFile.deleteItemFromFile(*item);
+    // availableItemsFile.appendItemToFile(ItemInfo{
+    //     .itemName=itemName.c_str(),
+    //     .sellerUsername=sellerName.c_str(),
+    //     .highestBidUser=user->getUsername().c_str(),
+    //     .numDaysRemaining=numDaysToAuction,
+    //     .currentHighestBid=newBid,
+    // });
 
     //print success message
     std::cout << "A bid has been successfully made for this item!" << std::endl;
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+     
 
     //return true if bid has been made successfully
     return true;
@@ -364,10 +368,10 @@ bool Transaction::refund(User *user)
     buyerInfo->availableCredit += creditToTransfer;
 
     // update the credit amounts for the seller and the buyer in the user accounts file
-    userAccountsFile.deleteUserFromFile(sellerInfo->username);
-    userAccountsFile.deleteUserFromFile(buyerInfo->username);
-    userAccountsFile.appendUserToFile(*sellerInfo);
-    userAccountsFile.appendUserToFile(*buyerInfo);
+    // userAccountsFile.deleteUserFromFile(sellerInfo->username);
+    // userAccountsFile.deleteUserFromFile(buyerInfo->username);
+    // userAccountsFile.appendUserToFile(*sellerInfo);
+    // userAccountsFile.appendUserToFile(*buyerInfo);
 
     //TO DO: write transaction to transaction file
     TransactionFile transactionFile;
@@ -381,8 +385,7 @@ bool Transaction::refund(User *user)
     //print success message
     std::cout << "The refund has been successfully completed!" << std::endl;
 
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+     
 
     //return true if refund is successfully completed
     return true;
@@ -439,8 +442,8 @@ bool Transaction::addcredit(User *user)
 
     // add credit amount to specified user's account
     userInfo->availableCredit += creditAmountToAdd;
-    userAccountsFile.deleteUserFromFile(userInfo->username);
-    userAccountsFile.appendUserToFile(*userInfo);
+    // userAccountsFile.deleteUserFromFile(userInfo->username);
+    // userAccountsFile.appendUserToFile(*userInfo);
 
     TransactionFile transactionFile;
     transactionFile.appendToFile({
@@ -453,8 +456,7 @@ bool Transaction::addcredit(User *user)
     //print success message
     std::cout << "\n\nThe specified credit has been successfully add to the indicated account!" << std::endl;
 
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+     
 
     //returns true if the credit amount was succesfully added
     return true;
@@ -472,19 +474,16 @@ bool Transaction::listitems(User *user)
       * Add transaction to the daily transactions file.*/
 
     std::cout << "\n***Items Up For Auction***" << std::endl;
-    std::printf("|-----------------|-------------|-----------------|---------------|\n");
-    std::printf("| Item name       | Current Bid | Seller          | Days Remaning |\n");
-    std::printf("|-----------------|-------------|-----------------|---------------|\n");
+    std::printf("|---------------------------|-------------|------------------|---------------|\n");
+    std::printf("| Item name                 | Current Bid | Seller           | Days Remaning |\n");
+    std::printf("|---------------------------|-------------|------------------|---------------|\n");
 
     AvailableItemsFile availableItemsFile;
     for (const auto &item : availableItemsFile.readItemFile())
     {
-        std::printf("| %-15s | %-9.2f   | %-15s | %-13d |\n", item.itemName.c_str(), item.currentHighestBid, item.sellerUsername.c_str(), item.numDaysRemaining);
+        std::printf("| %-25s | %-9.2f   | %-16s | %-13d |\n", item.itemName.c_str(), item.currentHighestBid, item.sellerUsername.c_str(), item.numDaysRemaining);
     }    
-    std::printf("|-----------------|-------------|-----------------|---------------|\n");
-
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
+    std::printf("|---------------------------|-------------|------------------|---------------|\n");
 
     //returns true if all the items up for auction were successfully listed
     return false;
@@ -511,9 +510,6 @@ bool Transaction::outputAllActiveAccounts(User *user)
         std::printf("| %-15s | %s          | %-9.2f |\n", user.username.c_str(), User::getTypeCode(user.userType).c_str(), user.availableCredit);
     }
     std::printf("|-----------------|-------------|-----------|\n");
-
-    //transaction limit message
-    std::cout << "\nNOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue." << std::endl;
 
     //return true if all active accounts have been successfully printed
     return false;

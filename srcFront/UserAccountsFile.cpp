@@ -28,16 +28,16 @@ std::optional<UserInfo> UserAccountsFile::getUserInfo(std::string username)
 * @param - data - A UserInfo struct that contains the information for the user to be written to file
 * @return - returns true if user's information is successfully appended to the file
 */
-bool UserAccountsFile::appendUserToFile(UserInfo data)
-{
-    /* TO DO: take the information from the data struct and convert it into a string. Append the string to file */
-    // format: UUUUUUUUUUUUUUU_TT_CCCCCCCCC_PPPPPPPPPPPP
+// bool UserAccountsFile::appendUserToFile(UserInfo data)
+// {
+//     /* TO DO: take the information from the data struct and convert it into a string. Append the string to file */
+//     // format: UUUUUUUUUUUUUUU_TT_CCCCCCCCC_PPPPPPPPPPPP
 
-    char username[30];
-    std::snprintf(username, 30, "%-15s %s %09.2f ", data.username.c_str(), User::getTypeCode(data.userType).c_str(), data.availableCredit);
-    file << username << data.password << '\n';
-    return false;
-}
+//     char username[30];
+//     std::snprintf(username, 30, "%-15s %s %09.2f ", data.username.c_str(), User::getTypeCode(data.userType).c_str(), data.availableCredit);
+//     file << username << data.password << '\n';
+//     return false;
+// }
 
 /*
 * Description: This method verifies if the specified user’s information 
@@ -90,28 +90,28 @@ std::vector<UserInfo> UserAccountsFile::readUserFile()
 * @param - data - A UserInfo struct that contains the information for the user to be deleted
 * @return - returns true if the user's information is deleted from the file
 */
-bool UserAccountsFile::deleteUserFromFile(std::string username)
-{
-    /* TO DO: travserse through the file, and read each line and try to find the line containing the same user info as the data struct. 
-    *  Delete that line from the file*/
+// bool UserAccountsFile::deleteUserFromFile(std::string username)
+// {
+//     /* TO DO: travserse through the file, and read each line and try to find the line containing the same user info as the data struct. 
+//     *  Delete that line from the file*/
 
-    std::string line;
-    std::ofstream tempFile;
-    const char* tempFileName = "temp.txt";
-    tempFile.open(tempFileName);
+//     std::string line;
+//     std::ofstream tempFile;
+//     const char* tempFileName = "temp.txt";
+//     tempFile.open(tempFileName);
 
-    while(getline(file, line))
-    {
-        if (Util::trim(line.substr(0,15)) == Util::trim(username))
-            continue;
-        tempFile << line << '\n';
-    }
+//     while(getline(file, line))
+//     {
+//         if (Util::trim(line.substr(0,15)) == Util::trim(username))
+//             continue;
+//         tempFile << line << '\n';
+//     }
 
-    tempFile.close();
-    file.close();
-    remove(USER_ACCOUNTS_FILE);
-    rename(tempFileName, USER_ACCOUNTS_FILE);
-    this->file.open(USER_ACCOUNTS_FILE, std::ios::app | std::ios::in);
+//     tempFile.close();
+//     file.close();
+//     remove(USER_ACCOUNTS_FILE);
+//     rename(tempFileName, USER_ACCOUNTS_FILE);
+//     this->file.open(USER_ACCOUNTS_FILE, std::ios::app | std::ios::in);
 
-    return true;
-}
+//     return true;
+// }

@@ -24,21 +24,21 @@ AvailableItemsFile::~AvailableItemsFile()
 * @param - data - An ItemInfo struct that contains the information for the item to be written to file
 * @return - returns true if item information is successfully appended to the file
 */
-bool AvailableItemsFile::appendItemToFile(ItemInfo data)
-{
-    /* TO DO: take the information from the data struct and convert it into a string. Append the string to file */
-    //Format: IIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUU_DDD_PPPPPP
-    char item[63];
-    std::snprintf(item, 63, "%-19s %-15s %-15s %03d %06.2f", data.itemName.c_str(), data.sellerUsername.c_str(), data.highestBidUser.c_str(), data.numDaysRemaining, data.currentHighestBid);
+// bool AvailableItemsFile::appendItemToFile(ItemInfo data)
+// {
+//     /* TO DO: take the information from the data struct and convert it into a string. Append the string to file */
+//     //Format: IIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUU_DDD_PPPPPP
+//     char item[63];
+//     std::snprintf(item, 63, "%-25s %-15s %-15s %02d %06.2f", data.itemName.c_str(), data.sellerUsername.c_str(), data.highestBidUser.c_str(), data.numDaysRemaining, data.currentHighestBid);
 
-    try{
-        file<<item<<'\n';
-        return true;
-    }catch(...){
-        std::cout << "Ane error occured wihle writing to the Item file\n";
-    }
-    return false;
-}
+//     try{
+//         file<<item<<'\n';
+//         return true;
+//     }catch(...){
+//         std::cout << "An error occured while writing to the Item file\n";
+//     }
+//     return false;
+// }
 
 /*
 * Description: This method verifies if the specified item’s information 
@@ -71,11 +71,11 @@ std::vector<ItemInfo> AvailableItemsFile::readItemFile()
     while (std::getline(this->file, line))
     {
         items.emplace_back(ItemInfo{
-            Util::trim(line.substr(0,19)),
-            Util::trim(line.substr(20,15)),
-            Util::trim(line.substr(36,15)),
-            stoi(line.substr(52,3)),
-            atof(line.substr(56,6).c_str())
+            Util::trim(line.substr(0,25)),
+            Util::trim(line.substr(26,15)),
+            Util::trim(line.substr(42,15)),
+            stoi(line.substr(58,2)),
+            atof(line.substr(60,6).c_str()),
         });
     }
     // reset file pointer
@@ -92,35 +92,35 @@ items file and returns true if the information is successfully deleted.
 * @param - data - An ItemInfo struct that contains the information for the item to be deleted
 * @return - returns true if the item's information is deleted from the file
 */
-bool AvailableItemsFile::deleteItemFromFile(ItemInfo data)
-{
-    /* TO DO: travserse through the file, and read each line and try to find the line containing the same item name as the data struct. 
-    * Delete that line from the file*/
-   std::string line;
-    std::ofstream tempFile;
-    const char* tempFileName = "tempItems.txt";
-    tempFile.open(tempFileName);
+// bool AvailableItemsFile::deleteItemFromFile(ItemInfo data)
+// {
+//     /* TO DO: travserse through the file, and read each line and try to find the line containing the same item name as the data struct. 
+//     * Delete that line from the file*/
+//    std::string line;
+//     std::ofstream tempFile;
+//     const char* tempFileName = "tempItems.txt";
+//     tempFile.open(tempFileName);
 
-    while(getline(file, line))
-    {
-        if (Util::trim(data.itemName) == Util::trim(line.substr(0,19)) &&
-            Util::trim(data.sellerUsername) == Util::trim(line.substr(20,15)) &&
-            Util::trim(data.highestBidUser) == Util::trim(line.substr(36,15)) &&
-            data.numDaysRemaining == stoi(line.substr(52,3)) &&
-            data.currentHighestBid == atof(line.substr(56,6).c_str())
-        )
-        {
-            continue;
-        }
+//     while(getline(file, line))
+//     {
+//         if (Util::trim(data.itemName) == Util::trim(line.substr(0,19)) &&
+//             Util::trim(data.sellerUsername) == Util::trim(line.substr(20,15)) &&
+//             Util::trim(data.highestBidUser) == Util::trim(line.substr(36,15)) &&
+//             data.numDaysRemaining == stoi(line.substr(52,3)) &&
+//             data.currentHighestBid == atof(line.substr(56,6).c_str())
+//         )
+//         {
+//             continue;
+//         }
           
-        tempFile << line << '\n';
-    }
+//         tempFile << line << '\n';
+//     }
 
-    tempFile.close();
-    file.close();
-    remove(AVAILABLE_ITEMS_FILE);
-    rename(tempFileName, AVAILABLE_ITEMS_FILE);
-    this->file.open(AVAILABLE_ITEMS_FILE, std::ios::app | std::ios::in);
+//     tempFile.close();
+//     file.close();
+//     remove(AVAILABLE_ITEMS_FILE);
+//     rename(tempFileName, AVAILABLE_ITEMS_FILE);
+//     this->file.open(AVAILABLE_ITEMS_FILE, std::ios::app | std::ios::in);
 
-    return false;
-}
+//     return false;
+// }

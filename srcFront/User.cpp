@@ -25,10 +25,16 @@ User::~User()
 */
 bool User::login(const char* username, const char* password)
 {
+    int encrypted_password = 0;
+
+    for (int i = 0; i < int(std::string(password).length()); i++){
+        encrypted_password += int(std::string(password)[i]);
+    }
+
     UserAccountsFile accounts;
     for (auto &i : accounts.readUserFile())
     {
-        if (i.username == std::string(username) && i.password == std::string(password))
+        if (i.username == std::string(username) && i.password == std::to_string(encrypted_password))
         {
             this->username = username;
             this->userType = i.userType;

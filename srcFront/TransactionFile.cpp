@@ -36,7 +36,7 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         
         case(ADVERTISE):
             //append itemName_sellerName_daysToAuction_minBid
-            std::snprintf(transaction, 63, "%02d %-19s %-15s %03d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
+            std::snprintf(transaction, 63, "%02d %-25s %-15s %02d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
             break;
         
         case(REFUND):
@@ -46,7 +46,7 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         
         case(BID):
             //append item_seller_buyer_newBid
-            std::snprintf(transaction, 63, "%02d %-19s %-15s %-15s %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.buyerUsername, data.newBId);
+            std::snprintf(transaction, 70, "%02d %-25s %-15s %-15s %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.buyerUsername, data.newBid);
             break;
         
     }
@@ -120,8 +120,8 @@ std::vector<TransactionInfo> TransactionFile::readTransactionFile()
                 allTransactions.emplace_back(TransactionInfo{
                     .sellerUsername=Util::trim(line.substr(23,15)).c_str(),//Seller name
                     .transactionCode=static_cast<TransactionCode>(transactionCode),//Transaction code
-                    .itemName=line.substr(3,19).c_str(),//Item name
-                    .numDaysToAuction=atoi(line.substr(39,3).c_str()),//Days to auction
+                    .itemName=line.substr(3,25).c_str(),//Item name
+                    .numDaysToAuction=atoi(line.substr(39,2).c_str()),//Days to auction
                     .minBid=atof(line.substr(43, 6).c_str()),
                 });
                 break;
@@ -145,8 +145,8 @@ std::vector<TransactionInfo> TransactionFile::readTransactionFile()
                     .buyerUsername=Util::trim(line.substr(39,15)).c_str(),//Buyer name
                     .transactionCode=static_cast<TransactionCode>(transactionCode),//Transaction code
                     .userType=UserType::NONE,//User type
-                    .itemName=line.substr(3,19).c_str(),//Item name
-                    .newBId=atof(line.substr(56,6).c_str())//New bid
+                    .itemName=line.substr(3,25).c_str(),//Item name
+                    .newBid=atof(line.substr(56,6).c_str())//New bid
                 });
                 break;
 
@@ -228,7 +228,7 @@ bool TransactionFile::matchBid(TransactionInfo data, std::string line){
     return data.itemName==line.substr(3,19).c_str() &&
         data.sellerUsername == Util::trim(line.substr(23,15)).c_str() &&
         data.buyerUsername == Util::trim(line.substr(39,15)).c_str() &&
-        data.newBId == atof(line.substr(56,6).c_str());
+        data.newBid == atof(line.substr(56,6).c_str());
            
 }
 bool TransactionFile::matchRefund(TransactionInfo data, std::string line){
