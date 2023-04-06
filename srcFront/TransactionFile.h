@@ -27,6 +27,7 @@ enum TransactionCode
 struct TransactionInfo 
 {
     const char* username;
+    std::string password;
     const char* sellerUsername;
     const char* buyerUsername;
     TransactionCode transactionCode;

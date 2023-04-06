@@ -28,6 +28,10 @@ bool TransactionFile::appendToFile(TransactionInfo data)
     switch(data.transactionCode){
         case(CREATE):
         case(DELETE):
+            //append username_userType_availableCredit, password
+            std::snprintf(transaction, 63, "%02d %-15s %s %09.2f %-4s", data.transactionCode, data.username, User::getTypeCode(data.userType).c_str(), data.availableCredit, data.password.c_str());
+            break;
+
         case(END_OF_SESSION):
         case(ADDCREDIT):
             //append username_userType_availableCredit
@@ -105,6 +109,14 @@ std::vector<TransactionInfo> TransactionFile::readTransactionFile()
             //Populate username, usertype, availableCredit
             case(CREATE):
             case(DELETE):
+                allTransactions.emplace_back(TransactionInfo{
+                    .username=Util::trim(line.substr(3,15)).c_str(),//Username
+                    .password=Util::trim(line.substr(33,4)).c_str(),//Password
+                    .transactionCode=static_cast<TransactionCode>(transactionCode),//Transaction code
+                    .userType=User::getUserType(line.substr(20,2).c_str()),//User type
+                    .availableCredit=atof(line.substr(23,9).c_str()),//available credit
+                });
+                break;
             case(END_OF_SESSION):
             case(ADDCREDIT):
                 allTransactions.emplace_back(TransactionInfo{

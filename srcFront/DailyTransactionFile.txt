@@ -3,24 +3,9 @@
 06 testBSUser      BS 000140.00
 06 testAAUser      AA 000100.00
 00 testAAUser      AA 000000.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
 01 testUser        AA 000000.00 332
 00 testAAUser      AA 000000.00
 04 BulkNails(5000pcs)        testAAUser      testBSUser      065.00
 05 testAAUser      testBSUser      000040.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
-00 testAAUser      AA 000100.00
+01 testNewUser     FS 000000.00 406 
 00 testAAUser      AA 000100.00

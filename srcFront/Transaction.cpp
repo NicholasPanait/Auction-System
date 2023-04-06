@@ -104,6 +104,7 @@ bool Transaction::createUser(User *user)
     TransactionFile transactionFile;
     transactionFile.appendToFile({
         .username=newUsername.c_str(),
+        .password=newPassword.c_str(),
         .transactionCode=TransactionCode::CREATE,
         .userType=userType,
         .availableCredit=0.0,
