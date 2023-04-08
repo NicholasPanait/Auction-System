@@ -11,7 +11,7 @@
 
 /*
 * Description: The following struct is used to manage and store all the information for each transaction that will be written to the daily 
-* transactions file
+* transactions mergedFile
 */
 enum TransactionCode
 {
@@ -22,6 +22,7 @@ enum TransactionCode
     BID = 4,
     REFUND = 5,
     ADDCREDIT = 6,
+    CHANGEPASSWORD = 7
 };
 
 struct TransactionInfo 
@@ -46,23 +47,24 @@ struct TransactionInfo
 };
 
 /*
-* Description: The TransactionFile class is used to read, append, update, print the contents of a transaction file 
-* and is used to verify the contents of a transaction file.
+* Description: The TransactionFile class is used to read, append, update, print the contents of a transaction mergedFile 
+* and is used to verify the contents of a transaction mergedFile.
 */
 class TransactionFile
 {
 private:
-    std::fstream file;
+    std::fstream sessionFile;
+    std::fstream mergedFile;
     
 public:
-    TransactionFile(/* args */); //The constructor method for a TransactionFile object
+    TransactionFile(std::string transactionFilePath, int epochTime); //The constructor method for a TransactionFile object
     ~TransactionFile(); //The destructor method for a TransactionFile object
 
     //function declarations for each of the functions used to edit the Daily Transactions File
     bool appendToFile(TransactionInfo data);
     bool transactionExistsInFile(TransactionInfo data);
     std::vector<TransactionInfo> readTransactionFile();
-    bool deleteLineFromFile(TransactionInfo data);
+    // bool deleteLineFromFile(TransactionInfo data);
     
     static bool matchGeneral(TransactionInfo data, std::string line);
     static bool matchBid(TransactionInfo data, std::string line);

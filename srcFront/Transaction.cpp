@@ -22,7 +22,7 @@ bool Transaction::login(User *user)
     }
 
     //if inputted username is not found, login is unsuccessful and an error message is printed
-    std::cout << "Login Unsuccessful.\nUsername does not exist in the user directory. Please try again.\n";
+    std::cout << "Login Unsuccessful.\nUsername does not exist in the user directory or incorrect password. Please try again.\n";
     return false;
 }
 
@@ -52,7 +52,7 @@ bool Transaction::logout(User *user)
 bool Transaction::createUser(User *user)
 {
     /* overall TO DO: Get all information for new account from user, and add new user to the user accounts file. Write transaction to daily transactions file */
-    UserAccountsFile userAccountsFile;
+    UserAccountsFile userAccountsFile = UserAccountsFile(user->UserAccountsFilePath);
     std::string newUsername = "";
 
     //get username and user type from user
@@ -77,21 +77,48 @@ bool Transaction::createUser(User *user)
     //get user type for new user
     std::string newUserType = "";
     UserType userType = UserType::NONE;
-    while (userType == UserType::NONE)
-    {
-        // TO DO: should probably create new test for this
-        std::cout << "Enter Type of User: ";
-        std::cin >> newUserType;
-        userType = User::getUserType(newUserType.c_str());
-        if (userType == UserType::NONE)
-            std::cout << "\nThe inputted user type is invalid. Please Try Again.\n";
+
+    if (user->getType() == UserType::AA){
+        while (userType == UserType::NONE)
+        {
+            // TO DO: should probably create new test for this
+            std::cout << "Enter Type of User: ";
+            std::cin >> newUserType;
+            userType = User::getUserType(newUserType.c_str());
+            if (userType == UserType::NONE)
+                std::cout << "\nThe inputted user type is invalid. Please Try Again.\n";
+        }
+    }
+    else if (user->getType() == UserType::AM){
+        while (userType == UserType::NONE || userType == UserType::AA)
+        {
+            // TO DO: should probably create new test for this
+            std::cout << "Enter A Non Admin Type of User: ";
+            std::cin >> newUserType;
+            userType = User::getUserType(newUserType.c_str());
+            if (userType == UserType::NONE || userType == UserType::AA)
+                std::cout << "\nThe inputted user type is invalid. Please Try Again.\n";
+        }
     }
 
     // get new password from user
-    std::string newPassword;
-    std::cout << "Enter new password: ";
-    std::cin >> newPassword;
-    std::cout<<"\n";
+    std::string newPassword = "";
+    while(newPassword == "")
+    {
+        std::cout << "Enter new password: ";
+        std::cin >> newPassword;
+        std::cout<<"Password entered: "<<newPassword<<std::endl;
+        if (newPassword.length() > 15) //validate password length is < 15 characters 
+        {
+            std::cout << "\nThe inputted password has a length of greater than 15 characters. Please Try Again.\n";
+            newPassword = "";
+        }
+        else if (newPassword.length() < 1) //validate password length is > 0 characters 
+        {
+            std::cout << "\nThe inputted password has a length of less than 1 character. Please Try Again.\n";
+            newPassword = "";
+        }
+    }
 
     int encrypted_password = 0;
 
@@ -101,7 +128,7 @@ bool Transaction::createUser(User *user)
 
     newPassword = std::to_string(encrypted_password);
     //TO DO: add transaction to transaction file - call file function
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
     transactionFile.appendToFile({
         .username=newUsername.c_str(),
         .password=newPassword.c_str(),
@@ -142,10 +169,14 @@ bool Transaction::deleteUser(User *user)
     std::cin >> userToDelete;
 
     // get deleted user info
-    UserAccountsFile userAccountsFile;
+    UserAccountsFile userAccountsFile = UserAccountsFile(user->UserAccountsFilePath);
     auto userInfo = userAccountsFile.getUserInfo(userToDelete);
     if (!userInfo) {
         std::cout << "Delete Unsuccessful.\nUsername does not exist in the user directory. Please try again.\n";
+        return false;
+    }
+    if (user->getType() == UserType::AM && userInfo->userType == UserType::AA){
+        std::cout << "Delete Unsuccessful.\nAccount Managers are not allowed to modify Admin accounts.\n";
         return false;
     }
 
@@ -153,9 +184,10 @@ bool Transaction::deleteUser(User *user)
     // userAccountsFile.deleteUserFromFile(userToDelete);
 
     // add transaction to transaction file
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
     transactionFile.appendToFile({
         .username=userInfo->username.c_str(),
+        .password=userInfo->password.c_str(),
         .transactionCode=TransactionCode::DELETE,
         .userType=userInfo->userType,
         .availableCredit=userInfo->availableCredit,
@@ -214,7 +246,7 @@ bool Transaction::advertise(User *user)
 
     //TO DO: get current user's name, and name of user with current highest bid
     // add transaction info to transaction file
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
     transactionFile.appendToFile(TransactionInfo{
         .sellerUsername=user->getUsername().c_str(),
         .transactionCode=TransactionCode::ADVERTISE,
@@ -224,7 +256,7 @@ bool Transaction::advertise(User *user)
     });
 
     //TO DO: add item info to item file
-    // AvailableItemsFile availableItemsFile;
+    // AvailableItemsFile availableItemsFile = AvailableItemsFile(user->AvailableItemsFilePath);
     // availableItemsFile.appendItemToFile(ItemInfo{
     //     .itemName=itemName.c_str(),
     //     .sellerUsername=user->getUsername().c_str(),
@@ -263,19 +295,17 @@ bool Transaction::bid(User *user)
     std::cout <<"\nEnter Item Name: ";
     std::cin >> itemName;
 
-    //TO DO: verify that the reqested item exists in the available items file
-
     //get seller's username
     std::cout << "\nEnter seller's username: ";
     std::cin >> sellerName;
 
 
     //TO DO: Read through the available items file and get all the info for the required item
-    AvailableItemsFile availableItemsFile;
+    AvailableItemsFile availableItemsFile = AvailableItemsFile(user->AvailableItemsFilePath);
     auto items = availableItemsFile.readItemFile();
     auto item = std::find(items.begin(), items.end(), ItemInfo{.itemName=itemName.c_str(), .sellerUsername=sellerName.c_str()});
     if (item == items.end()) {
-        std::cout << "Item does not exist\n";
+        std::cout << "Item sold by this seller does not exist\n";
         return false;
     }
 
@@ -284,21 +314,35 @@ bool Transaction::bid(User *user)
     // int numDaysToAuction = item->numDaysRemaining; //TO DO: get num days to auction for item from file
 
     //print out current highest bid
-    std::cout << "\nCurrrent Highest Bid: " << std::to_string(currentHighestBid) << std::endl;
+    std::cout << "\nCurrent Highest Bid: " << std::to_string(currentHighestBid).substr(0, std::to_string(currentHighestBid).length()-4) << std::endl;
 
     //get new bid
     std::cout << "Enter New Bid: ";
     std::cin >> newBid;
 
     //verify that new bid is higher than the current bid
-    while (1.05 * currentHighestBid > newBid){
-        std::cout << "New bid amount is not at least 5" << "%" << "greater than the current bid. Please try again." << std::endl;
-        std::cout << "\nEnter New Bid: ";
-        std::cin >> newBid;
+    if (user->getType() == UserType::AA){
+        while (currentHighestBid > newBid){
+            std::cout << "New bid amount is not higher than the current bid. Please try again." << std::endl;
+            std::cout << "\nEnter New Bid: ";
+            std::cin >> newBid;
+        }
+    }
+    else{
+        while (1.05 * currentHighestBid > newBid){
+            std::cout << "New bid amount is not at least 5" << "% " << "greater than the current bid. Please try again." << std::endl;
+            std::cout << "\nEnter New Bid: ";
+            std::cin >> newBid;
+        }
+    }
+
+    if (user->getAvailableCredit() < newBid){
+        std::cout << "You do not have enough funds to bid on this item!" << std::endl;
+        return false;
     }
 
     // write transaction to transaction file
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
     transactionFile.appendToFile(TransactionInfo{
         .sellerUsername=sellerName.c_str(),
         .buyerUsername=user->getUsername().c_str(),
@@ -339,7 +383,7 @@ bool Transaction::refund(User *user)
     std::string buyerName = "";
     std::string sellerName = "";
     double creditToTransfer = 0.0;
-    UserAccountsFile userAccountsFile;
+    UserAccountsFile userAccountsFile = UserAccountsFile(user->UserAccountsFilePath);
 
     std::cout << "***Issue a Refund***" << std::endl;
 
@@ -375,7 +419,7 @@ bool Transaction::refund(User *user)
     // userAccountsFile.appendUserToFile(*buyerInfo);
 
     //TO DO: write transaction to transaction file
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
     transactionFile.appendToFile({
         .sellerUsername=sellerName.c_str(),
         .buyerUsername=buyerName.c_str(),
@@ -406,7 +450,7 @@ bool Transaction::addcredit(User *user)
 
     std::cout << "***Add Credit***" << std::endl;
 
-    if (user->getType() == UserType::AA) 
+    if (user->getType() == UserType::AA || user->getType() == UserType::AM) 
     {
         std::cout << "\nEnter username of account to add credit to: ";
         std::cin >> userToAddCreditTo;
@@ -419,7 +463,7 @@ bool Transaction::addcredit(User *user)
 
     // verify that user current exists and get their information (current credit amount)
     //if user is found, print success message
-    UserAccountsFile userAccountsFile;
+    UserAccountsFile userAccountsFile = UserAccountsFile(user->UserAccountsFilePath);
     auto userInfo = userAccountsFile.getUserInfo(userToAddCreditTo);
     while (!userInfo)
     { // else print failure message
@@ -441,12 +485,25 @@ bool Transaction::addcredit(User *user)
         std::cin >> creditAmountToAdd;
     }
 
+    while (creditAmountToAdd + user->addedCredit > 1000) { 
+        std::cout << "Credit Amount to be added this sesson is greater than 1000. Please try again.\n";
+        if (1000-(user->addedCredit) == 0){
+            std::cout << "This session cannot add any more credits." << std::endl;
+        }
+        else{
+            std::cout << "This session can only add " << 1000-(user->addedCredit) << " more credits." << std::endl;
+        }
+        std::cout << "\nEnter the amount of credit to add: ";
+        std::cin >> creditAmountToAdd;
+    }
+
     // add credit amount to specified user's account
     userInfo->availableCredit += creditAmountToAdd;
+    user->addedCredit += creditAmountToAdd;
     // userAccountsFile.deleteUserFromFile(userInfo->username);
     // userAccountsFile.appendUserToFile(*userInfo);
 
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
     transactionFile.appendToFile({
         .username=userToAddCreditTo.c_str(),
         .transactionCode=TransactionCode::ADDCREDIT,
@@ -479,7 +536,7 @@ bool Transaction::listitems(User *user)
     std::printf("| Item name                 | Current Bid | Seller           | Days Remaning |\n");
     std::printf("|---------------------------|-------------|------------------|---------------|\n");
 
-    AvailableItemsFile availableItemsFile;
+    AvailableItemsFile availableItemsFile = AvailableItemsFile(user->AvailableItemsFilePath);
     for (const auto &item : availableItemsFile.readItemFile())
     {
         std::printf("| %-25s | %-9.2f   | %-16s | %-13d |\n", item.itemName.c_str(), item.currentHighestBid, item.sellerUsername.c_str(), item.numDaysRemaining);
@@ -505,7 +562,7 @@ bool Transaction::outputAllActiveAccounts(User *user)
     std::printf("| Username        | User Type   | Credit    |\n");
     std::printf("|-----------------|-------------|-----------|\n");
 
-    UserAccountsFile userAccountsFile;
+    UserAccountsFile userAccountsFile = UserAccountsFile(user->UserAccountsFilePath);
     for (const auto &user : userAccountsFile.readUserFile())
     {
         std::printf("| %-15s | %s          | %-9.2f |\n", user.username.c_str(), User::getTypeCode(user.userType).c_str(), user.availableCredit);
@@ -513,6 +570,70 @@ bool Transaction::outputAllActiveAccounts(User *user)
     std::printf("|-----------------|-------------|-----------|\n");
 
     //return true if all active accounts have been successfully printed
+    return false;
+}
+
+/*
+* Description: This method allows an admin user to change the password of a user.
+* 
+* @param - user - a pointer reference to the current user object
+* @return - returns true if admin user was able to successfully change the user's password
+*/
+bool Transaction::changepassword(User *user)
+{
+    /* overall TO DO: Get all information for new account from user, and add new user to the user accounts file. Write transaction to daily transactions file */
+    UserAccountsFile userAccountsFile = UserAccountsFile(user->UserAccountsFilePath);
+    std::string userToChangePassword = "";
+
+    //get username and user type from user
+    std::cout << "\n***CHANGE PASSWORD***" << std::endl;
+
+    userToChangePassword = user->getUsername();
+
+    std::string newPassword = "";
+
+    // get new password from user
+    while(newPassword == "")
+    {
+        std::cout << "Enter new password: ";
+        std::cin >> newPassword;
+        std::cout<<"Password entered: "<<newPassword<<std::endl;
+        if (newPassword.length() > 15) //validate password length is < 15 characters 
+        {
+            std::cout << "\nThe inputted password has a length of greater than 15 characters. Please Try Again.\n";
+            newPassword = "";
+        }
+        else if (newPassword.length() < 1) //validate password length is > 0 characters 
+        {
+            std::cout << "\nThe inputted password has a length of less than 1 character. Please Try Again.\n";
+            newPassword = "";
+        }
+    }
+
+    int encrypted_password = 0;
+
+    for (int i = 0; i < int(std::string(newPassword).length()); i++){
+        encrypted_password += int(std::string(newPassword)[i]);
+    }
+
+    newPassword = std::to_string(encrypted_password);
+    //TO DO: add transaction to transaction file - call file function
+    TransactionFile transactionFile = TransactionFile(user->DailyTransactionFilePath, user->epochTime);
+    transactionFile.appendToFile({
+        .username=userToChangePassword.c_str(),
+        .password=newPassword.c_str(),
+        .transactionCode=TransactionCode::CHANGEPASSWORD,
+    });
+
+    // add user data to user accounts file
+    // userAccountsFile.appendUserToFile({newUsername, userType, 0.0, newPassword});
+
+    //print success message to console
+    std::cout << "\nYou have successfully changed your password!" << std::endl;
+
+     
+
+    //return true if able to successfully write to file.
     return false;
 }
 
@@ -534,6 +655,7 @@ std::map<std::string, std::function<bool(User *)>> Transaction::getAdminMapping(
         {"addcredit", &addcredit},
         {"listitems", &listitems},
         {"accounts", &outputAllActiveAccounts},
+        {"changepassword", &changepassword}
     };
 }
 
@@ -553,6 +675,7 @@ std::map<std::string, std::function<bool(User *)>> Transaction::getFullStandardM
         {"addcredit", &addcredit},
         {"listitems", &listitems},
         {"accounts", &outputAllActiveAccounts},
+        {"changepassword", &changepassword}
     };
 }
 
@@ -569,6 +692,7 @@ std::map<std::string, std::function<bool(User *)>> Transaction::getSellStandardM
         {"advertise", &advertise},
         {"addcredit", &addcredit},
         {"listitems", &listitems},
+        {"changepassword", &changepassword}
     };
 }
 
@@ -585,6 +709,27 @@ std::map<std::string, std::function<bool(User *)>> Transaction::getBuyStandardMa
         {"bid", &bid},
         {"addcredit", &addcredit},
         {"listitems", &listitems},
+        {"changepassword", &changepassword}
+    };
+}
+
+/*
+* Description: This method is used to return the appropriate menu options available for 
+* an admin user.
+* 
+* @return - a map of all the transactions codes that are available to the admin user
+*/
+std::map<std::string, std::function<bool(User *)>> Transaction::getAccountManagerMapping()
+{
+    return {
+        {"logout", &logout},
+        {"delete", &deleteUser},
+        {"create", &createUser},
+        {"refund", &refund},
+        {"addcredit", &addcredit},
+        {"listitems", &listitems},
+        {"accounts", &outputAllActiveAccounts},
+        {"changepassword", &changepassword}
     };
 }
 

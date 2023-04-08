@@ -3,10 +3,10 @@
 /*
 * Description: The constructor method for an AvailableItemsFile object
 */
-AvailableItemsFile::AvailableItemsFile()
+AvailableItemsFile::AvailableItemsFile(std::string availableItemsPath)
 {
     /* TO DO: create constructor */
-    this->file.open(AVAILABLE_ITEMS_FILE, std::ios::app | std::ios::in);
+    this->file.open(availableItemsPath, std::ios::app | std::ios::in);
 }
 
 /*

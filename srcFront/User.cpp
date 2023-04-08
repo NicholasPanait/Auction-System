@@ -1,10 +1,15 @@
 #include "User.h"
 #include "UserAccountsFile.h"
 #include "TransactionFile.h"
+#include <chrono>
 /* The constructor method for a user object.
 */
 User::User()
 {
+    auto p1 = std::chrono::system_clock::now();
+    int etime = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count() - 1680917660;
+
+    this->epochTime = etime;
     this->loggedIn = false;
     this->availableCredit = 0.0;
     this->userType = UserType::NONE;
@@ -31,10 +36,10 @@ bool User::login(const char* username, const char* password)
         encrypted_password += int(std::string(password)[i]);
     }
 
-    UserAccountsFile accounts;
+    UserAccountsFile accounts = UserAccountsFile(this->UserAccountsFilePath);
     for (auto &i : accounts.readUserFile())
     {
-        if (i.username == std::string(username) && i.password == std::to_string(encrypted_password))
+        if (i.username == std::string(username) && std::stoi(i.password) == encrypted_password)
         {
             this->username = username;
             this->userType = i.userType;
@@ -54,12 +59,12 @@ bool User::login(const char* username, const char* password)
 */
 bool User::logout()
 {
-    TransactionFile transactionFile;
+    TransactionFile transactionFile = TransactionFile(this->DailyTransactionFilePath, this->epochTime);
     transactionFile.appendToFile({
         .username=this->username.c_str(),
         .transactionCode=TransactionCode::END_OF_SESSION,
         .userType=this->userType,
-        .availableCredit=this->availableCredit,
+        .availableCredit=this->availableCredit
     });
     this->userType = UserType::NONE;
     this->loggedIn = false;
@@ -90,6 +95,9 @@ std::string User::getTypeName(UserType userType)
     case UserType::SS:
         return "Sell-Standard";
         break;
+    case UserType::AM:
+        return "Account-Manager";
+        break;
     case UserType::NONE:
         return "None";
         break;
@@ -112,6 +120,9 @@ std::string User::getTypeCode(UserType userType)
         break;
     case UserType::SS:
         return "SS";
+        break;
+    case UserType::AM:
+        return "AM";
         break;
     case UserType::NONE:
         return "None";
@@ -137,6 +148,10 @@ UserType User::getUserType(const char *typeCode)
     else if (strcmp(typeCode, "SS") == 0)
     {
         return UserType::SS;
+    }
+    else if (strcmp(typeCode, "AM") == 0)
+    {
+        return UserType::AM;
     }
     return UserType::NONE;
 }

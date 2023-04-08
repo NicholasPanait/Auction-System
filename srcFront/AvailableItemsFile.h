@@ -34,7 +34,7 @@ private:
     std::fstream file;
 
 public:
-    AvailableItemsFile(/* args */); //The constructor method for an AvailableItemsFile object.
+    AvailableItemsFile(std::string availableItemsPath); //The constructor method for an AvailableItemsFile object.
     ~AvailableItemsFile(); // The destructor method for an AvailableItemsFile object.
 
     //function declarations for each of the functions used to edit the Available Items File

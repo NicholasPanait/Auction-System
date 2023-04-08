@@ -2,9 +2,9 @@
 
 /*The constructor method for a UserAccountsFile object.
 */
-UserAccountsFile::UserAccountsFile()
+UserAccountsFile::UserAccountsFile(std::string userAccountsPath)
 {
-    this->file.open(USER_ACCOUNTS_FILE, std::ios::app | std::ios::in);
+    this->file.open(userAccountsPath, std::ios::app | std::ios::in);
 }
 
 /*The destructor method for a UserAccountsFile object.

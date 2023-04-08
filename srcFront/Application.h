@@ -20,5 +20,5 @@ private:
 public:
 	Application(){}; //constructor of Application class
 	~Application(){}; //destructor for application class
-	void start(); //start function that starts the program
+	void start(char **argv); //start function that starts the program
 };

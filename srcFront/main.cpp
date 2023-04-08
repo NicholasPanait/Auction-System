@@ -30,7 +30,7 @@ int main(int argc, char **argv)
         return 1;
     }
     Application app;
-    app.start();
+    app.start(argv);
 
     return 0;
 }

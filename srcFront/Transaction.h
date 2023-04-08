@@ -23,12 +23,14 @@ public:
 	static bool addcredit(User *user);
 	static bool listitems(User *user);
 	static bool outputAllActiveAccounts(User *user);
+    static bool changepassword(User *user);
 
 	//function declaration for the transaction options that are available for each user type
 	static std::map<std::string, std::function<bool(User *)>> getAdminMapping();
 	static std::map<std::string, std::function<bool(User *)>> getFullStandardMapping();
 	static std::map<std::string, std::function<bool(User *)>> getSellStandardMapping();
 	static std::map<std::string, std::function<bool(User *)>> getBuyStandardMapping();
+	static std::map<std::string, std::function<bool(User *)>> getAccountManagerMapping();
 	
 	//function declaration for the options that are available to the user at the start of the program(only login is available)
 	static std::map<std::string, std::function<bool(User *)>> getLoginMapping();

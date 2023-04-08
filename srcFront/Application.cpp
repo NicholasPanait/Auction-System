@@ -22,6 +22,9 @@ void Application::displayMenu()
 	case UserType::BS: //if user type is BS (buy-standard)
 		std::cout << BUY_STANDARD_MENU;
 		break;
+	case UserType::AM: //if user type is AM (account manager)
+		std::cout << ACCOUNT_MANAGER_MENU;
+		break;
 	case UserType::NONE: //if user type is not available (is NONE), the user should proceed to login
 		std::cout << LOGIN_MENU;
 		break;
@@ -53,6 +56,9 @@ void Application::handleInput(std::string in)
 	case UserType::SS:
 		res = Transaction::getSellStandardMapping(); //get the menu options for a BS user
 		break;
+	case UserType::AM:
+		res = Transaction::getAccountManagerMapping(); //get the menu options for a BS user
+		break;
 	case UserType::NONE:
 		res = Transaction::getLoginMapping(); //get the menu option for login(the only option that should work if user is not logged in
 		break;
@@ -74,11 +80,15 @@ void Application::handleInput(std::string in)
  * menu and getting the transaction code from the user for the transaction 
  * they wish to do.
  */
-void Application::start()
+void Application::start(char **argv)
 {
 	std::cout << "Welcome to the Online Auction Sales Service!\n";
 	running = true;
 	std::string menuInput;
+
+    this->user.UserAccountsFilePath = argv[1];
+    this->user.AvailableItemsFilePath = argv[2];
+    this->user.DailyTransactionFilePath = argv[3];
 
 	while (running)
 	{
@@ -86,4 +96,5 @@ void Application::start()
 		std::cin >> menuInput;
 		handleInput(menuInput);
 	}
+
 }

@@ -9,3 +9,42 @@
 05 testAAUser      testBSUser      000040.00
 01 testNewUser     FS 000000.00 406 
 00 testAAUser      AA 000100.00
+01 testNewUser     FS 000000.00 406 
+00 testAAUser      AA 000100.00
+00 testNewUser     FS 000000.00
+02 testNewUser     FS 000000.00     
+00 testAAUser      AA 000100.00
+00 testAAUser      AA 000100.00
+00 testFSUser      FS 000000.00
+00 testAAUser      AA 000100.00
+00 testFSUser      FS 000000.00
+02 testNewUser     FS 000000.00 406
+00 testAAUser      AA 000100.00
+03 NewItem                   testAAUser      02 100.00
+00 testAAUser      AA 000100.00
+04 This_Website              testSSUser      testAAUser      060.00
+00 testAAUser      AA 000100.00
+04 This_Website              testSSUser      testAAUser      042.00
+00 testAAUser      AA 000100.00
+02 testBSUser      BS 000140.00 406
+00 testAMUser      AM 001000.00
+01 testAdmin       AA 000000.00 406 
+01 testAd          AM 000000.00 702 
+05 testBSUser      testAAUser      000005.00
+00 testAAUser      AA 000100.00
+06 testNewUser     FS 000050.00
+00 testAAUser      AA 000100.00
+06 testAAUser      AA 000700.00
+06 testAAUser      AA 000700.00
+06 testAAUser      AA 000500.00
+06 testFSUser      FS 001000.00
+00 testAAUser      AA 000100.00
+00 testAAUser      AA 000100.00
+07 testFSUser      49  
+00 testFSUser      FS 000000.00
+07 testFSUser      406 
+00 testFSUser      FS 000000.00
+07 testSSUser      406 
+00 testSSUser      SS 000000.00
+07 testBSUser      406 
+00 testBSUser      BS 000140.00

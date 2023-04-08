@@ -39,7 +39,7 @@ private:
     std::fstream file;
 
 public:
-    UserAccountsFile(/* args */); //The constructor method for a UserAccountsFile object.
+    UserAccountsFile(std::string availableItemsPath); //The constructor method for a UserAccountsFile object.
     ~UserAccountsFile(); // The destructor method for a UserAccountsFile object.
 
     //function declarations for each of the functions used to edit the User Accounts File
