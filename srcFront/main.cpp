@@ -23,6 +23,8 @@
  *
  * @return - On a successful run, the main function returns 0.
  */
+//! To run this frontend run make, then run ./main.out [User File Path] [Item File Path] [Daily Transaction File Path]
+//? Example: ./main.out ./UserAccountsFile.txt ./AvailableItems.txt ./DailyTransactionFile.txt
 int main(int argc, char **argv)
 {
     if (argc < 4) {
