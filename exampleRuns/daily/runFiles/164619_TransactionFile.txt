@@ -1,0 +1,4 @@
+05 testNewUser     testAAUser      000100.00
+06 testAAUser      AA 000600.00
+07 testAMUser      883 
+00 testAMUser      AM 001000.00

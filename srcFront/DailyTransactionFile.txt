@@ -48,3 +48,6 @@
 00 testSSUser      SS 000000.00
 07 testBSUser      406 
 00 testBSUser      BS 000140.00
+00 testAAUser      AA 000100.00
+00 testFSUser      FS 000000.00
+00 testAAUser      AA 000100.00

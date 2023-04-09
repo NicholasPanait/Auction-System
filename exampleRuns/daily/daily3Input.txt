@@ -1,0 +1,14 @@
+login
+testAMUser
+Temp
+listusers
+refund
+testNewUser
+testAAUser
+100
+addcredit
+testAAUser
+500
+changepassword
+password
+logout

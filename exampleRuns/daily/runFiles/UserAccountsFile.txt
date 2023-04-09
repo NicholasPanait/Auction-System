@@ -1,0 +1,7 @@
+testSSUser      SS 000000.00 406
+testFSUser      FS 000000.00 406
+testBSUser      BS 000140.00 406
+testAAUser      AA 000600.00 406
+testNewUser     FS 000100.00 406
+testAMUser      AM 001000.00 883
+createdUser     FS 000000.00 406

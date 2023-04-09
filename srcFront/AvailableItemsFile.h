@@ -14,6 +14,7 @@ struct ItemInfo
     std::string sellerUsername;
     std::string highestBidUser;
     int numDaysRemaining;
+    double startingBid;
     double currentHighestBid;
 
     bool operator==(const ItemInfo &r)

@@ -15,7 +15,12 @@ TransactionFile::TransactionFile(std::string transactionFilePath, int epochTime)
     }
     // Otherwise
     else{
-        session_file_path = transactionFilePath.substr(0, position-1);
+        if (transactionFilePath[position-1] != '.'){
+            session_file_path = transactionFilePath.substr(0, position+1);
+        }
+        else{
+            session_file_path = transactionFilePath.substr(0, position-1);
+        }
         session_file_path.append(std::to_string(epochTime));
         session_file_path.append("_TransactionFile.txt");
     }

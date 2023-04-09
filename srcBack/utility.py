@@ -148,8 +148,13 @@ def pad_number(number, length):
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 def process_transaction(transaction, users, items):
     transactions = re.split("\s+", transaction)
+
+    if transactions[-1] == "":
+        transactions.pop()
+
     if len(transactions) > 5:
         print("Fatal Error: Incorrect Number of Arguments in Daily Transaction File!")
+        return users, items
 
     # validate if the transaction are correct and formatted correctly
     if (validate_transaction(transaction) == False):

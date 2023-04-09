@@ -105,7 +105,7 @@ bool Transaction::createUser(User *user)
     std::string newPassword = "";
     while(newPassword == "")
     {
-        std::cout << "Enter new password: ";
+        std::cout << "Enter new user's password: ";
         std::cin >> newPassword;
         std::cout<<"Password entered: "<<newPassword<<std::endl;
         if (newPassword.length() > 15) //validate password length is < 15 characters 
@@ -309,11 +309,14 @@ bool Transaction::bid(User *user)
         return false;
     }
 
-    double currentHighestBid = item->currentHighestBid; //TO DO: get current highest bid for item from file
-    std::string userWithHighestBid = item->highestBidUser; //TO DO: get user with highest bid for item from file
-    // int numDaysToAuction = item->numDaysRemaining; //TO DO: get num days to auction for item from file
+    double currentHighestBid = item->currentHighestBid;
+    std::string userWithHighestBid = item->highestBidUser;
+    // int numDaysToAuction = item->numDaysRemaining;
 
     //print out current highest bid
+    if (currentHighestBid < item->startingBid){
+        currentHighestBid = item->startingBid;
+    }
     std::cout << "\nCurrent Highest Bid: " << std::to_string(currentHighestBid).substr(0, std::to_string(currentHighestBid).length()-4) << std::endl;
 
     //get new bid
@@ -480,13 +483,13 @@ bool Transaction::addcredit(User *user)
 
     //ensure the credit amount is <= 1000
     while (creditAmountToAdd > 1000) { 
-        std::cout << "Credit Amount to be added is greater than 1000. Please try again.\n";
+        std::cout << "Credit amount to be added is greater than 1000. Please try again.\n";
         std::cout << "\nEnter the amount of credit to add: ";
         std::cin >> creditAmountToAdd;
     }
 
     while (creditAmountToAdd + user->addedCredit > 1000) { 
-        std::cout << "Credit Amount to be added this sesson is greater than 1000. Please try again.\n";
+        std::cout << "The credit amount to be added will put the Added Credit of this sesson over the limit of 1000. Please try again.\n";
         if (1000-(user->addedCredit) == 0){
             std::cout << "This session cannot add any more credits." << std::endl;
         }
@@ -539,7 +542,13 @@ bool Transaction::listitems(User *user)
     AvailableItemsFile availableItemsFile = AvailableItemsFile(user->AvailableItemsFilePath);
     for (const auto &item : availableItemsFile.readItemFile())
     {
-        std::printf("| %-25s | %-9.2f   | %-16s | %-13d |\n", item.itemName.c_str(), item.currentHighestBid, item.sellerUsername.c_str(), item.numDaysRemaining);
+        if (item.currentHighestBid < item.startingBid){
+            std::printf("| %-25s | %-9.2f   | %-16s | %-13d |\n", item.itemName.c_str(), item.startingBid, item.sellerUsername.c_str(), item.numDaysRemaining);
+        }
+        else{
+            std::printf("| %-25s | %-9.2f   | %-16s | %-13d |\n", item.itemName.c_str(), item.currentHighestBid, item.sellerUsername.c_str(), item.numDaysRemaining);
+        }
+        
     }    
     std::printf("|---------------------------|-------------|------------------|---------------|\n");
 

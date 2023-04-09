@@ -76,6 +76,7 @@ std::vector<ItemInfo> AvailableItemsFile::readItemFile()
             Util::trim(line.substr(42,15)),
             stoi(line.substr(58,2)),
             atof(line.substr(60,6).c_str()),
+            atof(line.substr(67,6).c_str()),
         });
     }
     // reset file pointer
