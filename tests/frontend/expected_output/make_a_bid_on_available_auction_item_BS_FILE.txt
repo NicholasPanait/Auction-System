@@ -1,2 +1,2 @@
-04 itemToBidOn         sellerUserTest  testBSUser      020.00
-00 testBSUser      BS 000000.00
+04 itemToBidOn         sellerUserTest  testingBuyer    070.00
+00 testingBuyer    BS 010000.00

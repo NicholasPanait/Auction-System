@@ -18,6 +18,7 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 Invalid transaction code.
 
@@ -31,5 +32,6 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

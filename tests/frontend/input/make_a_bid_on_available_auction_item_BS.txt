@@ -1,8 +1,8 @@
 login
-testBSUser
+testingBuyer
 password
 bid
 itemToBidOn
 sellerUserTest
-20
+70
 logout

@@ -1,9 +1,9 @@
 login
-testFSUser
+testingFull
 password
 bid
 itemToBidOn
 sellerUserTest
-9
-31
+66
+90
 logout

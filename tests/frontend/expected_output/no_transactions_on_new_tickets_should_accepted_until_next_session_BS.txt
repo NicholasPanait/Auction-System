@@ -13,5 +13,6 @@ logout - Logout
 bid - Make a bid on an available item
 addcredit - Add Credit
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

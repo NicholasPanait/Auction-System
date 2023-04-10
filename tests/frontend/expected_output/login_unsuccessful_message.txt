@@ -7,7 +7,7 @@ login - Login
 Enter Username: 
 Enter Password: 
 Login Unsuccessful.
-Username does not exist in the user directory. Please try again.
+Username does not exist in the user directory or incorrect password. Please try again.
 
 Please enter login to Login.
 login - Login
@@ -27,5 +27,6 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

@@ -35,7 +35,6 @@ bool User::login(const char* username, const char* password)
     for (int i = 0; i < int(std::string(password).length()); i++){
         encrypted_password += int(std::string(password)[i]);
     }
-
     UserAccountsFile accounts = UserAccountsFile(this->UserAccountsFilePath);
     for (auto &i : accounts.readUserFile())
     {

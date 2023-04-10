@@ -1,9 +1,8 @@
 login
-testAAUser
+testingAdmin
 password
 bid
 itemToBidOn
 sellerUserTest
-9
-31
+70
 logout

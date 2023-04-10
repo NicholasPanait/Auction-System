@@ -12,7 +12,7 @@
 				   "addcredit - Add Credit\n"                \
 				   "accounts - Display all active accounts\n"  \
 				   "listitems - List Items Up For Auction\n"   \
-                   "changepassword - List Items Up For Auction\n"
+                   "changepassword - Change Your Password\n"
 
 //The menu to be printed for Full Standard users
 #define FULL_STANDARD_MENU "\n***MENU***\nlogout - Logout\n"         \
@@ -21,21 +21,21 @@
 						   "addcredit - Add Credit\n"                \
 				   		   "accounts - Display all active accounts\n"  \
 						   "listitems - List Items Up For Auction\n" \
-                             "changepassword - List Items Up For Auction\n"
+                             "changepassword - Change Your Password\n"
 
 //The menu to be printed for Sell Standard users
 #define SELL_STANDARD_MENU "\n***MENU***\nlogout - Logout\n"       \
 						   "advertise - Put up item for Auction\n" \
 						   "addcredit - Add Credit\n"              \
 						   "listitems - List Items Up For Auction\n" \
-                             "changepassword - List Items Up For Auction\n"
+                             "changepassword - Change Your Password\n"
 
 //The menu to be printed for Buy Standard users
 #define BUY_STANDARD_MENU "\n***MENU***\nlogout - Logout\n"         \
 						  "bid - Make a bid on an available item\n" \
 						  "addcredit - Add Credit\n"                \
 						  "listitems - List Items Up For Auction\n" \
-                             "changepassword - List Items Up For Auction\n"
+                             "changepassword - Change Your Password\n"
 
 #define ACCOUNT_MANAGER_MENU "\n***MENU***\nlogout - Logout\n"         \
 				   			 "delete - Delete User Account\n"          \
@@ -44,7 +44,7 @@
 				   			 "addcredit - Add Credit\n"                \
 				   			 "accounts - Display all active accounts\n"  \
 				   			 "listitems - List Items Up For Auction\n"   \
-                             "changepassword - List Items Up For Auction\n"
+                             "changepassword - Change Your Password\n"
 
 //The menu to be printed for when program starts
 #define LOGIN_MENU "\nPlease enter login to Login.\nlogin - Login\n"

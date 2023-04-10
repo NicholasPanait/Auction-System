@@ -18,13 +18,12 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 ***ADVERTISE***
 Enter Item Name: Enter minimumBid: Item price is greater than 999.99. Please try again
 Enter minimumBid: Enter Number of Days until auction ends: 
 Item has been successfully put up for a bid!
-
-NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
 
 ***MENU***
 logout - Logout
@@ -36,5 +35,6 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

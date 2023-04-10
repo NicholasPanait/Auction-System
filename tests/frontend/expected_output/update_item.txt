@@ -6,26 +6,26 @@ login - Login
 ***LOGIN***
 Enter Username: 
 Enter Password: 
-Welcome Buy-Standard User: testBSUser!
+Welcome Buy-Standard User: testingBuyer!
 
 ***MENU***
 logout - Logout
 bid - Make a bid on an available item
 addcredit - Add Credit
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 ***MAKING A BID***
 
 Enter Item Name: 
 Enter seller's username: 
-Currrent Highest Bid: 10.000000
+Current Highest Bid: 65.00
 Enter New Bid: A bid has been successfully made for this item!
-
-NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
 
 ***MENU***
 logout - Logout
 bid - Make a bid on an available item
 addcredit - Add Credit
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

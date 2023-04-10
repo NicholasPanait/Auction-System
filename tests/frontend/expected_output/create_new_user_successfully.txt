@@ -18,14 +18,13 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 ***CREATE NEW USER***
 Enter Username: Username entered: testUser
-Enter Type of User: Enter new password: 
+Enter Type of User: Enter new user's password: Password entered: password
 
 You have successfully created a new User: testUser!
-
-NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
 
 ***MENU***
 logout - Logout
@@ -37,5 +36,6 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

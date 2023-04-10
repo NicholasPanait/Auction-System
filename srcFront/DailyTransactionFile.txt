@@ -1,2 +1,0 @@
-05 UserA           testAMUser      000200.00
-00 testingNEWUser  AA 000000.00

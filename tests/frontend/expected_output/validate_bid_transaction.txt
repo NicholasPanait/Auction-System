@@ -15,10 +15,11 @@ bid - Make a bid on an available item
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 ***MAKING A BID***
 
 Enter Item Name: 
-Enter seller's username: Item does not exist
+Enter seller's username: Item sold by this seller does not exist
 
 ***MENU***
 logout - Logout
@@ -27,6 +28,7 @@ bid - Make a bid on an available item
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 Invalid transaction code.
 
@@ -37,5 +39,6 @@ bid - Make a bid on an available item
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

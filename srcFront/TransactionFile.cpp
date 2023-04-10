@@ -57,12 +57,12 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         case(END_OF_SESSION):
         case(ADDCREDIT):
             //append username_userType_availableCredit
-            std::snprintf(transaction, 63, "%02d %-15s %s %09.2f", data.transactionCode, data.username, User::getTypeCode(data.userType).c_str(), data.availableCredit);
+            std::snprintf(transaction, 50, "%02d %-15s %2s %09.2f", data.transactionCode, data.username, User::getTypeCode(data.userType).c_str(), data.availableCredit);
             break;
         
         case(ADVERTISE):
             //append itemName_sellerName_daysToAuction_minBid
-            std::snprintf(transaction, 63, "%02d %-25s %-15s %02d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
+            std::snprintf(transaction, 63, "%02d %-19s %-15s %03d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
             break;
         
         case(REFUND):
@@ -72,7 +72,7 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         
         case(BID):
             //append item_seller_buyer_newBid
-            std::snprintf(transaction, 70, "%02d %-25s %-15s %-15s %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.buyerUsername, data.newBid);
+            std::snprintf(transaction, 70, "%02d %-19s %-15s %-15s %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.buyerUsername, data.newBid);
             break;
         case(CHANGEPASSWORD):
             std::snprintf(transaction, 63, "%02d %-15s %-4s", data.transactionCode, data.username, data.password.c_str());
@@ -82,8 +82,8 @@ bool TransactionFile::appendToFile(TransactionInfo data)
     //Try writing the transaciton to the mergedFile
     try{
         //std::cout<<"Wrote to transaction mergedFile";
-        mergedFile<<transaction<<'\n';
-        sessionFile<<transaction<<"\n";
+        mergedFile<<transaction<< std::endl;
+        sessionFile<<transaction<< std::endl;
         return true;
     }catch(...){
         std::cout << "An error occured while writing to the transaction mergedFile\n";

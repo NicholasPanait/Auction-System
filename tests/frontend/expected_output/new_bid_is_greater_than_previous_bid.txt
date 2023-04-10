@@ -6,7 +6,7 @@ login - Login
 ***LOGIN***
 Enter Username: 
 Enter Password: 
-Welcome Admin User: testAAUser!
+Welcome Admin User: testingAdmin!
 
 ***MENU***
 logout - Logout
@@ -18,16 +18,13 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 ***MAKING A BID***
 
 Enter Item Name: 
 Enter seller's username: 
-Currrent Highest Bid: 10.000000
-Enter New Bid: New bid amount is not at least 5%greater than the current bid. Please try again.
-
+Current Highest Bid: 65.00
 Enter New Bid: A bid has been successfully made for this item!
-
-NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
 
 ***MENU***
 logout - Logout
@@ -39,5 +36,6 @@ refund - Issue a refund
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

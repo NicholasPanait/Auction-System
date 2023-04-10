@@ -15,13 +15,12 @@ bid - Make a bid on an available item
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 ***Add Credit***
 User Found! Please proceed to add a credit amount.
 Enter the amount of credit to add: 
 
 The specified credit has been successfully add to the indicated account!
-
-NOTE: You've reached your session transaction limit. Please enter logout to log out and log back in to continue.
 
 ***MENU***
 logout - Logout
@@ -30,5 +29,6 @@ bid - Make a bid on an available item
 addcredit - Add Credit
 accounts - Display all active accounts
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.

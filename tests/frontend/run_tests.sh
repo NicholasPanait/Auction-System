@@ -2,10 +2,10 @@
 
 #Navigate to source folder to build application
 cd ../../srcFront
-make
+make 
 #Renavigate back to frontend test folder
 cd ../tests/frontend
-
+#
 #Remove old test outputs if exists
 if [ -d "./outputs/" ] 
 then
@@ -35,7 +35,7 @@ for test in input/*;do
 	#Run executeable with input from test file
 	#Take executeable terminal outputs and append to output folder
 	#in file with same name as test variable
-	../../srcFront/main UserAccountsFile.txt AvailableItemsFile.txt DailyTransactionFile.txt < "input/$test" > outputs/"$test"
+	./../../srcFront/main.out UserAccountsFile.txt AvailableItemsFile.txt DailyTransactionFile.txt < "input/$test" > outputs/"$test"
 	
 	#Remove '.txt' from 'test' variable
 	test=${test::-4}
@@ -54,8 +54,12 @@ cd outputs
 #loop across all files in outputs folder
 for output in *;do
 	echo "Validating test: $output"
-	DIFF=$(diff $output ../expected_output/$output) 
+	DIFF=$(diff -w ../expected_output/$output $output) 
 	if [ "$DIFF" != "" ];then
+		echo "output"
+		cat $output
+		echo "expected output"
+		cat ../expected_output/$output
    		echo "FAIL: "
 		echo $DIFF
 		read -n 1 -s -r -p "Press any key to continue"
@@ -63,3 +67,6 @@ for output in *;do
 		echo "PASS"
 	fi
 done
+
+cd ../
+rm -r *_TransactionFile.txt

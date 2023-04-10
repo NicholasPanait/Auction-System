@@ -13,5 +13,6 @@ logout - Logout
 advertise - Put up item for Auction
 addcredit - Add Credit
 listitems - List Items Up For Auction
+changepassword - Change Your Password
 
 You have successfully logged out.
