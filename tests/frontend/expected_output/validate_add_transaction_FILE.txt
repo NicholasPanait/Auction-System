@@ -1,2 +1,2 @@
-03 itemToBid           testSSUser      005 200.00
+03 itemToBid                 testSSUser      05 200.00
 00 testSSUser      SS 000000.00

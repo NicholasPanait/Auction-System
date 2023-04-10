@@ -1,2 +1,2 @@
-03 exampleItem               testSSUser      002 024.00
+03 exampleItem               testSSUser      02 024.00
 00 testSSUser      SS 000000.00

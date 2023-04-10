@@ -62,7 +62,7 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         
         case(ADVERTISE):
             //append itemName_sellerName_daysToAuction_minBid
-            std::snprintf(transaction, 63, "%02d %-25s %-15s %03d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
+            std::snprintf(transaction, 63, "%02d %-25s %-15s %02d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
             break;
         
         case(REFUND):
