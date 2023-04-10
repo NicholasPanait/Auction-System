@@ -1,1 +1,1 @@
-wsl ./main.out ../globalFiles/UserAccountsFile.txt ../globalFiles/AvailableItemsFile.txt ./runFiles/DailyTransactionFile.txt < daily1Input.txt
+wsl ./main.out ./runFiles/UserAccountsFile.txt ./runFiles/AvailableItemsFile.txt ./runFiles/DailyTransactionFile.txt < daily1Input.txt > ./runFiles/daily1Log.txt

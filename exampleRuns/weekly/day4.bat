@@ -1,0 +1,1 @@
+wsl ./main.out ./runFiles/UserAccountsFile.txt ./runFiles/AvailableItemsFile.txt ./runFiles/DailyTransactionFile.txt < day4Input.txt > ./runFiles/day4Log.txt

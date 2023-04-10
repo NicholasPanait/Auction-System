@@ -1,0 +1,85 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Admin User: testingNEWUser!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+***Items Up For Auction***
+|---------------------------|-------------|------------------|---------------|
+| Item name                 | Current Bid | Seller           | Days Remaning |
+|---------------------------|-------------|------------------|---------------|
+| BulkNails(5000pcs)        | 65.00       | testAAUser       | 1             |
+| This_Website              | 60.00       | testSSUser       | 4             |
+| RussianSuperYaught        | 30.00       | testBSUser       | 13            |
+| Washers(5pcs)             | 4.00        | testAAUser       | 22            |
+| ItemOne                   | 10.00       | testSSUser       | 3             |
+|---------------------------|-------------|------------------|---------------|
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+***Issue a Refund***
+Enter buyer's username: 
+Enter seller's username: 
+Enter the amount of credit to transfer: The refund has been successfully completed!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+***Items Up For Auction***
+|---------------------------|-------------|------------------|---------------|
+| Item name                 | Current Bid | Seller           | Days Remaning |
+|---------------------------|-------------|------------------|---------------|
+| BulkNails(5000pcs)        | 65.00       | testAAUser       | 1             |
+| This_Website              | 60.00       | testSSUser       | 4             |
+| RussianSuperYaught        | 30.00       | testBSUser       | 13            |
+| Washers(5pcs)             | 4.00        | testAAUser       | 22            |
+| ItemOne                   | 10.00       | testSSUser       | 3             |
+|---------------------------|-------------|------------------|---------------|
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+You have successfully logged out.

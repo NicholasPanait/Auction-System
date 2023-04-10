@@ -1,0 +1,82 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Admin User: testAAUser!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+***Output All Active Accounts***
+|-----------------|-------------|-----------|
+| Username        | User Type   | Credit    |
+|-----------------|-------------|-----------|
+| testSSUser      | SS          | 0.00      |
+| testFSUser      | FS          | 0.00      |
+| testingNEWUser  | AA          | 0.00      |
+| testBSUser      | BS          | 140.00    |
+| testAAUser      | AA          | 100.00    |
+| testNewUser     | FS          | 0.00      |
+| testAMUser      | AM          | 1000.00   |
+|-----------------|-------------|-----------|
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+***CREATE NEW USER***
+Enter Username: Username entered: createdUser
+Enter Type of User: Enter new user's password: Password entered: Temp
+
+You have successfully created a new User: createdUser!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+***DELETE USER ACCOUNT***
+Enter Username: 
+Deletion Confirmed. The account associated with the username: testingNEWUser has been deleted.
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+You have successfully logged out.

@@ -1,0 +1,8 @@
+login
+testAAUser
+Temp
+create
+UserA
+BS
+password
+logout

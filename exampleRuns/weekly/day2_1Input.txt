@@ -1,0 +1,10 @@
+login
+testAMUser
+Temp
+addcredit
+UserA
+900
+addcredit
+testAMUser
+100
+logout

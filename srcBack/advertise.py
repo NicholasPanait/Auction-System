@@ -22,7 +22,7 @@ import utility
 # min_bid - The starting bid of the auction
 # items - The list of Items storing the information from the Items File
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-def advertise(item_name, seller_name, duration, min_bid, items,users):
+def advertise(item_name, seller_name, duration, min_bid, users, items, new_items):
     # Create a new Item and append it to the items list
     for user in users:
         if user.username == seller_name:
@@ -40,4 +40,5 @@ def advertise(item_name, seller_name, duration, min_bid, items,users):
 
     new_item = utility.Item(item_name, seller_name, "               ", duration, min_bid, "00.00")
     items.append(new_item)
+    new_items.append(new_item)
     return

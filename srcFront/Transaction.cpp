@@ -332,10 +332,19 @@ bool Transaction::bid(User *user)
         }
     }
     else{
-        while (1.05 * currentHighestBid > newBid){
-            std::cout << "New bid amount is not at least 5" << "% " << "greater than the current bid. Please try again." << std::endl;
-            std::cout << "\nEnter New Bid: ";
-            std::cin >> newBid;
+        if (currentHighestBid != item->startingBid){
+            while (1.05 * currentHighestBid > newBid){
+                std::cout << "New bid amount is not at least 5" << "% " << "greater than the current bid. Please try again." << std::endl;
+                std::cout << "\nEnter New Bid: ";
+                std::cin >> newBid;
+            }
+        }
+        else{
+            while (currentHighestBid > newBid){
+                std::cout << "New bid amount is not at least 5" << "% " << "greater than the current bid. Please try again." << std::endl;
+                std::cout << "\nEnter New Bid: ";
+                std::cin >> newBid;
+            }
         }
     }
 
@@ -501,7 +510,7 @@ bool Transaction::addcredit(User *user)
     }
 
     // add credit amount to specified user's account
-    userInfo->availableCredit += creditAmountToAdd;
+    // userInfo->availableCredit += creditAmountToAdd;
     user->addedCredit += creditAmountToAdd;
     // userAccountsFile.deleteUserFromFile(userInfo->username);
     // userAccountsFile.appendUserToFile(*userInfo);
@@ -511,7 +520,7 @@ bool Transaction::addcredit(User *user)
         .username=userToAddCreditTo.c_str(),
         .transactionCode=TransactionCode::ADDCREDIT,
         .userType=userInfo->userType,
-        .availableCredit=userInfo->availableCredit,
+        .availableCredit=creditAmountToAdd,
     });
 
     //print success message

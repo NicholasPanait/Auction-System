@@ -1,0 +1,3 @@
+06 UserA           BS 000900.00
+06 testAMUser      AM 000100.00
+00 testAMUser      AM 001000.00

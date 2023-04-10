@@ -23,6 +23,7 @@ import re
 users = []
 items = []
 transactions = []
+new_items = []   # A list for items that were added today
 
 # Path location for the user, item, and daily transaction file
 user_file_path = ""
@@ -100,6 +101,7 @@ def read_files():
 def write_files():
     userFile = open(user_file_path, "w")
     itemFile = open(item_file_path, "w")
+    transactionFile = open(transaction_file_path, "w")
     #! removing the next two comments will make it so that running the backend clears the daily transaction file
     #transactionFile = open(transaction_file_path, "w")
     #transactionFile.close()
@@ -109,11 +111,19 @@ def write_files():
         userFile.write(str(user) + '\n')
 
     for item in items:
-        itemFile.write(str(item) + '\n')
+        if (int(item.duration) > 1):
+            if (new_items.__contains__(item)):
+                item.duration = str(int(item.duration))
+            else:
+                item.duration = str(int(item.duration)-1)
+            itemFile.write(str(item) + '\n')
+
+    transactionFile.write("")
 
     # Closes the userFile and itemFile
     userFile.close()
     itemFile.close()
+    transactionFile.close()
 
 
 def main():
@@ -131,7 +141,7 @@ def main():
 
     # Edits the users and items lists based on the transaction codes
     for transaction in transactions:
-        users, items = utility.process_transaction(transaction, users, items)
+        users, items = utility.process_transaction(transaction, users, items, new_items)
 
     # Replaces the old user and item files with the data in users and items lists
     write_files()

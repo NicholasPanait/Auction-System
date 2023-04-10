@@ -1,9 +1,0 @@
-01 createdUser     FS 000000.00 406 
-02 testingNEWUser  AA 000000.00 406
-00 testAAUser      AA 000100.00
-03 FSItem                    testFSUser      03 200.00
-00 testFSUser      FS 000000.00
-05 testNewUser     testAAUser      000100.00
-06 testAAUser      AA 000600.00
-07 testAMUser      883 
-00 testAMUser      AM 001000.00

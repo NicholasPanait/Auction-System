@@ -1,0 +1,53 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Account-Manager User: testAMUser!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+***Add Credit***
+
+Enter username of account to add credit to: User Found! Please proceed to add a credit amount.
+Enter the amount of credit to add: 
+
+The specified credit has been successfully add to the indicated account!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+***Add Credit***
+
+Enter username of account to add credit to: User Found! Please proceed to add a credit amount.
+Enter the amount of credit to add: 
+
+The specified credit has been successfully add to the indicated account!
+
+***MENU***
+logout - Logout
+delete - Delete User Account
+create - Create New Account
+refund - Issue a refund
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+You have successfully logged out.
