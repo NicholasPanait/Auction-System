@@ -1,2 +1,2 @@
-04 itemToBidOn         sellerUserTest  testingFull     090.00
+04 itemToBidOn               sellerUserTest  testingFull     090.00
 00 testingFull     FS 010000.00

@@ -62,7 +62,7 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         
         case(ADVERTISE):
             //append itemName_sellerName_daysToAuction_minBid
-            std::snprintf(transaction, 63, "%02d %-19s %-15s %03d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
+            std::snprintf(transaction, 63, "%02d %-25s %-15s %03d %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.numDaysToAuction, data.minBid);
             break;
         
         case(REFUND):
@@ -72,7 +72,7 @@ bool TransactionFile::appendToFile(TransactionInfo data)
         
         case(BID):
             //append item_seller_buyer_newBid
-            std::snprintf(transaction, 70, "%02d %-19s %-15s %-15s %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.buyerUsername, data.newBid);
+            std::snprintf(transaction, 70, "%02d %-25s %-15s %-15s %06.2f", data.transactionCode, data.itemName, data.sellerUsername, data.buyerUsername, data.newBid);
             break;
         case(CHANGEPASSWORD):
             std::snprintf(transaction, 63, "%02d %-15s %-4s", data.transactionCode, data.username, data.password.c_str());

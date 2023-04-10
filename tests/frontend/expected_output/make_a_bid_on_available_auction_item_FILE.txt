@@ -1,2 +1,2 @@
-04 itemToBidOn         sellerUserTest  testingAdmin    070.00
+04 itemToBidOn               sellerUserTest  testingAdmin    070.00
 00 testingAdmin    AA 010000.00
