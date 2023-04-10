@@ -1,0 +1,6 @@
+login
+testAMUser
+Temp
+delete
+testNewUser
+logout

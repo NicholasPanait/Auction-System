@@ -1,1 +1,1 @@
-wsl ./main.out ./runFiles/UserAccountsFile.txt ./runFiles/AvailableItemsFile.txt ./runFiles/DailyTransactionFile.txt < day5Input.txt > ./runFiles/day5Log.txt
+wsl ./main.out ./runFiles/UserAccountsFile.txt ./runFiles/AvailableItemsFile.txt ./runFiles/DailyTransactionFile.txt < day5_1Input.txt > ./runFiles/day5_1Log.txt

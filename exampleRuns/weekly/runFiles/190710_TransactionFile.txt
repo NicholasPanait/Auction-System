@@ -1,0 +1,3 @@
+03 ItemTwo                   testFSUser      10 020.00
+06 testFSUser      FS 000260.00
+00 testFSUser      FS 000000.00

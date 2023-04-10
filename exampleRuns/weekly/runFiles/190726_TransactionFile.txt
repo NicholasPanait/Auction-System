@@ -1,0 +1,2 @@
+02 testFSUser      FS 000260.00 406
+00 testingNEWUser  AA 000000.00

@@ -1,0 +1,8 @@
+login
+UserA
+Temp
+bid
+ItemOne
+testSSUser
+20
+logout

@@ -1,0 +1,14 @@
+login
+testFSUser
+Temp
+advertise
+ItemTwo
+20
+10
+addcredit
+260
+bid
+ItemOne
+testSSUser
+10
+logout

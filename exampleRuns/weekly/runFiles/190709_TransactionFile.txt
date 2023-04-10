@@ -1,0 +1,2 @@
+04 ItemOne                   testSSUser      UserA           020.00
+00 UserA           BS 001100.00

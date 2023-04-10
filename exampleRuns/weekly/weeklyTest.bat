@@ -20,20 +20,20 @@ timeout /t 1 /nobreak
 call runBackend.bat
 timeout /t 2 /nobreak
 
-@REM call day3.bat
-@REM timeout /t 2 /nobreak
-@REM call runBackend.bat
-@REM timeout /t 2 /nobreak
+call day3.bat
+timeout /t 1 /nobreak
+call runBackend.bat
+timeout /t 2 /nobreak
 
-@REM call day4.bat
-@REM timeout /t 2 /nobreak
-@REM call runBackend.bat
-@REM timeout /t 2 /nobreak
+call day4.bat
+timeout /t 1 /nobreak
+call runBackend.bat
+timeout /t 2 /nobreak
 
-@REM call day5.bat
-@REM timeout /t 2 /nobreak
-@REM call runBackend.bat
-@REM timeout /t 2 /nobreak
+call day5.bat
+timeout /t 1 /nobreak
+call runBackend.bat
+timeout /t 2 /nobreak
 
 PAUSE
 EXIT

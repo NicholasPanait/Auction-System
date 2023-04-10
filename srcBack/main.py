@@ -106,10 +106,6 @@ def write_files():
     #transactionFile = open(transaction_file_path, "w")
     #transactionFile.close()
 
-    # appends each user and item in their lists to the userFile and itemFile respectively
-    for user in users:
-        userFile.write(str(user) + '\n')
-
     for item in items:
         if (int(item.duration) > 1):
             if (new_items.__contains__(item)):
@@ -117,6 +113,19 @@ def write_files():
             else:
                 item.duration = str(int(item.duration)-1)
             itemFile.write(str(item) + '\n')
+        else:
+            for user in users:
+                if (user.username == item.seller):
+                    credit_string = str(float(user.credit) + float(item.winning_bid))
+                    if (credit_string[-2] == "."):
+                        credit_string += "0"
+                    credit_string = credit_string.zfill(9)
+                    user.credit = credit_string
+                    break
+
+    # appends each user and item in their lists to the userFile and itemFile respectively
+    for user in users:
+        userFile.write(str(user) + '\n')
 
     transactionFile.write("")
 

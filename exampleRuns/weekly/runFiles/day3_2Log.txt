@@ -1,0 +1,62 @@
+Welcome to the Online Auction Sales Service!
+
+Please enter login to Login.
+login - Login
+
+***LOGIN***
+Enter Username: 
+Enter Password: 
+Welcome Full-Standard User: testFSUser!
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+***ADVERTISE***
+Enter Item Name: Enter minimumBid: Enter Number of Days until auction ends: 
+Item has been successfully put up for a bid!
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+***Add Credit***
+User Found! Please proceed to add a credit amount.
+Enter the amount of credit to add: 
+
+The specified credit has been successfully add to the indicated account!
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+***MAKING A BID***
+
+Enter Item Name: 
+Enter seller's username: 
+Current Highest Bid: 10.00
+Enter New Bid: You do not have enough funds to bid on this item!
+
+***MENU***
+logout - Logout
+advertise - Put up item for Auction
+bid - Make a bid on an available item
+addcredit - Add Credit
+accounts - Display all active accounts
+listitems - List Items Up For Auction
+changepassword - List Items Up For Auction
+
+You have successfully logged out.
