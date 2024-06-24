@@ -1,6 +1,6 @@
 From a Linux Terminal:
 
-- Navigate into the frontend test folder (CSCI3060FINALPROJECT/tests/frontend)
+- Navigate into the frontend test folder (Auction-System/tests/frontend)
 
 - In this directory there are 4 important directories
 
@@ -12,7 +12,7 @@ From a Linux Terminal:
 
     - comparison -> the result of the 'diff' command used to compare the related files in ouputs and expected_output
 
-- From the same directory (CSCI3060FINALPROJECT/tests/frontend)
+- From the same directory (Auction-System/tests/frontend)
   Run the command 'bash run_tests.sh' (No quotes)
 
   This will run each test case and populate the outputs folder, as well as the comparison folder.
