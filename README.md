@@ -1,12 +1,13 @@
 # CSCI3060U_Project
+This project is a text based auction system that utilizes automated testing for the frontend and backend.
+
 
 # IMPORTANT NOTE
 # System Requirements
-For use, please either:
-1. Be on Linux and have `g++` and `make` available
+For use, have a working version of `g++` and `make` available
 
 # How to Run
-This project requires linux style build tools, primarily `g++` and `make`. As long a there requirement are fulfilled, it should be buildable and runnable on any operating system.
+This project requires linux style build tools, primarily `g++` and `make`. As long a these requirement are fulfilled, it should be buildable and runnable on any operating system.
 
 To build the frontend program
 
